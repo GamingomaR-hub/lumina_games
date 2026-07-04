@@ -384,6 +384,64 @@
                 </div>
             </div>
 
+            <!-- GAME 5: GRANNY -->
+            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc" data-title="granny pc zip survival horror escape">
+                <!-- Image Container -->
+                <div class="relative overflow-hidden aspect-video bg-slate-950">
+                    <img src="https://img.tapimg.net/market/images/7aa1bed93f52772f6ee79cc3e1853e8e.jpg?imageView2/2/w/720/h/720/q/80/format/jpg/interlace/1/ignore-error/1&t=1" alt="Granny Cover" class="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
+                    
+                    <div class="absolute top-3 right-3 z-10 bg-rose-600 text-white text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-rose-500 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
+                        <i class="fa-solid fa-skull"></i> TERRIFYING
+                    </div>
+
+                    <!-- Platform Badges Bottom-Left -->
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-brands fa-windows"></i> Windows PC
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Info Block -->
+                <div class="p-6 md:p-8 flex-grow flex flex-col">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-rose-400 tracking-wider uppercase">Survival Escape Horror</span>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <span class="text-slate-400 text-xs ml-1">(4.7/5)</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-rose-300 transition-colors">Granny v1.2</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Welcome to Granny's house. You have 5 days to escape. She hears everything. If you drop something on the floor, she hears it and comes running. You can hide in wardrobes or under beds, but you must be careful.
+                    </p>
+
+                    <!-- Features bullets -->
+                    <div class="grid grid-cols-2 gap-y-2 gap-x-4 mb-6 text-xs text-slate-300 border-t border-b border-white/5 py-4">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-rose-400"></i> Extreme Tension</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-rose-400"></i> Smart AI Tracking</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-rose-400"></i> Multiple Endings</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-rose-400"></i> Pre-installed PC Build</div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col gap-3">
+                        <a href="https://www.mediafire.com/file_premium/0on96q3sdrblgca/Granny.v1.2.zip/file" target="_blank" onclick="handleDownload('Granny PC ZIP')" class="w-full bg-gradient-to-r from-rose-600 to-red-800 hover:from-rose-500 hover:to-red-700 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
+                            <i class="fa-brands fa-windows"></i> PC Download <span class="text-[11px] font-normal opacity-80">(ZIP)</span>
+                        </a>
+                        <button onclick="toggleModal('modal-granny')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
+                            <i class="fa-solid fa-circle-info"></i> Specs, Guides & Comments
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- No Games Found State -->
@@ -502,6 +560,7 @@
                     <li><a href="https://www.mediafire.com/file/20jg5ty5sd9h6xl/The+Bigfoot+Snow+Massacre.zip/file" target="_blank" class="hover:text-white transition-colors">The Bigfoot PC (ZIP)</a></li>
                     <li><a href="https://www.mediafire.com/file_premium/98msmje7xzsjoz2/MECCHA.CHAMELEON-SteamRIP.com.rar/file" target="_blank" class="hover:text-white transition-colors">Meccha Chameleon PC (RAR)</a></li>
                     <li><a href="https://www.mediafire.com/file_premium/3jd1s1bgroz7pzm/gta_sa_maroc_i3dadiaty.rar/file" target="_blank" class="hover:text-white transition-colors">GTA SA Maroc PC (RAR)</a></li>
+                    <li><a href="https://www.mediafire.com/file_premium/0on96q3sdrblgca/Granny.v1.2.zip/file" target="_blank" class="hover:text-white transition-colors">Granny PC (ZIP)</a></li>
                 </ul>
             </div>
             <div>
@@ -741,6 +800,66 @@
                         <input type="text" id="input-gta-reviewer" placeholder="Your name..." class="bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none w-1/3">
                         <input type="text" id="input-gta-comment" placeholder="Write a verified review..." class="flex-grow bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
                         <button onclick="postComment('gta')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition-colors">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE MODAL FOR GRANNY -->
+    <div id="modal-granny" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative">
+            <button onclick="toggleModal('modal-granny')" class="absolute top-4 right-4 bg-white/5 hover:bg-white/10 border border-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="p-6 md:p-8">
+                <h3 class="text-2xl font-bold space-title mb-2">Granny Info</h3>
+                <span class="inline-block bg-rose-500/20 text-rose-300 text-xs font-semibold px-2.5 py-1 rounded-md mb-4">PC Version (Pre-installed)</span>
+                
+                <h4 class="font-semibold text-white mb-2 text-sm">System Requirements:</h4>
+                <div class="grid grid-cols-1 gap-4 text-xs text-slate-400 mb-6">
+                    <div>
+                        <strong class="text-slate-300 block mb-1">PC Specs:</strong>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>OS: Windows 7, 8, 10, 11</li>
+                            <li>Processor: Intel Core i5 750 or equivalent</li>
+                            <li>Memory: 4 GB RAM</li>
+                            <li>Graphics: Sapphire Radeon HD 5770 1GB</li>
+                            <li>Storage: 1 GB available space</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dynamic Review Section -->
+                <div class="border-t border-white/5 pt-6">
+                    <h4 class="font-bold text-white mb-4 text-sm flex items-center justify-between">
+                        <span>Community Feedback</span>
+                        <span class="text-slate-400 font-normal text-xs" id="granny-reviews-count">2 Reviews</span>
+                    </h4>
+                    
+                    <!-- Review List -->
+                    <div id="granny-reviews-list" class="space-y-3 mb-6 max-h-48 overflow-y-auto pr-2 scrollbar-thin">
+                        <div class="bg-white/5 p-3 rounded-xl text-xs">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-bold text-slate-300">HorrorFanatic</span>
+                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 5/5</span>
+                            </div>
+                            <p class="text-slate-400">Dropped a vase and my heart stopped. 10/10 terrifying experience.</p>
+                        </div>
+                        <div class="bg-white/5 p-3 rounded-xl text-xs">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-bold text-slate-300">SpeedRunnerX</span>
+                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 4/5</span>
+                            </div>
+                            <p class="text-slate-400">Great port. Runs smoothly, no lag when looking around quickly.</p>
+                        </div>
+                    </div>
+
+                    <!-- Input Form -->
+                    <div class="flex gap-2">
+                        <input type="text" id="input-granny-reviewer" placeholder="Your name..." class="bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none w-1/3">
+                        <input type="text" id="input-granny-comment" placeholder="Write a verified review..." class="flex-grow bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                        <button onclick="postComment('granny')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition-colors">Post</button>
                     </div>
                 </div>
             </div>
