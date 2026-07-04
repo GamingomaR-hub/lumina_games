@@ -142,10 +142,10 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="games-grid">
             
             <!-- GAME 1: BALDI'S BASICS -->
-            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="android" data-title="baldi's basics android patched">
+            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc android" data-title="baldi's basics pc android patched">
                 <!-- Image Container with Overlays -->
                 <div class="relative overflow-hidden aspect-video bg-slate-950">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=2500w" alt="Baldi's Basics Patched Mobile" class="w-full h-full object-cover object-top transform group-hover:scale-[1.03] transition-all duration-700">
+                    <img src="https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=2500w" alt="Baldi's Basics Patched Mobile & PC" class="w-full h-full object-cover object-top transform group-hover:scale-[1.03] transition-all duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
                     
                     <div class="absolute top-3 right-3 z-10 bg-emerald-500 text-slate-950 text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-emerald-400 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
@@ -154,11 +154,11 @@
 
                     <!-- Platform Badge Bottom-Left -->
                     <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-brands fa-windows"></i> Windows PC
+                        </span>
                         <span class="bg-brand-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
                             <i class="fa-brands fa-android"></i> Android
-                        </span>
-                        <span class="bg-indigo-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider">
-                            v1.4.3 Patched
                         </span>
                     </div>
                 </div>
@@ -177,26 +177,31 @@
                         </div>
                     </div>
                     
-                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-brand-300 transition-colors">Baldi's Basics 1.4.3 (Android Patched)</h3>
+                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-brand-300 transition-colors">Baldi's Basics 1.4.3</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Step inside the schoolhouse of chaos. Solved math notebooks, outrun Baldi, and experience the quintessential bizarre retro horror game. This exclusive version is custom patched to eliminate bugs, restore missing sound triggers, and optimize touchscreen controls flawlessly for high performance on Android 10+.
+                        Step inside the schoolhouse of chaos. Solved math notebooks, outrun Baldi, and experience the quintessential bizarre retro horror game. This exclusive version includes both the classic 64-Bit PC build and the custom-patched Android 10+ APK.
                     </p>
 
                     <!-- Features bullets -->
                     <div class="grid grid-cols-2 gap-y-2 gap-x-4 mb-6 text-xs text-slate-300 border-t border-b border-white/5 py-4">
                         <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> No Ads / No Watermarks</div>
                         <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> Optimized Controls</div>
-                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> Safe Installation APK</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> PC & Android Versions</div>
                         <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> Enhanced 60 FPS Patch</div>
                     </div>
 
                     <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-3">
-                        <a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" onclick="handleDownload('Baldi\'s Basics APK')" class="flex-1 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2.5 transition-all duration-300 shadow-xl shadow-emerald-950/20 active:scale-95">
-                            <i class="fa-solid fa-download"></i> Download Patched APK <span class="text-[11px] font-medium opacity-85">(22MB)</span>
-                        </a>
-                        <button onclick="toggleModal('modal-baldi')" class="bg-white/5 hover:bg-white/10 text-white font-semibold py-3.5 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5">
-                            <i class="fa-solid fa-circle-info"></i> Info & Comments
+                    <div class="flex flex-col gap-3">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <a href="https://www.mediafire.com/file_premium/1f5bhvzi98aqshy/BALDI_1.4.3_Windows_64Bit_patched.zip/file" target="_blank" onclick="handleDownload('Baldi\'s Basics PC ZIP')" class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
+                                <i class="fa-brands fa-windows"></i> PC Download <span class="text-[11px] font-normal opacity-80">(ZIP)</span>
+                            </a>
+                            <a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" onclick="handleDownload('Baldi\'s Basics APK')" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
+                                <i class="fa-brands fa-android"></i> Android APK <span class="text-[11px] font-semibold opacity-90">(APK)</span>
+                            </a>
+                        </div>
+                        <button onclick="toggleModal('modal-baldi')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
+                            <i class="fa-solid fa-circle-info"></i> Specs, Guides & Comments
                         </button>
                     </div>
                 </div>
@@ -500,6 +505,64 @@
                 </div>
             </div>
 
+            <!-- GAME 7: GOD OF WAR 1 -->
+            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group lg:col-span-2 xl:col-span-1" data-platform="pc" data-title="god of war 1 pc zip action hack and slash classic">
+                <!-- Image Container -->
+                <div class="relative overflow-hidden aspect-video bg-slate-950">
+                    <img src="https://static.wikia.nocookie.net/godofwar/images/0/0c/Gowbox.jpg/revision/latest?cb=20221027083901" alt="God of War 1 Cover" class="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
+                    
+                    <div class="absolute top-3 right-3 z-10 bg-red-700 text-white text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-red-600 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
+                        <i class="fa-solid fa-fire"></i> LEGENDARY CLASSIC
+                    </div>
+
+                    <!-- Platform Badges Bottom-Left -->
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-brands fa-windows"></i> Windows PC
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Info Block -->
+                <div class="p-6 md:p-8 flex-grow flex flex-col">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-red-500 tracking-wider uppercase">Hack & Slash Mythology</span>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-slate-400 text-xs ml-1">(5.0/5)</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-red-400 transition-colors">God of War 1</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Experience the epic beginning of Kratos' journey for vengeance. Unleash the Blades of Chaos against mythical beasts and gods in this legendary hack and slash masterpiece, fully configured for PC.
+                    </p>
+
+                    <!-- Features bullets -->
+                    <div class="grid grid-cols-2 gap-y-2 gap-x-4 mb-6 text-xs text-slate-300 border-t border-b border-white/5 py-4">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-red-500"></i> Epic Boss Fights</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-red-500"></i> Brutal Combat System</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-red-500"></i> Greek Mythology</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-red-500"></i> Ready for PC</div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col gap-3">
+                        <a href="https://www.mediafire.com/file_premium/7a9aufby4ta4hxb/God-of-War-1.zip/file" target="_blank" onclick="handleDownload('God of War 1 PC ZIP')" class="w-full bg-gradient-to-r from-red-700 to-red-900 hover:from-red-600 hover:to-red-800 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
+                            <i class="fa-brands fa-windows"></i> PC Download <span class="text-[11px] font-normal opacity-80">(ZIP)</span>
+                        </a>
+                        <button onclick="toggleModal('modal-gow')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
+                            <i class="fa-solid fa-circle-info"></i> Specs, Guides & Comments
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- No Games Found State -->
@@ -614,12 +677,14 @@
             <div>
                 <h4 class="text-white font-semibold space-title mb-4 uppercase tracking-wider text-xs">Featured Downloads</h4>
                 <ul class="space-y-2.5 text-xs">
-                    <li><a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" class="hover:text-white transition-colors">Baldi's Basics 1.4.3 APK</a></li>
+                    <li><a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" class="hover:text-white transition-colors">Baldi's Basics 1.4.3 Android APK</a></li>
+                    <li><a href="https://www.mediafire.com/file_premium/1f5bhvzi98aqshy/BALDI_1.4.3_Windows_64Bit_patched.zip/file" target="_blank" class="hover:text-white transition-colors">Baldi's Basics 1.4.3 PC (ZIP)</a></li>
                     <li><a href="https://www.mediafire.com/file/20jg5ty5sd9h6xl/The+Bigfoot+Snow+Massacre.zip/file" target="_blank" class="hover:text-white transition-colors">The Bigfoot PC (ZIP)</a></li>
                     <li><a href="https://www.mediafire.com/file_premium/98msmje7xzsjoz2/MECCHA.CHAMELEON-SteamRIP.com.rar/file" target="_blank" class="hover:text-white transition-colors">Meccha Chameleon PC (RAR)</a></li>
                     <li><a href="https://www.mediafire.com/file_premium/3jd1s1bgroz7pzm/gta_sa_maroc_i3dadiaty.rar/file" target="_blank" class="hover:text-white transition-colors">GTA SA Maroc PC (RAR)</a></li>
                     <li><a href="https://www.mediafire.com/file_premium/0on96q3sdrblgca/Granny.v1.2.zip/file" target="_blank" class="hover:text-white transition-colors">Granny PC (ZIP)</a></li>
                     <li><a href="https://www.mediafire.com/file_premium/eey2w6ksds48hn5/Bad.Guys.at.School.v2020.08.11.zip/file" target="_blank" class="hover:text-white transition-colors">Bad Guys at School PC (ZIP)</a></li>
+                    <li><a href="https://www.mediafire.com/file_premium/7a9aufby4ta4hxb/God-of-War-1.zip/file" target="_blank" class="hover:text-white transition-colors">God of War 1 PC (ZIP)</a></li>
                 </ul>
             </div>
             <div>
@@ -639,79 +704,26 @@
             </button>
             <div class="p-6 md:p-8">
                 <h3 class="text-2xl font-bold space-title mb-2">Baldi's Basics - Patched Details</h3>
-                <span class="inline-block bg-brand-500/20 text-brand-300 text-xs font-semibold px-2.5 py-1 rounded-md mb-4">Target: Mobile Android v1.4.3</span>
-                
-                <h4 class="font-semibold text-white mb-2 text-sm">System Requirements:</h4>
-                <ul class="text-xs text-slate-400 space-y-1 mb-6 list-disc pl-4">
-                    <li>Minimum Operating System: Android 5.0 (Lollipop)</li>
-                    <li>Recommended OS: Android 10 or newer for 60Hz screen sync</li>
-                    <li>RAM Required: 1.5GB Minimum</li>
-                    <li>Free Space: ~50MB Storage space</li>
-                </ul>
-
-                <!-- Dynamic Review Section -->
-                <div class="border-t border-white/5 pt-6">
-                    <h4 class="font-bold text-white mb-4 text-sm flex items-center justify-between">
-                        <span>Community Feedback</span>
-                        <span class="text-slate-400 font-normal text-xs" id="baldi-reviews-count">3 Reviews</span>
-                    </h4>
-                    
-                    <!-- Review List -->
-                    <div id="baldi-reviews-list" class="space-y-3 mb-6 max-h-48 overflow-y-auto pr-2 scrollbar-thin">
-                        <div class="bg-white/5 p-3 rounded-xl text-xs">
-                            <div class="flex items-center justify-between mb-1.5">
-                                <span class="font-bold text-slate-300">GamerTagX</span>
-                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 5/5</span>
-                            </div>
-                            <p class="text-slate-400">Finally a clean Android version of 1.4.3! It used to glitch on my Samsung, but this patched file works beautifully.</p>
-                        </div>
-                        <div class="bg-white/5 p-3 rounded-xl text-xs">
-                            <div class="flex items-center justify-between mb-1.5">
-                                <span class="font-bold text-slate-300">RetroGamer01</span>
-                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 4/5</span>
-                            </div>
-                            <p class="text-slate-400">The touch control adjustments are nice. Makes escaping Baldi much easier on tablets.</p>
-                        </div>
-                    </div>
-
-                    <!-- Input Form -->
-                    <div class="flex gap-2">
-                        <input type="text" id="input-baldi-reviewer" placeholder="Your name..." class="bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none w-1/3">
-                        <input type="text" id="input-baldi-comment" placeholder="Write a verified review..." class="flex-grow bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
-                        <button onclick="postComment('baldi')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition-colors">Post</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- INTERACTIVE MODAL FOR BIGFOOT -->
-    <div id="modal-bigfoot" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative">
-            <button onclick="toggleModal('modal-bigfoot')" class="absolute top-4 right-4 bg-white/5 hover:bg-white/10 border border-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="p-6 md:p-8">
-                <h3 class="text-2xl font-bold space-title mb-2">The Bigfoot Snow Massacre Info</h3>
-                <span class="inline-block bg-brand-500/20 text-brand-300 text-xs font-semibold px-2.5 py-1 rounded-md mb-4">PC Version & Android Mobile APK</span>
+                <span class="inline-block bg-brand-500/20 text-brand-300 text-xs font-semibold px-2.5 py-1 rounded-md mb-4">Target: Mobile Android & Windows PC</span>
                 
                 <h4 class="font-semibold text-white mb-2 text-sm">System Requirements:</h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-400 mb-6">
                     <div>
                         <strong class="text-slate-300 block mb-1">PC Specs:</strong>
                         <ul class="list-disc pl-4 space-y-1">
-                            <li>OS: Windows 7/8/10/11 (64-Bit)</li>
-                            <li>Processor: Intel i3 or equivalent AMD</li>
-                            <li>Memory: 4 GB RAM</li>
-                            <li>Graphics: DirectX 11 GPU</li>
+                            <li>OS: Windows 7/8/10/11 (64-bit)</li>
+                            <li>Processor: 1.5 GHz CPU</li>
+                            <li>Memory: 2 GB RAM</li>
+                            <li>Graphics: Integrated Intel HD</li>
                         </ul>
                     </div>
                     <div>
                         <strong class="text-slate-300 block mb-1">Android Specs:</strong>
                         <ul class="list-disc pl-4 space-y-1">
-                            <li>OS: Android 8.0 or higher</li>
-                            <li>RAM Required: 3 GB minimum</li>
-                            <li>GPU: OpenGLES 3.0 compatible</li>
+                            <li>OS: Android 5.0 (Lollipop)</li>
+                            <li>Recommended: Android 10+</li>
+                            <li>RAM Required: 1.5GB Minimum</li>
+                            <li>Free Space: ~50MB Storage</li>
                         </ul>
                     </div>
                 </div>
@@ -979,6 +991,66 @@
                         <input type="text" id="input-badguys-reviewer" placeholder="Your name..." class="bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none w-1/3">
                         <input type="text" id="input-badguys-comment" placeholder="Write a verified review..." class="flex-grow bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
                         <button onclick="postComment('badguys')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition-colors">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE MODAL FOR GOD OF WAR 1 -->
+    <div id="modal-gow" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative">
+            <button onclick="toggleModal('modal-gow')" class="absolute top-4 right-4 bg-white/5 hover:bg-white/10 border border-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="p-6 md:p-8">
+                <h3 class="text-2xl font-bold space-title mb-2">God of War 1 Info</h3>
+                <span class="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2.5 py-1 rounded-md mb-4">PC Version (Pre-Configured)</span>
+                
+                <h4 class="font-semibold text-white mb-2 text-sm">System Requirements:</h4>
+                <div class="grid grid-cols-1 gap-4 text-xs text-slate-400 mb-6">
+                    <div>
+                        <strong class="text-slate-300 block mb-1">PC Specs:</strong>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>OS: Windows 7, 8, 10, 11 (64-bit)</li>
+                            <li>Processor: Intel Core i3 / AMD Ryzen 3 or better</li>
+                            <li>Memory: 4 GB RAM</li>
+                            <li>Graphics: 1GB VRAM, OpenGL 4.5 support</li>
+                            <li>Storage: ~3.5 GB available space</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dynamic Review Section -->
+                <div class="border-t border-white/5 pt-6">
+                    <h4 class="font-bold text-white mb-4 text-sm flex items-center justify-between">
+                        <span>Community Feedback</span>
+                        <span class="text-slate-400 font-normal text-xs" id="gow-reviews-count">2 Reviews</span>
+                    </h4>
+                    
+                    <!-- Review List -->
+                    <div id="gow-reviews-list" class="space-y-3 mb-6 max-h-48 overflow-y-auto pr-2 scrollbar-thin">
+                        <div class="bg-white/5 p-3 rounded-xl text-xs">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-bold text-slate-300">SpartanGhost</span>
+                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 5/5</span>
+                            </div>
+                            <p class="text-slate-400">One of the greatest games ever made! The combat still holds up today, and it runs flawlessly on my PC.</p>
+                        </div>
+                        <div class="bg-white/5 p-3 rounded-xl text-xs">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-bold text-slate-300">AresSlayer</span>
+                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 5/5</span>
+                            </div>
+                            <p class="text-slate-400">Nostalgia hitting hard. So happy to be able to play this classic again without needing the old console.</p>
+                        </div>
+                    </div>
+
+                    <!-- Input Form -->
+                    <div class="flex gap-2">
+                        <input type="text" id="input-gow-reviewer" placeholder="Your name..." class="bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none w-1/3">
+                        <input type="text" id="input-gow-comment" placeholder="Write a verified review..." class="flex-grow bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                        <button onclick="postComment('gow')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition-colors">Post</button>
                     </div>
                 </div>
             </div>
