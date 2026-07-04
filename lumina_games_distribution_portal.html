@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Games - Ultimate Indie & Classic Downloads</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for additional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        space: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            950: '#0c0a0f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050406;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+        .space-title {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-brand-700 to-indigo-700 text-center py-2 px-4 text-xs font-semibold tracking-wide text-white uppercase flex items-center justify-center gap-2">
+        <span class="flex h-2 w-2 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+        </span>
+        All downloads scanned with McAfee & Virustotal: 100% Secure
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-40 bg-brand-950/80 backdrop-blur-md border-b border-white/5 py-4 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="bg-gradient-to-tr from-brand-500 to-indigo-500 p-2.5 rounded-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-all duration-300">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                    </svg>
+                </div>
+                <span class="text-xl font-extrabold space-title tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-400">LUMINA GAMES</span>
+            </a>
+
+            <!-- Search and Platform Filters -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#games-section" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Browse Games</a>
+                <a href="#install-guide" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">How to Install</a>
+                <a href="#security-guarantee" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Our Promise</a>
+            </div>
+
+            <!-- Download Counter Dashboard -->
+            <div class="flex items-center gap-3">
+                <div class="hidden lg:flex flex-col items-end text-right text-xs">
+                    <span class="text-slate-400 font-medium">Total Downloads Today</span>
+                    <span class="text-emerald-400 font-bold" id="live-total-downloads">42,891</span>
+                </div>
+                <a href="#games-section" class="bg-white/10 hover:bg-white/15 text-white border border-white/10 px-5 py-2 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-solid fa-gamepad"></i> Explore Games
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative overflow-hidden py-16 md:py-24 px-6 md:px-12 text-center">
+        <div class="absolute inset-0 z-0 bg-[radial-gradient(50%_50%_at_50%_50%,rgba(124,58,237,0.1)_0%,transparent_100%)]"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="inline-flex items-center gap-1.5 py-1.5 px-3.5 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-6 uppercase tracking-wider">
+                <i class="fa-solid fa-bolt animate-pulse"></i> Instant Direct Downloads
+            </span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-black space-title leading-tight tracking-tight mb-6">
+                Download Your Favorite <br class="hidden sm:inline">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Classics & Indie Horror Hits</span>
+            </h1>
+            <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                Enjoy lightning-fast, secure Mediafire direct download links for verified patched classics, Android APKs, and adrenaline-pumping survival horror. No surveys, no speed caps.
+            </p>
+
+            <!-- Search and Quick Category Selection -->
+            <div class="max-w-xl mx-auto bg-slate-900/60 backdrop-blur border border-white/10 p-2 rounded-2xl flex flex-col sm:flex-row items-center gap-2 shadow-2xl">
+                <div class="relative w-full flex-grow pl-3">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                    <input type="text" id="game-search" oninput="searchGames()" placeholder="Search game by title, genre, platform..." class="w-full bg-transparent pl-8 pr-4 py-3 text-slate-200 placeholder:text-slate-500 focus:outline-none text-sm">
+                </div>
+                <button onclick="clearSearch()" class="w-full sm:w-auto px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-sm font-semibold shadow-lg shadow-brand-600/20 transition-all duration-300 active:scale-95 shrink-0 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN GAMES SECTION -->
+    <main id="games-section" class="max-w-7xl mx-auto px-6 md:px-12 py-12 flex-grow w-full">
+        
+        <!-- Filter Controls -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-white/5">
+            <div>
+                <h2 class="text-2xl font-bold space-title">Featured Indie Showcase</h2>
+                <p class="text-slate-400 text-sm mt-1">Select your preferred format & click to trigger the secure Mediafire links.</p>
+            </div>
+            
+            <div class="flex items-center p-1 bg-slate-900/80 rounded-xl border border-white/5 w-fit">
+                <button onclick="filterPlatform('all')" id="btn-all" class="px-4 py-2 text-xs font-semibold rounded-lg transition-all duration-300 bg-brand-600 text-white shadow">All Platforms</button>
+                <button onclick="filterPlatform('android')" id="btn-android" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all duration-300">Android APK</button>
+                <button onclick="filterPlatform('pc')" id="btn-pc" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all duration-300">Windows PC</button>
+            </div>
+        </div>
+
+        <!-- Games Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="games-grid">
+            
+            <!-- GAME 1: BALDI'S BASICS -->
+            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="android" data-title="baldi's basics android patched">
+                <!-- Image Container with Overlays (Designed to hide/repurpose top-right region of image elegantly) -->
+                <div class="relative overflow-hidden aspect-video bg-slate-950">
+                    <img src="https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=2500w" alt="Baldi's Basics Patched Mobile" class="w-full h-full object-cover object-top transform group-hover:scale-[1.03] transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
+                    
+                    <!-- TOP RIGHT BADGE TO MASK DOODLES CLEANLY -->
+                    <div class="absolute top-3 right-3 z-10 bg-emerald-500 text-slate-950 text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-emerald-400 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
+                        <i class="fa-solid fa-shield-halved"></i> 100% CLEAN
+                    </div>
+
+                    <!-- Platform Badge Bottom-Left -->
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <span class="bg-brand-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-brands fa-android"></i> Android
+                        </span>
+                        <span class="bg-indigo-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider">
+                            v1.4.3 Patched
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Info Block -->
+                <div class="p-6 md:p-8 flex-grow flex flex-col">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-brand-400 tracking-wider uppercase">Classroom Survival Horror</span>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                            <span class="text-slate-400 text-xs ml-1">(4.6/5)</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-brand-300 transition-colors">Baldi's Basics 1.4.3 (Android Patched)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Step inside the schoolhouse of chaos. Solved math notebooks, outrun Baldi, and experience the quintessential bizarre retro horror game. This exclusive version is custom patched to eliminate bugs, restore missing sound triggers, and optimize touchscreen controls flawlessly for high performance on Android 10+.
+                    </p>
+
+                    <!-- Features bullets -->
+                    <div class="grid grid-cols-2 gap-y-2 gap-x-4 mb-6 text-xs text-slate-300 border-t border-b border-white/5 py-4">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> No Ads / No Watermarks</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> Optimized Controls</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> Safe Installation APK</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> Enhanced 60 FPS Patch</div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" onclick="handleDownload('Baldi\'s Basics APK')" class="flex-1 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2.5 transition-all duration-300 shadow-xl shadow-emerald-950/20 active:scale-95">
+                            <i class="fa-solid fa-download"></i> Download Patched APK <span class="text-[11px] font-medium opacity-85">(22MB)</span>
+                        </a>
+                        <button onclick="toggleModal('modal-baldi')" class="bg-white/5 hover:bg-white/10 text-white font-semibold py-3.5 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-circle-info"></i> Info & Comments
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAME 2: THE BIGFOOT SNOW MASSACRE -->
+            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc android" data-title="the bigfoot snow massacre pc android apk zip">
+                <!-- Image Container with Overlays -->
+                <div class="relative overflow-hidden aspect-video bg-slate-950">
+                    <img src="https://img.itch.zone/aW1hZ2UvNDUwNDkxMS8yNjkyOTQ2OC5wbmc=/original/ow3cOL.png" alt="The Bigfoot Snow Massacre Cover" class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
+                    
+                    <!-- TOP RIGHT BADGE TO MASK DOODLES CLEANLY -->
+                    <div class="absolute top-3 right-3 z-10 bg-brand-500 text-white text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-brand-400 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
+                        <i class="fa-solid fa-fire-flame-curved"></i> HIGHEST RATED
+                    </div>
+
+                    <!-- Platform Badges Bottom-Left -->
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-brands fa-windows"></i> Windows PC
+                        </span>
+                        <span class="bg-brand-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-brands fa-android"></i> Android
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Info Block -->
+                <div class="p-6 md:p-8 flex-grow flex flex-col">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-brand-400 tracking-wider uppercase">Survival Winter Horror</span>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-slate-400 text-xs ml-1">(4.9/5)</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-brand-300 transition-colors">The Bigfoot Snow Massacre</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Deep in the frozen, dark winter wilderness, a camping expedition went horribly wrong. You are trapped in a snowbound cabin surrounded by the vicious, bloodthirsty Bigfoot beast. Keep the campfire burning, watch the shadows, load your rifle, and attempt to survive the freezing nightmare.
+                    </p>
+
+                    <!-- Features bullets -->
+                    <div class="grid grid-cols-2 gap-y-2 gap-x-4 mb-6 text-xs text-slate-300 border-t border-b border-white/5 py-4">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> High-Suspense Gameplay</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> Immersive Winter Atmosphere</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> Multiple Weapon Upgrades</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400"></i> Native Mobile & PC Editions</div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col gap-3">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <a href="https://www.mediafire.com/file/20jg5ty5sd9h6xl/The+Bigfoot+Snow+Massacre.zip/file" target="_blank" onclick="handleDownload('The Bigfoot Snow Massacre PC ZIP')" class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
+                                <i class="fa-brands fa-windows"></i> PC Download <span class="text-[11px] font-normal opacity-80">(ZIP)</span>
+                            </a>
+                            <a href="https://www.mediafire.com/file/6ffu9c4zm3nzn0e/The+Bigfoot+Snow+Massacre.apk/file" target="_blank" onclick="handleDownload('The Bigfoot Snow Massacre Android APK')" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
+                                <i class="fa-brands fa-android"></i> Android APK <span class="text-[11px] font-semibold opacity-90">(APK)</span>
+                            </a>
+                        </div>
+                        <button onclick="toggleModal('modal-bigfoot')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
+                            <i class="fa-solid fa-circle-info"></i> Specs, Guides & Comments
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- No Games Found State -->
+        <div id="no-results-state" class="hidden text-center py-24 bg-slate-900/20 border border-dashed border-white/10 rounded-3xl max-w-lg mx-auto">
+            <div class="text-slate-500 text-5xl mb-4">
+                <i class="fa-solid fa-ghost"></i>
+            </div>
+            <h3 class="text-xl font-bold space-title text-slate-300 mb-1">No Games Found</h3>
+            <p class="text-slate-500 text-sm px-6">We couldn't find any games matching your current search or filter. Try checking your spelling or selecting "All Platforms".</p>
+        </div>
+
+    </main>
+
+    <!-- SECURITY & GUARANTEE SECTION -->
+    <section id="security-guarantee" class="bg-slate-900/30 border-t border-b border-white/5 py-16 px-6 md:px-12 my-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-semibold tracking-wider text-brand-400 uppercase">Our Integrity Pledge</span>
+                <h2 class="text-3xl font-bold space-title mt-2">Downloads You Can Trust</h2>
+                <p class="text-slate-400 text-sm mt-3">We understand downloading APKs online can feel unsafe. That's why we maintain strict screening procedures to ensure absolute gaming peace of mind.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Promise Card 1 -->
+                <div class="bg-brand-950/40 border border-white/5 p-6 rounded-2xl hover:border-white/10 transition-colors">
+                    <div class="text-emerald-400 text-2xl mb-4"><i class="fa-solid fa-shield-virus"></i></div>
+                    <h3 class="text-lg font-bold space-title mb-2">Zero Malware & Virustotal Screened</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Every direct download link provided is run through an array of premium antivirus engine checkers. There are no secondary repackagers or hidden file bundlers.</p>
+                </div>
+                <!-- Promise Card 2 -->
+                <div class="bg-brand-950/40 border border-white/5 p-6 rounded-2xl hover:border-white/10 transition-colors">
+                    <div class="text-brand-400 text-2xl mb-4"><i class="fa-solid fa-link"></i></div>
+                    <h3 class="text-lg font-bold space-title mb-2">Direct Mediafire Connections</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Say goodbye to annoying redirect link shrinkers, ads, and countdown traps. We link directly to raw file storage on Mediafire for the fastest speed possible on any bandwidth.</p>
+                </div>
+                <!-- Promise Card 3 -->
+                <div class="bg-brand-950/40 border border-white/5 p-6 rounded-2xl hover:border-white/10 transition-colors">
+                    <div class="text-cyan-400 text-2xl mb-4"><i class="fa-solid fa-gear"></i></div>
+                    <h3 class="text-lg font-bold space-title mb-2">Verified & Patched Compatibility</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">We manually launch and test games on targeted hardware before posting. The Baldi APK is thoroughly tested on multiple Android system API versions to guarantee stability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC INSTALLATION GUIDE -->
+    <section id="install-guide" class="max-w-4xl mx-auto px-6 md:px-12 py-12 w-full">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-extrabold space-title">Installation Support Centre</h2>
+            <p class="text-slate-400 text-sm mt-2">Need assistance setting up your download? Follow these simple platform guides below.</p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Accordion 1: Android Guide -->
+            <div class="bg-slate-900/40 border border-white/5 rounded-2xl overflow-hidden">
+                <button onclick="toggleAccordion('acc-android')" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-900/60 transition-colors">
+                    <span class="flex items-center gap-3 font-semibold space-title">
+                        <span class="bg-emerald-500/10 text-emerald-400 p-2 rounded-xl text-sm"><i class="fa-brands fa-android"></i></span>
+                        How to Install APKs on Android (Unknown Sources)
+                    </span>
+                    <i id="acc-android-icon" class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
+                </button>
+                <div id="acc-android" class="hidden p-6 border-t border-white/5 bg-slate-950/40 text-slate-300 text-sm space-y-4">
+                    <p>Since these files aren't from the Google Play Store, Android requires manual confirmation to install them. It is safe and takes 30 seconds:</p>
+                    <ol class="list-decimal pl-5 space-y-2.5 text-slate-400">
+                        <li>Tap the download button and save the <code class="bg-white/10 text-white px-1.5 py-0.5 rounded">.apk</code> file to your device.</li>
+                        <li>Open your phone's <strong class="text-slate-200">Settings</strong> app.</li>
+                        <li>Search for "Unknown Sources" or go to <strong class="text-slate-200">Apps > Special Access > Install Unknown Apps</strong>.</li>
+                        <li>Toggle on permission for your browser (e.g. Chrome) or file explorer to install apps.</li>
+                        <li>Open your downloads folder, tap the downloaded APK, and select <strong class="text-slate-200">Install</strong>. Enjoy the game!</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Accordion 2: PC Setup Guide -->
+            <div class="bg-slate-900/40 border border-white/5 rounded-2xl overflow-hidden">
+                <button onclick="toggleAccordion('acc-pc')" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-900/60 transition-colors">
+                    <span class="flex items-center gap-3 font-semibold space-title">
+                        <span class="bg-blue-500/10 text-blue-400 p-2 rounded-xl text-sm"><i class="fa-brands fa-windows"></i></span>
+                        How to Launch Games on Windows PC
+                    </span>
+                    <i id="acc-pc-icon" class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-300"></i>
+                </button>
+                <div id="acc-pc" class="hidden p-6 border-t border-white/5 bg-slate-950/40 text-slate-300 text-sm space-y-4">
+                    <ol class="list-decimal pl-5 space-y-2.5 text-slate-400">
+                        <li>Download the game's designated compressed archive file (<code class="bg-white/10 text-white px-1.5 py-0.5 rounded">.zip</code>).</li>
+                        <li>Right-click the downloaded file and choose <strong class="text-slate-200">Extract All...</strong>, or use 7-Zip / WinRAR.</li>
+                        <li>Open the newly extracted folder and locate the execution launcher file (e.g., <code class="bg-white/10 text-white px-1.5 py-0.5 rounded">The Bigfoot Snow Massacre.exe</code>).</li>
+                        <li>Double-click the executable to start the game! *Note: If Windows SmartScreen displays a warning, click <strong class="text-slate-200">More Info</strong> and then <strong class="text-slate-200">Run Anyway</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-950 border-t border-white/5 pt-16 pb-8 px-6 md:px-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="bg-gradient-to-tr from-brand-500 to-indigo-500 p-2 rounded-lg text-white">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <span class="text-white font-extrabold space-title tracking-wider">LUMINA GAMES</span>
+                </div>
+                <p class="max-w-sm mb-4 text-xs leading-relaxed">
+                    Lumina Games is an independent, non-affiliated catalog showcasing classic game modifications, patched portable retro titles, and original indie horror developments. We value download transparency.
+                </p>
+                <p class="text-[11px] text-slate-600">
+                    &copy; 2026 Lumina Games distribution. Created as a custom gaming hub. All game rights reserved to their respective developers.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold space-title mb-4 uppercase tracking-wider text-xs">Featured Downloads</h4>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" class="hover:text-white transition-colors">Baldi's Basics 1.4.3 APK</a></li>
+                    <li><a href="https://www.mediafire.com/file/20jg5ty5sd9h6xl/The+Bigfoot+Snow+Massacre.zip/file" target="_blank" class="hover:text-white transition-colors">The Bigfoot PC (ZIP)</a></li>
+                    <li><a href="https://www.mediafire.com/file/6ffu9c4zm3nzn0e/The+Bigfoot+Snow+Massacre.apk/file" target="_blank" class="hover:text-white transition-colors">The Bigfoot Android (APK)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold space-title mb-4 uppercase tracking-wider text-xs">Safe Play Disclaimer</h4>
+                <p class="text-[11px] text-slate-500 leading-relaxed">
+                    Downloads are made hosted via high-speed, secure servers. Remember to always scan any third-party app packages before starting configuration files to comply with standard security advice.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE MODAL FOR BALDI -->
+    <div id="modal-baldi" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative">
+            <button onclick="toggleModal('modal-baldi')" class="absolute top-4 right-4 bg-white/5 hover:bg-white/10 border border-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="p-6 md:p-8">
+                <h3 class="text-2xl font-bold space-title mb-2">Baldi's Basics - Patched Details</h3>
+                <span class="inline-block bg-brand-500/20 text-brand-300 text-xs font-semibold px-2.5 py-1 rounded-md mb-4">Target: Mobile Android v1.4.3</span>
+                
+                <h4 class="font-semibold text-white mb-2 text-sm">System Requirements:</h4>
+                <ul class="text-xs text-slate-400 space-y-1 mb-6 list-disc pl-4">
+                    <li>Minimum Operating System: Android 5.0 (Lollipop)</li>
+                    <li>Recommended OS: Android 10 or newer for 60Hz screen sync</li>
+                    <li>RAM Required: 1.5GB Minimum</li>
+                    <li>Free Space: ~50MB Storage space</li>
+                </ul>
+
+                <!-- Dynamic Review Section -->
+                <div class="border-t border-white/5 pt-6">
+                    <h4 class="font-bold text-white mb-4 text-sm flex items-center justify-between">
+                        <span>Community Feedback</span>
+                        <span class="text-slate-400 font-normal text-xs" id="baldi-reviews-count">3 Reviews</span>
+                    </h4>
+                    
+                    <!-- Review List -->
+                    <div id="baldi-reviews-list" class="space-y-3 mb-6 max-h-48 overflow-y-auto pr-2 scrollbar-thin">
+                        <div class="bg-white/5 p-3 rounded-xl text-xs">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-bold text-slate-300">GamerTagX</span>
+                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 5/5</span>
+                            </div>
+                            <p class="text-slate-400">Finally a clean Android version of 1.4.3! It used to glitch on my Samsung, but this patched file works beautifully.</p>
+                        </div>
+                        <div class="bg-white/5 p-3 rounded-xl text-xs">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-bold text-slate-300">RetroGamer01</span>
+                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 4/5</span>
+                            </div>
+                            <p class="text-slate-400">The touch control adjustments are nice. Makes escaping Baldi much easier on tablets.</p>
+                        </div>
+                    </div>
+
+                    <!-- Input Form -->
+                    <div class="flex gap-2">
+                        <input type="text" id="input-baldi-reviewer" placeholder="Your name..." class="bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none w-1/3">
+                        <input type="text" id="input-baldi-comment" placeholder="Write a verified review..." class="flex-grow bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                        <button onclick="postComment('baldi')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition-colors">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE MODAL FOR BIGFOOT -->
+    <div id="modal-bigfoot" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative">
+            <button onclick="toggleModal('modal-bigfoot')" class="absolute top-4 right-4 bg-white/5 hover:bg-white/10 border border-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="p-6 md:p-8">
+                <h3 class="text-2xl font-bold space-title mb-2">The Bigfoot Snow Massacre Info</h3>
+                <span class="inline-block bg-brand-500/20 text-brand-300 text-xs font-semibold px-2.5 py-1 rounded-md mb-4">PC Version & Android Mobile APK</span>
+                
+                <h4 class="font-semibold text-white mb-2 text-sm">System Requirements:</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-400 mb-6">
+                    <div>
+                        <strong class="text-slate-300 block mb-1">PC Specs:</strong>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>OS: Windows 7/8/10/11 (64-Bit)</li>
+                            <li>Processor: Intel i3 or equivalent AMD</li>
+                            <li>Memory: 4 GB RAM</li>
+                            <li>Graphics: DirectX 11 GPU</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong class="text-slate-300 block mb-1">Android Specs:</strong>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>OS: Android 8.0 or higher</li>
+                            <li>RAM Required: 3 GB minimum</li>
+                            <li>GPU: OpenGLES 3.0 compatible</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dynamic Review Section -->
+                <div class="border-t border-white/5 pt-6">
+                    <h4 class="font-bold text-white mb-4 text-sm flex items-center justify-between">
+                        <span>Community Feedback</span>
+                        <span class="text-slate-400 font-normal text-xs" id="bigfoot-reviews-count">2 Reviews</span>
+                    </h4>
+                    
+                    <!-- Review List -->
+                    <div id="bigfoot-reviews-list" class="space-y-3 mb-6 max-h-48 overflow-y-auto pr-2 scrollbar-thin">
+                        <div class="bg-white/5 p-3 rounded-xl text-xs">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-bold text-slate-300">WinterSurvivalist</span>
+                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 5/5</span>
+                            </div>
+                            <p class="text-slate-400">Scariest Bigfoot gameplay I've played in ages. The snowfall makes it so hard to see him coming!</p>
+                        </div>
+                        <div class="bg-white/5 p-3 rounded-xl text-xs">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-bold text-slate-300">FearTheNight</span>
+                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 5/5</span>
+                            </div>
+                            <p class="text-slate-400">The campfire lighting mechanics are brilliant. Tested the mobile build and frame rate is superb.</p>
+                        </div>
+                    </div>
+
+                    <!-- Input Form -->
+                    <div class="flex gap-2">
+                        <input type="text" id="input-bigfoot-reviewer" placeholder="Your name..." class="bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none w-1/3">
+                        <input type="text" id="input-bigfoot-comment" placeholder="Write a verified review..." class="flex-grow bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                        <button onclick="postComment('bigfoot')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition-colors">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none max-w-sm w-full"></div>
+
+    <script>
+        // Triggered upon clicking download buttons
+        function handleDownload(gameName) {
+            showToast(`Initiating download for ${gameName}...`, 'success');
+            
+            // Randomly increase download metric slightly to show live updates
+            const stats = document.getElementById('live-total-downloads');
+            if (stats) {
+                let current = parseInt(stats.innerText.replace(/,/g, ''));
+                current += 1;
+                stats.innerText = current.toLocaleString();
+            }
+        }
+
+        // Live Custom Search Functionality
+        function searchGames() {
+            const query = document.getElementById('game-search').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.game-card');
+            let foundCount = 0;
+
+            cards.forEach(card => {
+                const searchTags = card.getAttribute('data-title');
+                if (searchTags.includes(query)) {
+                    card.style.display = "flex";
+                    foundCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            const noResults = document.getElementById('no-results-state');
+            if (foundCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        // Clears current search and filters
+        function clearSearch() {
+            document.getElementById('game-search').value = '';
+            filterPlatform('all');
+            searchGames();
+            showToast('Search options reset.', 'info');
+        }
+
+        // Custom filter navigation for platforms
+        function filterPlatform(platform) {
+            const cards = document.querySelectorAll('.game-card');
+            const buttons = {
+                all: document.getElementById('btn-all'),
+                android: document.getElementById('btn-android'),
+                pc: document.getElementById('btn-pc')
+            };
+
+            // Toggle active classes on buttons
+            Object.keys(buttons).forEach(key => {
+                if (key === platform) {
+                    buttons[key].className = "px-4 py-2 text-xs font-semibold rounded-lg bg-brand-600 text-white shadow";
+                } else {
+                    buttons[key].className = "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all duration-300";
+                }
+            });
+
+            let foundCount = 0;
+            cards.forEach(card => {
+                const gamePlatforms = card.getAttribute('data-platform');
+                if (platform === 'all' || gamePlatforms.includes(platform)) {
+                    card.style.display = "flex";
+                    foundCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            const noResults = document.getElementById('no-results-state');
+            if (foundCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        // Custom modern pop-up toggle logic
+        function toggleModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        // Beautiful Dynamic Installation accordion
+        function toggleAccordion(id) {
+            const element = document.getElementById(id);
+            const icon = document.getElementById(`${id}-icon`);
+            if (element) {
+                element.classList.toggle('hidden');
+                if (icon) {
+                    icon.classList.toggle('rotate-180');
+                }
+            }
+        }
+
+        // Custom feedback submission handler
+        function postComment(gameKey) {
+            const reviewerInput = document.getElementById(`input-${gameKey}-reviewer`);
+            const commentInput = document.getElementById(`input-${gameKey}-comment`);
+            
+            if (!reviewerInput || !commentInput) return;
+
+            const name = reviewerInput.value.trim();
+            const text = commentInput.value.trim();
+
+            if (!name || !text) {
+                showToast("Please enter your name and a comment before posting.", "error");
+                return;
+            }
+
+            // Create new review element dynamically
+            const list = document.getElementById(`${gameKey}-reviews-list`);
+            const countContainer = document.getElementById(`${gameKey}-reviews-count`);
+            
+            if (list) {
+                const newComment = document.createElement('div');
+                newComment.className = "bg-brand-500/10 p-3 rounded-xl text-xs border border-brand-500/10 animate-fade-in";
+                newComment.innerHTML = `
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="font-bold text-brand-300">${escapeHTML(name)} <span class="text-[10px] text-slate-500 font-normal">(Just now)</span></span>
+                        <span class="text-amber-400"><i class="fa-solid fa-star"></i> 5/5</span>
+                    </div>
+                    <p class="text-slate-300">${escapeHTML(text)}</p>
+                `;
+                
+                list.prepend(newComment);
+                
+                // Clear input fields
+                reviewerInput.value = '';
+                commentInput.value = '';
+
+                // Increment comment count UI
+                if (countContainer) {
+                    const currentCount = list.children.length;
+                    countContainer.innerText = `${currentCount} Reviews`;
+                }
+
+                showToast("Review submitted successfully!", "success");
+            }
+        }
+
+        // Helper string safety escaping
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    "'": '&#39;',
+                    '"': '&quot;'
+                }[tag] || tag)
+            );
+        }
+
+        // Custom Toast system replacing intrusive browser alerts
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = `flex items-center gap-3 p-4 rounded-xl text-sm font-medium shadow-2xl border transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto`;
+            
+            if (type === 'success') {
+                toast.classList.add('bg-emerald-950/90', 'border-emerald-500/30', 'text-emerald-300');
+                toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i> <span>${message}</span>`;
+            } else if (type === 'error') {
+                toast.classList.add('bg-rose-950/90', 'border-rose-500/30', 'text-rose-300');
+                toast.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-rose-400 text-lg"></i> <span>${message}</span>`;
+            } else {
+                toast.classList.add('bg-slate-900/90', 'border-white/10', 'text-slate-200');
+                toast.innerHTML = `<i class="fa-solid fa-circle-info text-brand-400 text-lg"></i> <span>${message}</span>`;
+            }
+
+            container.appendChild(toast);
+
+            // Animate In
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            // Animate Out
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 4000);
+        }
+
+        // Simulating passive download count ticks to keep the portal alive
+        setInterval(() => {
+            const stats = document.getElementById('live-total-downloads');
+            if (stats) {
+                let current = parseInt(stats.innerText.replace(/,/g, ''));
+                current += Math.floor(Math.random() * 3) + 1;
+                stats.innerText = current.toLocaleString();
+            }
+        }, 8000);
+    </script>
+</body>
+</html>
