@@ -365,9 +365,15 @@
                     </div>
                     
                     <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-red-300 transition-colors">GTA San Andreas: Maroc</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                    <p class="text-slate-400 text-sm leading-relaxed mb-3 flex-grow">
                         Experience the ultimate nostalgic open-world classic, fully modded to feature Moroccan streets, custom vehicles, local signs, and unique player skins. This legendary "I3dadiaty" edition comes pre-installed and ready to play on PC.
                     </p>
+
+                    <!-- Extraction Password Badge -->
+                    <div class="mb-6 bg-red-500/10 border border-red-500/20 rounded-xl p-2.5 flex items-center justify-between">
+                        <span class="text-[11px] text-red-300 font-semibold uppercase tracking-wider"><i class="fa-solid fa-lock mr-1"></i> RAR Password:</span>
+                        <code class="text-white text-xs font-bold bg-slate-950 border border-white/10 px-2 py-1 rounded select-all cursor-text">www.i3dadiaty.com</code>
+                    </div>
 
                     <!-- Features bullets -->
                     <div class="grid grid-cols-2 gap-y-2 gap-x-4 mb-6 text-xs text-slate-300 border-t border-b border-white/5 py-4">
@@ -894,66 +900,15 @@
                 <h3 class="text-2xl font-bold space-title mb-2">GTA San Andreas: Maroc (I3dadiaty) Info</h3>
                 <span class="inline-block bg-red-500/20 text-red-300 text-xs font-semibold px-2.5 py-1 rounded-md mb-4">Modded PC Version</span>
                 
-                <h4 class="font-semibold text-white mb-2 text-sm">System Requirements:</h4>
-                <div class="grid grid-cols-1 gap-4 text-xs text-slate-400 mb-6">
+                <!-- EXTRACTION PASSWORD ALERT -->
+                <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-3 mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-lock text-red-400 text-xl"></i>
                     <div>
-                        <strong class="text-slate-300 block mb-1">PC Specs:</strong>
-                        <ul class="list-disc pl-4 space-y-1">
-                            <li>OS: Windows 7/8/10/11</li>
-                            <li>Processor: 1 GHz Pentium III or AMD Athlon Processor</li>
-                            <li>Memory: 256 MB RAM (1 GB recommended for mods)</li>
-                            <li>Graphics: 64 MB Video Card (Geforce 3 or higher)</li>
-                            <li>Storage: 4.7 GB available space</li>
-                        </ul>
+                        <p class="text-[11px] text-red-300 font-semibold uppercase tracking-wider mb-0.5">Archive Extraction Password</p>
+                        <p class="text-sm text-white font-bold font-mono select-all cursor-text">www.i3dadiaty.com</p>
                     </div>
                 </div>
 
-                <!-- Dynamic Review Section -->
-                <div class="border-t border-white/5 pt-6">
-                    <h4 class="font-bold text-white mb-4 text-sm flex items-center justify-between">
-                        <span>Community Feedback</span>
-                        <span class="text-slate-400 font-normal text-xs" id="gta-reviews-count">2 Reviews</span>
-                    </h4>
-                    
-                    <!-- Review List -->
-                    <div id="gta-reviews-list" class="space-y-3 mb-6 max-h-48 overflow-y-auto pr-2 scrollbar-thin">
-                        <div class="bg-white/5 p-3 rounded-xl text-xs">
-                            <div class="flex items-center justify-between mb-1.5">
-                                <span class="font-bold text-slate-300">CasaGamer</span>
-                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 5/5</span>
-                            </div>
-                            <p class="text-slate-400">Best nostalgic mod ever! Driving the red taxis around Los Santos brings back so many memories.</p>
-                        </div>
-                        <div class="bg-white/5 p-3 rounded-xl text-xs">
-                            <div class="flex items-center justify-between mb-1.5">
-                                <span class="font-bold text-slate-300">ModKing90</span>
-                                <span class="text-amber-400"><i class="fa-solid fa-star"></i> 5/5</span>
-                            </div>
-                            <p class="text-slate-400">Works perfectly on Windows 10. Just extract and play, no complicated setups.</p>
-                        </div>
-                    </div>
-
-                    <!-- Input Form -->
-                    <div class="flex gap-2">
-                        <input type="text" id="input-gta-reviewer" placeholder="Your name..." class="bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none w-1/3">
-                        <input type="text" id="input-gta-comment" placeholder="Write a verified review..." class="flex-grow bg-white/5 border border-white/5 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
-                        <button onclick="postComment('gta')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition-colors">Post</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- INTERACTIVE MODAL FOR GRANNY -->
-    <div id="modal-granny" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative">
-            <button onclick="toggleModal('modal-granny')" class="absolute top-4 right-4 bg-white/5 hover:bg-white/10 border border-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="p-6 md:p-8">
-                <h3 class="text-2xl font-bold space-title mb-2">Granny Info</h3>
-                <span class="inline-block bg-rose-500/20 text-rose-300 text-xs font-semibold px-2.5 py-1 rounded-md mb-4">PC Version (Pre-installed)</span>
-                
                 <h4 class="font-semibold text-white mb-2 text-sm">System Requirements:</h4>
                 <div class="grid grid-cols-1 gap-4 text-xs text-slate-400 mb-6">
                     <div>
