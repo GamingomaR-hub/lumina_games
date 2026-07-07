@@ -89,6 +89,14 @@
                 <a href="#games-section" class="bg-white/10 hover:bg-white/15 text-white border border-white/10 px-5 py-2 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2">
                     <i class="fa-solid fa-gamepad"></i> Explore Games
                 </a>
+                
+                <!-- Auth Container -->
+                <div id="auth-container" class="ml-2 pl-4 border-l border-white/10 min-w-[100px] flex items-center justify-center">
+                    <!-- Loading skeleton before Firebase initializes -->
+                    <div class="animate-pulse flex space-x-2">
+                        <div class="h-9 w-9 bg-slate-700/50 rounded-full"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -1148,6 +1156,73 @@
 
     <!-- TOAST NOTIFICATION CONTAINER -->
     <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none max-w-sm w-full"></div>
+
+    <!-- FIREBASE AUTHENTICATION MODULE -->
+    <script type="module">
+        // Import the functions you need from the SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCJtNlBh_wQXRkKcoF80FDj0QSQb9BITHU",
+            authDomain: "lumina-games-ab477.firebaseapp.com",
+            projectId: "lumina-games-ab477",
+            storageBucket: "lumina-games-ab477.firebasestorage.app",
+            messagingSenderId: "1071069150146",
+            appId: "1:1071069150146:web:705d40455506968ba3345b",
+            measurementId: "G-6N51QKCDSY"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        // Make login/logout functions globally accessible for HTML buttons
+        window.loginWithGoogle = () => {
+            signInWithPopup(auth, provider).then((result) => {
+                showToast(`Welcome back, ${result.user.displayName}!`, 'success');
+            }).catch((error) => {
+                console.error(error);
+                showToast(`Login failed or cancelled.`, 'error');
+            });
+        };
+
+        window.logout = () => {
+            signOut(auth).then(() => {
+                showToast('Logged out successfully.', 'info');
+            });
+        };
+
+        // Listen for auth state changes to update the Navbar UI dynamically
+        onAuthStateChanged(auth, (user) => {
+            const authContainer = document.getElementById('auth-container');
+            if (!authContainer) return;
+            
+            if (user) {
+                // User is signed in
+                authContainer.innerHTML = `
+                    <div class="flex items-center gap-3 animate-fade-in">
+                        <img src="${user.photoURL || 'https://via.placeholder.com/36'}" alt="User Avatar" class="w-9 h-9 rounded-full border-2 border-brand-500 shadow-lg shadow-brand-500/30">
+                        <div class="hidden lg:flex flex-col text-left">
+                            <span class="text-white text-xs font-bold truncate max-w-[120px]">${user.displayName}</span>
+                            <button onclick="logout()" class="text-slate-400 hover:text-rose-400 text-[10px] uppercase font-bold tracking-wider text-left transition-colors">Sign Out</button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // User is signed out
+                authContainer.innerHTML = `
+                    <button onclick="loginWithGoogle()" class="animate-fade-in bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 shadow-lg shadow-brand-500/20 flex items-center gap-2 active:scale-95">
+                        <i class="fa-brands fa-google"></i> Sign In
+                    </button>
+                `;
+            }
+        });
+    </script>
 
     <script>
         // Triggered upon clicking download buttons
