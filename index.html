@@ -1162,7 +1162,7 @@
             </button>
             <div class="p-8">
                 <h3 class="text-2xl font-bold space-title mb-2 text-center">Welcome Back</h3>
-                <p class="text-slate-400 text-sm text-center mb-6">Sign in to your Lumina Games account.</p>
+                <p class="text-slate-400 text-sm text-center mb-6">Sign in or create a new Lumina Games account.</p>
                 
                 <div class="space-y-4 mb-6">
                     <div>
@@ -1175,9 +1175,14 @@
                     </div>
                 </div>
 
-                <button onclick="loginUser()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-brand-600/20 active:scale-95 mb-4 flex justify-center items-center gap-2">
-                    <i class="fa-solid fa-right-to-bracket"></i> Sign In
-                </button>
+                <div class="flex gap-3 mb-4">
+                    <button onclick="loginUser()" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-brand-600/20 active:scale-95 flex justify-center items-center gap-2">
+                        <i class="fa-solid fa-right-to-bracket"></i> Sign In
+                    </button>
+                    <button onclick="registerUser()" class="flex-1 bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-fuchsia-600/20 active:scale-95 flex justify-center items-center gap-2">
+                        <i class="fa-solid fa-user-plus"></i> Sign Up
+                    </button>
+                </div>
 
                 <div class="relative flex items-center py-2 mb-4">
                     <div class="flex-grow border-t border-white/10"></div>
@@ -1199,7 +1204,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, setPersistence, signInWithEmailAndPassword, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyCJtNlBh_wQXRkKcoF80FDj0QSQb9BITHU",
@@ -1264,6 +1269,40 @@
                 .catch((error) => {
                     console.error("خطأ في تسجيل الدخول:", error.message);
                     showToast(`فشل تسجيل الدخول: ${error.message}`, 'error');
+                });
+        };
+
+        // 3. كود إنشاء حساب جديد مع حفظ الجلسة
+        window.registerUser = function() {
+            const emailInput = document.getElementById('login-email').value.trim();
+            const passInput = document.getElementById('login-password').value;
+            
+            if(!emailInput || !passInput) {
+                showToast("الرجاء إدخال البريد الإلكتروني وكلمة المرور للتسجيل", "error");
+                return;
+            }
+
+            setPersistence(auth, browserLocalPersistence)
+                .then(() => {
+                    return createUserWithEmailAndPassword(auth, emailInput, passInput);
+                })
+                .then((userCredential) => {
+                    console.log("تم إنشاء الحساب بنجاح، مرحباً بالزائر الجديد:", userCredential.user.email);
+                    showToast(`تم إنشاء الحساب بنجاح! مرحباً بك ${userCredential.user.email}`, 'success');
+                    toggleModal('modal-login'); // إخفاء الفورم
+                })
+                .catch((error) => {
+                    console.error("حدث خطأ:", error.message);
+                    // إظهار رسالة خطأ مخصصة للزائر
+                    if (error.code === 'auth/email-already-in-use') {
+                        showToast("هذا البريد الإلكتروني مستخدم بالفعل، يرجى تسجيل الدخول!", "error");
+                    } else if (error.code === 'auth/weak-password') {
+                        showToast("كلمة المرور ضعيفة! يجب أن تكون 6 أحرف على الأقل.", "error");
+                    } else if (error.code === 'auth/invalid-email') {
+                        showToast("صيغة البريد الإلكتروني غير صحيحة.", "error");
+                    } else {
+                        showToast(`فشل التسجيل: ${error.message}`, 'error');
+                    }
                 });
         };
 
