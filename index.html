@@ -1160,7 +1160,9 @@
             <button onclick="toggleModal('modal-login')" class="absolute top-4 right-4 bg-white/5 hover:bg-white/10 border border-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <div class="p-8">
+            
+            <!-- Login & Register Fields Section -->
+            <div class="p-8" id="login-fields-section">
                 <h3 class="text-2xl font-bold space-title mb-2 text-center">Welcome Back</h3>
                 <p class="text-slate-400 text-sm text-center mb-6">Sign in or create a new Lumina Games account.</p>
                 
@@ -1204,7 +1206,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyCJtNlBh_wQXRkKcoF80FDj0QSQb9BITHU",
@@ -1219,15 +1221,19 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
+        
+        // إجبار Firebase على إرسال رسائل الإيميل باللغة العربية
+        auth.languageCode = 'ar';
+        
         const provider = new GoogleAuthProvider();
 
-        // 1. كود التحقق من بقاء المستخدم مسجلاً
+        // 1. Check Auth State (النظام السحري للتحقق)
         onAuthStateChanged(auth, (user) => {
             const authContainer = document.getElementById('auth-container');
             if (!authContainer) return;
             
-            if (user) {
-                console.log("المستخدم مسجل دخوله تلقائياً:", user.email);
+            if (user && user.emailVerified) {
+                console.log("المستخدم مسجل ومفعل:", user.email);
                 const displayName = user.displayName || user.email.split('@')[0];
                 authContainer.innerHTML = `
                     <div class="flex items-center gap-3 animate-fade-in">
@@ -1238,70 +1244,108 @@
                         </div>
                     </div>
                 `;
+                if (window.verificationInterval) clearInterval(window.verificationInterval);
+            } else if (user && !user.emailVerified) {
+                console.log("المستخدم بانتظار التفعيل:", user.email);
+                authContainer.innerHTML = `
+                    <div class="flex items-center gap-3 animate-fade-in bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-xl">
+                        <span class="text-amber-400 text-xs font-bold animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-1"></i> بانتظار تفعيل الإيميل...</span>
+                        <button onclick="logout()" class="text-slate-400 hover:text-rose-400 text-[10px] uppercase font-bold tracking-wider transition-colors border-l border-white/10 pl-2">إلغاء</button>
+                    </div>
+                `;
+                
+                // فحص تلقائي كل 3 ثواني ليدخله مباشرة بمجرد ضغطه على الرابط في الإيميل
+                if (!window.verificationInterval) {
+                    window.verificationInterval = setInterval(() => {
+                        if (auth.currentUser) {
+                            auth.currentUser.reload().then(() => {
+                                if (auth.currentUser.emailVerified) {
+                                    clearInterval(window.verificationInterval);
+                                    showToast("🎉 تم تفعيل الحساب بنجاح! جاري الدخول...", "success");
+                                    setTimeout(() => window.location.reload(), 1500); // تحديث لدخول الموقع
+                                }
+                            });
+                        }
+                    }, 3000);
+                }
             } else {
+                // User is signed out
                 authContainer.innerHTML = `
                     <button onclick="toggleModal('modal-login')" class="animate-fade-in bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 shadow-lg shadow-brand-500/20 flex items-center gap-2 active:scale-95">
                         <i class="fa-solid fa-right-to-bracket"></i> Sign In
                     </button>
                 `;
+                if (window.verificationInterval) clearInterval(window.verificationInterval);
             }
         });
 
-        // 2. كود تسجيل الدخول مع حفظ الجلسة
+        // 2. كود تسجيل الدخول
         window.loginUser = function() {
             const emailInput = document.getElementById('login-email').value.trim();
             const passInput = document.getElementById('login-password').value;
             
             if(!emailInput || !passInput) {
-                showToast("الرجاء إدخال البريد الإلكتروني وكلمة المرور", "error");
+                showToast("يرجى ملء جميع الحقول", "error");
                 return;
             }
 
+            showToast("جاري التحقق من البيانات...", "info");
+
             setPersistence(auth, browserLocalPersistence)
-                .then(() => {
-                    return signInWithEmailAndPassword(auth, emailInput, passInput);
-                })
+                .then(() => signInWithEmailAndPassword(auth, emailInput, passInput))
                 .then((userCredential) => {
-                    console.log("تم الدخول وحفظ الحساب بنجاح!");
-                    showToast(`Welcome back, ${userCredential.user.email}!`, 'success');
-                    toggleModal('modal-login'); // إخفاء الفورم
+                    const user = userCredential.user;
+                    
+                    if (user.emailVerified) {
+                        showToast(`تم تسجيل الدخول بنجاح!`, 'success');
+                        toggleModal('modal-login');
+                    } else {
+                        showToast("حسابك غير مفعل! أرسلنا لك رابطاً، يرجى الضغط عليه.", 'error');
+                        toggleModal('modal-login'); // إخفاء النافذة وترك onAuthStateChanged يعرض حالة الانتظار
+                    }
                 })
                 .catch((error) => {
-                    console.error("خطأ في تسجيل الدخول:", error.message);
-                    showToast(`فشل تسجيل الدخول: ${error.message}`, 'error');
+                    showToast(`خطأ في تسجيل الدخول: تحقق من الإيميل أو كلمة المرور`, 'error');
+                    console.error(error);
                 });
         };
 
-        // 3. كود إنشاء حساب جديد مع حفظ الجلسة
+        // 3. كود إنشاء حساب وإرسال الرابط المباشر
         window.registerUser = function() {
             const emailInput = document.getElementById('login-email').value.trim();
             const passInput = document.getElementById('login-password').value;
             
             if(!emailInput || !passInput) {
-                showToast("الرجاء إدخال البريد الإلكتروني وكلمة المرور للتسجيل", "error");
+                showToast("يرجى ملء جميع الحقول", "error");
                 return;
             }
 
-            setPersistence(auth, browserLocalPersistence)
-                .then(() => {
-                    return createUserWithEmailAndPassword(auth, emailInput, passInput);
-                })
+            showToast("جاري إنشاء الحساب...", "info");
+
+            createUserWithEmailAndPassword(auth, emailInput, passInput)
                 .then((userCredential) => {
-                    console.log("تم إنشاء الحساب بنجاح، مرحباً بالزائر الجديد:", userCredential.user.email);
-                    showToast(`تم إنشاء الحساب بنجاح! مرحباً بك ${userCredential.user.email}`, 'success');
-                    toggleModal('modal-login'); // إخفاء الفورم
+                    const user = userCredential.user;
+                    
+                    // إرسال الإيميل بالطريقة المبسطة لتجنب أخطاء النطاق (Domain)
+                    sendEmailVerification(user)
+                        .then(() => {
+                            showToast("✅ أرسلنا رابط التفعيل لبريدك! اضغط عليه لتدخل الموقع فوراً.", "success");
+                            document.getElementById('login-password').value = '';
+                            toggleModal('modal-login'); 
+                            // لا نخرجه (signOut)، بل نتركه بانتظار الفحص التلقائي ليدخل مباشرة
+                        })
+                        .catch((error) => {
+                            showToast("❌ حدثت مشكلة تمنع إرسال الإيميل: " + error.message, "error");
+                            console.error("Firebase Email Error:", error);
+                        });
                 })
                 .catch((error) => {
-                    console.error("حدث خطأ:", error.message);
-                    // إظهار رسالة خطأ مخصصة للزائر
                     if (error.code === 'auth/email-already-in-use') {
-                        showToast("هذا البريد الإلكتروني مستخدم بالفعل، يرجى تسجيل الدخول!", "error");
+                        showToast("هذا البريد مستخدم بالفعل! يرجى تسجيل الدخول.", "error");
                     } else if (error.code === 'auth/weak-password') {
-                        showToast("كلمة المرور ضعيفة! يجب أن تكون 6 أحرف على الأقل.", "error");
-                    } else if (error.code === 'auth/invalid-email') {
-                        showToast("صيغة البريد الإلكتروني غير صحيحة.", "error");
+                        showToast("كلمة المرور ضعيفة (استخدم 6 أحرف على الأقل).", "error");
                     } else {
-                        showToast(`فشل التسجيل: ${error.message}`, 'error');
+                        showToast(`حدث خطأ أثناء التسجيل: ${error.message}`, 'error');
                     }
                 });
         };
