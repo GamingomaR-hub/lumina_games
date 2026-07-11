@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gamingomar-hub.github.io/lumina_games/sitemap.xml
