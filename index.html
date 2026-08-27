@@ -149,6 +149,47 @@
         <!-- Games Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8" id="games-grid">
             
+            <!-- GAME: MINECRAFT -->
+            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc android" data-title="minecraft pc android apk exe survival sandbox">
+                <div class="relative overflow-hidden aspect-video bg-slate-950">
+                    <img src="https://preview.redd.it/went-on-blender-i-made-a-minecraft-poster-v0-8b15yijpcgtc1.png?width=1080&crop=smart&auto=webp&s=59b3af78ee004907fa41c529b5f36620898ab851" alt="Minecraft" class="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
+                    <div class="absolute top-3 right-3 z-10 bg-green-500 text-slate-950 text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-green-400 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
+                        <i class="fa-solid fa-cube"></i> BEST SELLER
+                    </div>
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-windows"></i> PC</span>
+                        <span class="bg-brand-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-android"></i> Android</span>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8 flex-grow flex flex-col">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-green-400 tracking-wider uppercase">Open World Survival</span>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-slate-400 text-xs ml-1">(5.0/5)</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-green-300 transition-colors">Minecraft</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Includes the latest Android APK and TLauncher for PC!
+                    </p>
+                    <div class="grid grid-cols-1 gap-3">
+                         <div class="grid grid-cols-2 gap-3">
+                            <a href="https://www.mediafire.com/file/ks92ln8qhmi33rr/TLauncher-Installer-1.9.5.1.exe/file" target="_blank" onclick="handleDownload('Minecraft PC (TLauncher)')" class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
+                                <i class="fa-brands fa-windows"></i> PC <span class="text-[11px] font-normal opacity-80">(EXE)</span>
+                            </a>
+                            <a href="https://www.mediafire.com/file/ifjcoutbjgb5kgo/Minecraft-v1.26.50.27-full-apkvision.apk/file" target="_blank" onclick="handleDownload('Minecraft Android APK')" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
+                                <i class="fa-brands fa-android"></i> APK <span class="text-[11px] font-semibold opacity-90">(APK)</span>
+                            </a>
+                        </div>
+                        <button onclick="toggleModal('modal-minecraft')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
+                            <i class="fa-solid fa-circle-info"></i> Specs & Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <!-- GAME 1: BALDI'S BASICS -->
             <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc android" data-title="baldi's basics pc android patched">
                 <div class="relative overflow-hidden aspect-video bg-slate-950">
@@ -624,6 +665,19 @@
             <button onclick="toggleModal('modal-carnivore')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl"><i class="fa-solid fa-xmark"></i></button>
             <h3 class="text-2xl font-bold space-title mb-2">Carnivore! Info</h3>
             <p class="text-sm text-slate-400">System Requirements: Windows 7+ or Android 4.4+</p>
+        </div>
+    </div>
+
+    <!-- MODAL: MINECRAFT -->
+    <div id="modal-minecraft" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative p-6 md:p-8 flex flex-col sm:flex-row items-center gap-6">
+            <button onclick="toggleModal('modal-minecraft')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+            <img src="https://store-images.s-microsoft.com/image/apps.17382.13510798885735219.9735d495-578c-4a4c-b892-3eb3a780b3a0.d3792486-cf98-40c0-a2c1-d6443f0e2b70?q=90&w=177&h=265" alt="Minecraft Edition" class="w-28 rounded-xl shadow-lg border border-white/10">
+            <div>
+                <h3 class="text-2xl font-bold space-title mb-3 text-green-400">Minecraft Info</h3>
+                <p class="text-sm text-slate-300 mb-2"><strong class="text-white">PC Edition (TLauncher):</strong> Requires Windows 7/8/10/11, 4GB RAM. Note: Requires Java installed on your system to run.</p>
+                <p class="text-sm text-slate-300"><strong class="text-white">Android Edition:</strong> Version 1.26.50.27 (Full). Requires Android 5.0 or higher.</p>
+            </div>
         </div>
     </div>
 
