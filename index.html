@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumina Games - Ultimate Indie & Classic Downloads</title>
+    <title>Lumina Games | Premium Distribution</title>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for additional icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -18,673 +21,561 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        sans: ['Outfit', 'sans-serif'],
                         space: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
                         brand: {
-                            50: '#f5f3ff',
-                            100: '#ede9fe',
+                            400: '#a78bfa',
                             500: '#8b5cf6',
                             600: '#7c3aed',
-                            700: '#6d28d9',
-                            950: '#0c0a0f',
+                            900: '#4c1d95',
+                            950: '#2e1065',
+                        },
+                        dark: {
+                            950: '#030305',
+                            900: '#0a0a0c',
+                            800: '#121217',
+                            700: '#1c1c24',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'blob': 'blob 7s infinite',
+                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { opacity: 0.5, transform: 'scale(1)' },
+                            '100%': { opacity: 1, transform: 'scale(1.05)' },
+                        },
+                        shimmer: {
+                            from: { backgroundPosition: '200% 0' },
+                            to: { backgroundPosition: '-200% 0' }
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        },
+                        fadeUp: {
+                            '0%': { opacity: 0, transform: 'translateY(40px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' }
                         }
                     }
                 }
             }
         }
     </script>
+
     <style>
+        /* Premium Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030305; }
+        ::-webkit-scrollbar-thumb { background: #2e1065; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+
+        /* Cinematic Background */
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #050406;
+            background-color: #030305;
+            color: #e2e8f0;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+                radial-gradient(circle at 15% 50%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.05) 0%, transparent 50%);
             background-attachment: fixed;
+            overflow-x: hidden;
         }
-        .space-title {
-            font-family: 'Space Grotesk', sans-serif;
+
+        /* Ultimate Glassmorphism */
+        .glass-panel {
+            background: rgba(18, 18, 23, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, rgba(30, 30, 40, 0.6) 0%, rgba(15, 15, 20, 0.8) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        /* 3D Tilt Effect Container */
+        .tilt-container { perspective: 1000px; opacity: 0; } /* Opacity 0 for initial load animation */
+        .tilt-card { transition: transform 0.1s ease, box-shadow 0.3s ease; transform-style: preserve-3d; }
+        .tilt-card img { transform: translateZ(30px); }
+        .tilt-card .content-layer { transform: translateZ(50px); }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.25), inset 0 0 0 1px rgba(139, 92, 246, 0.5);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .space-title { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.03em; }
+
+        /* Loader */
+        #preloader {
+            position: fixed; inset: 0; z-index: 9999;
+            background: #030305; display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        
+        /* Shimmer Text */
+        .text-shimmer {
+            background: linear-gradient(90deg, #fff, #7c3aed, #fff);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
         }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+<body class="min-h-screen flex flex-col selection:bg-brand-500 selection:text-white antialiased">
 
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-gradient-to-r from-brand-700 to-indigo-700 text-center py-2 px-4 text-xs font-semibold tracking-wide text-white uppercase flex items-center justify-center gap-2 shadow-md z-50">
-        <span class="flex h-2 w-2 relative">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-        </span>
-        All downloads scanned with McAfee & Virustotal: 100% Secure
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="flex flex-col items-center gap-4">
+            <div class="relative w-16 h-16 flex items-center justify-center">
+                <div class="absolute inset-0 rounded-full border-t-2 border-brand-500 animate-spin"></div>
+                <div class="absolute inset-2 rounded-full border-r-2 border-cyan-400 animate-[spin_1.5s_reverse_infinite]"></div>
+                <i class="fa-solid fa-gamepad text-xl text-white animate-pulse"></i>
+            </div>
+            <div class="text-brand-400 font-bold space-title tracking-widest text-sm uppercase animate-pulse">Initializing System</div>
+        </div>
     </div>
 
-    <!-- NAVBAR -->
-    <nav class="sticky top-0 z-40 bg-brand-950/80 backdrop-blur-md border-b border-white/5 py-4 px-6 md:px-12 transition-all duration-300">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-2 group">
-                <div class="bg-gradient-to-tr from-brand-500 to-indigo-500 p-2.5 rounded-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-all duration-300">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
-                    </svg>
+    <!-- SECURE ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-brand-950 via-brand-900 to-indigo-950 text-center py-2 px-4 text-[10px] sm:text-xs font-bold tracking-[0.2em] text-white/80 uppercase flex items-center justify-center gap-3 relative overflow-hidden border-b border-white/5">
+        <span class="flex h-2 w-2 relative z-10">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="z-10">Defense System Active: 100% Secure Downloads</span>
+    </div>
+
+    <!-- PREMIUM NAVBAR -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-700 shadow-[0_0_20px_rgba(124,58,237,0.3)] group-hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all duration-500">
+                    <i class="fa-solid fa-gamepad text-white text-xl relative z-10 group-hover:rotate-12 transition-transform"></i>
+                    <div class="absolute inset-0 rounded-2xl bg-brand-400 blur-md opacity-40 group-hover:opacity-80 transition-opacity"></div>
                 </div>
-                <span class="text-xl font-extrabold space-title tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-400">LUMINA GAMES</span>
+                <span class="text-2xl font-extrabold space-title tracking-tight text-white">LUMINA<span class="text-brand-500">.</span></span>
             </a>
 
-            <!-- Search and Platform Filters -->
-            <div class="hidden md:flex items-center gap-6">
-                <a href="#games-section" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Browse Games</a>
-                <a href="#install-guide" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">How to Install</a>
-                <a href="#security-guarantee" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Our Promise</a>
-            </div>
-
-            <!-- Download Counter Dashboard & Auth -->
-            <div class="flex items-center gap-3">
-                <div class="hidden lg:flex flex-col items-end text-right text-xs">
-                    <span class="text-slate-400 font-medium">Total Downloads Today</span>
-                    <span class="text-emerald-400 font-bold" id="live-total-downloads">42,891</span>
+            <!-- Right Actions & Auth -->
+            <div class="flex items-center gap-6">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Network Traffic</span>
+                    <span class="text-emerald-400 font-bold text-sm font-mono flex items-center gap-1.5"><i class="fa-solid fa-chart-line text-[10px]"></i> <span id="live-total-downloads">142,891</span> TB</span>
                 </div>
-                <a href="#games-section" class="bg-white/10 hover:bg-white/15 text-white border border-white/10 px-5 py-2 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2 hidden md:flex">
-                    <i class="fa-solid fa-gamepad"></i> Explore Games
-                </a>
                 
                 <!-- Auth Container -->
-                <div id="auth-container" class="ml-2 pl-4 border-l border-white/10 min-w-[100px] flex items-center justify-center">
-                    <!-- Loading skeleton before Firebase initializes -->
-                    <div class="animate-pulse flex space-x-2">
-                        <div class="h-9 w-9 bg-slate-700/50 rounded-full"></div>
-                    </div>
+                <div id="auth-container" class="relative">
+                    <div class="animate-pulse h-10 w-28 bg-white/5 rounded-xl border border-white/10"></div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="relative overflow-hidden py-16 md:py-24 px-6 md:px-12 text-center">
-        <div class="absolute inset-0 z-0 bg-[radial-gradient(50%_50%_at_50%_50%,rgba(124,58,237,0.1)_0%,transparent_100%)]"></div>
-        <div class="max-w-4xl mx-auto relative z-10">
-            <span class="inline-flex items-center gap-1.5 py-1.5 px-3.5 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-6 uppercase tracking-wider">
-                <i class="fa-solid fa-bolt animate-pulse"></i> Instant Direct Downloads
-            </span>
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-black space-title leading-tight tracking-tight mb-6">
-                Download Your Favorite <br class="hidden sm:inline">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Classics & Indie Horror Hits</span>
+    <!-- HERO SECTION (Cinematic) -->
+    <header class="relative pt-24 pb-32 px-6 md:px-12 overflow-hidden flex flex-col items-center justify-center min-h-[75vh]">
+        <!-- Animated Background Blobs -->
+        <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-600/20 rounded-full blur-[120px] mix-blend-screen animate-blob pointer-events-none"></div>
+        <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-600/20 rounded-full blur-[120px] mix-blend-screen animate-blob animation-delay-2000 pointer-events-none"></div>
+        <div class="absolute -bottom-32 left-1/2 w-[700px] h-[700px] bg-indigo-600/20 rounded-full blur-[120px] mix-blend-screen animate-blob animation-delay-4000 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
+            
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-panel border-brand-500/30 mb-8 animate-float shadow-[0_0_20px_rgba(124,58,237,0.1)]">
+                <i class="fa-solid fa-crown text-brand-400 text-xs"></i>
+                <span class="text-xs font-bold text-brand-300 uppercase tracking-widest">The Ultimate Hub</span>
+            </div>
+
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black space-title leading-[1.05] tracking-tight mb-6 drop-shadow-2xl">
+                Gaming <br />
+                <span class="text-shimmer">Without Limits.</span>
             </h1>
-            <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                Enjoy lightning-fast, secure Mediafire direct download links for verified patched classics, Android APKs, and adrenaline-pumping survival horror. No surveys, no speed caps.
+            
+            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
+                Secure, high-speed direct downloads for curated masterpieces. Experience gaming the way it was meant to be, with zero restrictions.
             </p>
 
-            <!-- Search and Quick Category Selection -->
-            <div class="max-w-xl mx-auto bg-slate-900/60 backdrop-blur border border-white/10 p-2 rounded-2xl flex flex-col sm:flex-row items-center gap-2 shadow-2xl">
-                <div class="relative w-full flex-grow pl-3">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
-                    <input type="text" id="game-search" oninput="searchGames()" placeholder="Search game by title, genre, platform..." class="w-full bg-transparent pl-8 pr-4 py-3 text-slate-200 placeholder:text-slate-500 focus:outline-none text-sm transition-colors focus:ring-2 focus:ring-brand-500/50 rounded-xl">
+            <!-- Premium Search Bar -->
+            <div class="w-full max-w-2xl glass-card rounded-2xl p-2.5 flex items-center gap-2 focus-within:ring-2 focus-within:ring-brand-500/50 transition-all duration-500 relative z-20">
+                <div class="relative flex-grow flex items-center pl-4">
+                    <i class="fa-solid fa-magnifying-glass text-brand-400 text-lg"></i>
+                    <input type="text" id="game-search" oninput="searchGames()" placeholder="Search titles, genres, or platforms..." class="w-full bg-transparent pl-4 pr-4 py-3.5 text-slate-100 placeholder:text-slate-500 focus:outline-none text-base font-medium">
                 </div>
-                <button onclick="clearSearch()" class="w-full sm:w-auto px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-sm font-semibold shadow-lg shadow-brand-600/20 transition-all duration-300 active:scale-95 shrink-0 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-rotate-left"></i> Reset
+                <button onclick="clearSearch()" class="px-6 py-3.5 bg-dark-800 hover:bg-dark-700 text-slate-300 rounded-xl text-sm font-bold transition-colors flex items-center gap-2 border border-white/5 active:scale-95">
+                    <i class="fa-solid fa-rotate-right"></i> Reset
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- MAIN GAMES SECTION -->
-    <main id="games-section" class="max-w-7xl mx-auto px-6 md:px-12 py-12 flex-grow w-full">
+    <!-- GAMES SHOWCASE -->
+    <main id="games-section" class="max-w-7xl mx-auto px-6 md:px-12 py-16 flex-grow w-full relative z-20">
         
-        <!-- Filter Controls -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-white/5">
+        <!-- Filters -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-                <h2 class="text-2xl font-bold space-title">Featured Indie Showcase</h2>
-                <p class="text-slate-400 text-sm mt-1">Select your preferred format & click to trigger the secure Mediafire links.</p>
+                <h2 class="text-3xl md:text-4xl font-black space-title text-white mb-2 flex items-center gap-3">
+                    <i class="fa-solid fa-layer-group text-brand-500"></i> Featured Collection
+                </h2>
+                <p class="text-slate-400 text-sm font-medium">Hand-picked and verified across all platforms.</p>
             </div>
             
-            <div class="flex items-center p-1 bg-slate-900/80 rounded-xl border border-white/5 w-fit">
-                <button onclick="filterPlatform('all')" id="btn-all" class="px-4 py-2 text-xs font-semibold rounded-lg transition-all duration-300 bg-brand-600 text-white shadow">All Platforms</button>
-                <button onclick="filterPlatform('android')" id="btn-android" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all duration-300">Android APK</button>
-                <button onclick="filterPlatform('pc')" id="btn-pc" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all duration-300">Windows PC</button>
+            <div class="glass-panel p-1.5 rounded-2xl inline-flex shadow-lg shadow-black/50">
+                <button onclick="filterPlatform('all')" id="btn-all" class="px-6 py-3 text-xs font-bold rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-lg transition-all duration-300">All Platforms</button>
+                <button onclick="filterPlatform('pc')" id="btn-pc" class="px-6 py-3 text-xs font-bold rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Windows PC</button>
+                <button onclick="filterPlatform('android')" id="btn-android" class="px-6 py-3 text-xs font-bold rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Android APK</button>
             </div>
         </div>
 
-        <!-- Games Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8" id="games-grid">
+        <!-- Games Grid (Tilt Containers) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="games-grid">
             
-            <!-- GAME: MINECRAFT -->
-            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc android" data-title="minecraft pc android apk exe survival sandbox">
-                <div class="relative overflow-hidden aspect-video bg-slate-950">
-                    <img src="https://preview.redd.it/went-on-blender-i-made-a-minecraft-poster-v0-8b15yijpcgtc1.png?width=1080&crop=smart&auto=webp&s=59b3af78ee004907fa41c529b5f36620898ab851" alt="Minecraft" class="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-all duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
-                    <div class="absolute top-3 right-3 z-10 bg-green-500 text-slate-950 text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-green-400 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
-                        <i class="fa-solid fa-cube"></i> BEST SELLER
+            <!-- GAME 1: MINECRAFT -->
+            <div class="tilt-container game-card" data-platform="pc android" data-title="minecraft pc android apk exe survival sandbox">
+                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
+                    <div class="absolute top-4 right-4 z-30 bg-emerald-500/90 backdrop-blur text-white text-[10px] font-black px-4 py-2 rounded-xl shadow-lg shadow-emerald-500/30 uppercase tracking-widest flex items-center gap-1.5 border border-emerald-400/50">
+                        <i class="fa-solid fa-gem animate-pulse"></i> ESSENTIAL
                     </div>
-                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
-                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-windows"></i> PC</span>
-                        <span class="bg-brand-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-android"></i> Android</span>
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex-grow flex flex-col">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold text-green-400 tracking-wider uppercase">Open World Survival</span>
-                        <div class="flex items-center gap-1 text-amber-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <span class="text-slate-400 text-xs ml-1">(5.0/5)</span>
+
+                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
+                        <img src="https://preview.redd.it/went-on-blender-i-made-a-minecraft-poster-v0-8b15yijpcgtc1.png?width=1080&crop=smart&auto=webp&s=59b3af78ee004907fa41c529b5f36620898ab851" alt="Minecraft" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
+                        
+                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
+                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
+                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-android text-lg"></i></div>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-green-300 transition-colors">Minecraft</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Includes the latest Android APK and TLauncher for PC!
-                    </p>
-                    <div class="grid grid-cols-1 gap-3">
-                         <div class="grid grid-cols-2 gap-3">
-                            <a href="https://www.mediafire.com/file/ks92ln8qhmi33rr/TLauncher-Installer-1.9.5.1.exe/file" target="_blank" onclick="handleDownload('Minecraft PC (TLauncher)')" class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                                <i class="fa-brands fa-windows"></i> PC <span class="text-[11px] font-normal opacity-80">(EXE)</span>
-                            </a>
-                            <a href="https://www.mediafire.com/file/ifjcoutbjgb5kgo/Minecraft-v1.26.50.27-full-apkvision.apk/file" target="_blank" onclick="handleDownload('Minecraft Android APK')" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                                <i class="fa-brands fa-android"></i> APK <span class="text-[11px] font-semibold opacity-90">(APK)</span>
-                            </a>
+
+                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-extrabold text-emerald-400 tracking-widest uppercase bg-emerald-400/10 px-3 py-1 rounded-lg">Sandbox</span>
+                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                         </div>
-                        <button onclick="toggleModal('modal-minecraft')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
-                            <i class="fa-solid fa-circle-info"></i> Specs & Info
-                        </button>
+                        
+                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-emerald-300 transition-colors">Minecraft</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
+                            Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Includes the latest Android APK and TLauncher for PC!
+                        </p>
+
+                        <div class="flex flex-col gap-3 mt-auto">
+                            <div class="grid grid-cols-2 gap-3">
+                                <a href="https://www.mediafire.com/file/ks92ln8qhmi33rr/TLauncher-Installer-1.9.5.1.exe/file" target="_blank" onclick="handleDownload('Minecraft PC')" class="bg-white/5 hover:bg-brand-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-brand-500 flex flex-col items-center justify-center text-xs text-center group/btn shadow-lg">
+                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-windows text-brand-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> PC (EXE)</span>
+                                </a>
+                                <a href="https://www.mediafire.com/file/ifjcoutbjgb5kgo/Minecraft-v1.26.50.27-full-apkvision.apk/file" target="_blank" onclick="handleDownload('Minecraft Android')" class="bg-white/5 hover:bg-emerald-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-emerald-500 flex flex-col items-center justify-center text-xs text-center group/btn shadow-lg">
+                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-android text-emerald-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Mobile (APK)</span>
+                                </a>
+                            </div>
+                            <button onclick="openDynamicModal('minecraft')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors mt-2 active:scale-95 shadow-inner">
+                                <i class="fa-solid fa-list-check mr-1 text-brand-400"></i> View Requirements
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- GAME 1: BALDI'S BASICS -->
-            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc android" data-title="baldi's basics pc android patched">
-                <div class="relative overflow-hidden aspect-video bg-slate-950">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=2500w" alt="Baldi's Basics" class="w-full h-full object-cover object-top transform group-hover:scale-[1.03] transition-all duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
-                    <div class="absolute top-3 right-3 z-10 bg-emerald-500 text-slate-950 text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-emerald-400 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
-                        <i class="fa-solid fa-shield-halved"></i> 100% CLEAN
+            <!-- GAME 2: BALDI'S BASICS -->
+            <div class="tilt-container game-card" data-platform="pc android" data-title="baldi's basics pc android patched">
+                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
+                    <div class="absolute top-4 right-4 z-30 bg-brand-500/90 backdrop-blur text-white text-[10px] font-black px-4 py-2 rounded-xl shadow-lg shadow-brand-500/30 uppercase tracking-widest flex items-center gap-1.5 border border-brand-400/50">
+                        <i class="fa-solid fa-fire animate-pulse"></i> TRENDING
                     </div>
-                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
-                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-windows"></i> PC</span>
-                        <span class="bg-brand-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-android"></i> Android</span>
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex-grow flex flex-col">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold text-brand-400 tracking-wider uppercase">Classroom Survival Horror</span>
-                        <div class="flex items-center gap-1 text-amber-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i>
-                            <span class="text-slate-400 text-xs ml-1">(4.6/5)</span>
+
+                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
+                        <img src="https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=2500w" alt="Baldi's Basics" class="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
+                        
+                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
+                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
+                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-android text-lg"></i></div>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-brand-300 transition-colors">Baldi's Basics 1.4.3</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Step inside the schoolhouse of chaos. Solve math notebooks, outrun Baldi, and experience the quintessential bizarre retro horror game. Includes PC and Android versions.
-                    </p>
-                    <div class="grid grid-cols-1 gap-3">
-                         <div class="grid grid-cols-2 gap-3">
-                            <a href="https://www.mediafire.com/file_premium/1f5bhvzi98aqshy/BALDI_1.4.3_Windows_64Bit_patched.zip/file" target="_blank" onclick="handleDownload('Baldi\'s Basics PC ZIP')" class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                                <i class="fa-brands fa-windows"></i> PC <span class="text-[11px] font-normal opacity-80">(ZIP)</span>
+
+                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-extrabold text-brand-400 tracking-widest uppercase bg-brand-400/10 px-3 py-1 rounded-lg">Retro Horror</span>
+                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i></div>
+                        </div>
+                        
+                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-brand-300 transition-colors">Baldi's Basics 1.4.3</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
+                            Solve math notebooks, outrun Baldi, and experience the bizarre horror. Includes the classic 64-Bit PC build and custom-patched Android 10+ APK.
+                        </p>
+
+                        <div class="flex flex-col gap-3 mt-auto">
+                            <div class="grid grid-cols-2 gap-3">
+                                <a href="https://www.mediafire.com/file_premium/1f5bhvzi98aqshy/BALDI_1.4.3_Windows_64Bit_patched.zip/file" target="_blank" onclick="handleDownload('Baldi PC')" class="bg-white/5 hover:bg-brand-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-brand-500 flex flex-col items-center justify-center text-xs group/btn shadow-lg">
+                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-windows text-brand-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> PC (ZIP)</span>
+                                </a>
+                                <a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" onclick="handleDownload('Baldi Android')" class="bg-white/5 hover:bg-brand-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-brand-500 flex flex-col items-center justify-center text-xs group/btn shadow-lg">
+                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-android text-brand-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Mobile (APK)</span>
+                                </a>
+                            </div>
+                            <button onclick="openDynamicModal('baldi')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors mt-2 active:scale-95 shadow-inner">
+                                <i class="fa-solid fa-list-check mr-1 text-brand-400"></i> View Requirements
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAME 3: BIGFOOT SNOW MASSACRE -->
+            <div class="tilt-container game-card" data-platform="pc android" data-title="bigfoot snow massacre survival horror">
+                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
+                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
+                        <img src="https://img.itch.zone/aW1hZ2UvNDUwNDkxMS8yNjkyOTQ2OC5wbmc=/original/ow3cOL.png" alt="Bigfoot" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
+                        
+                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
+                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
+                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-android text-lg"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-extrabold text-cyan-400 tracking-widest uppercase bg-cyan-400/10 px-3 py-1 rounded-lg">Winter Survival</span>
+                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        
+                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-cyan-300 transition-colors">Bigfoot Snow Massacre</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
+                            Trapped in a snowbound cabin surrounded by the vicious Bigfoot. Keep the campfire burning, watch the shadows, and survive the freezing nightmare.
+                        </p>
+
+                        <div class="flex flex-col gap-3 mt-auto">
+                            <div class="grid grid-cols-2 gap-3">
+                                <a href="https://www.mediafire.com/file/20jg5ty5sd9h6xl/The+Bigfoot+Snow+Massacre.zip/file" target="_blank" onclick="handleDownload('Bigfoot PC')" class="bg-white/5 hover:bg-cyan-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-cyan-500 flex flex-col items-center justify-center text-xs group/btn shadow-lg">
+                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-windows text-cyan-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> PC (ZIP)</span>
+                                </a>
+                                <a href="https://www.mediafire.com/file/6ffu9c4zm3nzn0e/The+Bigfoot+Snow+Massacre.apk/file" target="_blank" onclick="handleDownload('Bigfoot Android')" class="bg-white/5 hover:bg-cyan-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-cyan-500 flex flex-col items-center justify-center text-xs group/btn shadow-lg">
+                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-android text-cyan-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Mobile (APK)</span>
+                                </a>
+                            </div>
+                            <button onclick="openDynamicModal('bigfoot')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors mt-2 active:scale-95 shadow-inner">
+                                <i class="fa-solid fa-list-check mr-1 text-cyan-400"></i> View Requirements
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAME 4: GTA MAROC -->
+            <div class="tilt-container game-card" data-platform="pc" data-title="gta san andreas maroc mod open world">
+                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
+                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
+                        <img src="https://2img.net/h/1.bp.blogspot.com/-P8ceA0FTqYc/Tio_2gj3RQI/AAAAAAAAADg/oJJ5fEEJB7U/s1600/gtamaroc.png" alt="GTA Maroc" class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
+                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-extrabold text-red-400 tracking-widest uppercase bg-red-400/10 px-3 py-1 rounded-lg">Open World Mod</span>
+                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        
+                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-red-400 transition-colors">GTA SA: Maroc</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
+                            The ultimate nostalgic classic modded to feature Moroccan streets, custom vehicles, and unique skins.
+                        </p>
+                        
+                        <div class="mb-5 bg-dark-950 border border-white/10 rounded-xl p-3 flex items-center justify-between shadow-inner">
+                            <span class="text-[10px] text-red-400 font-bold uppercase"><i class="fa-solid fa-lock mr-1"></i> Pass:</span>
+                            <code class="text-white text-xs font-mono font-bold select-all bg-white/5 px-2 py-1 rounded">www.i3dadiaty.com</code>
+                        </div>
+
+                        <div class="flex flex-col gap-3 mt-auto">
+                            <a href="https://www.mediafire.com/file_premium/3jd1s1bgroz7pzm/gta_sa_maroc_i3dadiaty.rar/file" target="_blank" onclick="handleDownload('GTA Maroc')" class="w-full bg-white/5 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-all duration-300 border border-white/10 hover:border-red-500 flex items-center justify-center gap-2 text-sm group/btn shadow-lg">
+                                <i class="fa-brands fa-windows text-red-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Download for PC (RAR)
                             </a>
-                            <a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" onclick="handleDownload('Baldi\'s Basics APK')" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                                <i class="fa-brands fa-android"></i> APK <span class="text-[11px] font-semibold opacity-90">(APK)</span>
+                            <button onclick="openDynamicModal('gtamaroc')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors active:scale-95 shadow-inner">
+                                <i class="fa-solid fa-list-check mr-1 text-red-400"></i> View Requirements
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- GAME 5: MECCHA CHAMELEON -->
+             <div class="tilt-container game-card" data-platform="pc" data-title="meccha chameleon arcade">
+                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
+                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
+                        <img src="https://sm.ign.com/t/ign_nl/cover/m/meccha-cha/meccha-chameleon_stxy.600.jpg" alt="Meccha" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
+                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-extrabold text-purple-400 tracking-widest uppercase bg-purple-400/10 px-3 py-1 rounded-lg">Arcade</span>
+                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                        </div>
+                        
+                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-purple-400 transition-colors">Meccha Chameleon</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
+                            Dive into a colorful and chaotic arcade experience! Use your long tongue to swing across gaps and devour enemies.
+                        </p>
+                        
+                        <div class="flex flex-col gap-3 mt-auto">
+                            <a href="https://www.mediafire.com/file_premium/98msmje7xzsjoz2/MECCHA.CHAMELEON-SteamRIP.com.rar/file" target="_blank" onclick="handleDownload('Meccha Chameleon')" class="w-full bg-white/5 hover:bg-purple-600 text-white font-bold py-3.5 rounded-xl transition-all duration-300 border border-white/10 hover:border-purple-500 flex items-center justify-center gap-2 text-sm group/btn shadow-lg">
+                                <i class="fa-brands fa-windows text-purple-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Download for PC
                             </a>
+                            <button onclick="openDynamicModal('meccha')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors active:scale-95 shadow-inner">
+                                <i class="fa-solid fa-list-check mr-1 text-purple-400"></i> View Requirements
+                            </button>
                         </div>
-                        <button onclick="toggleModal('modal-baldi')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
-                            <i class="fa-solid fa-circle-info"></i> Specs & Info
-                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- GAME 2: THE BIGFOOT SNOW MASSACRE -->
-            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc android" data-title="the bigfoot snow massacre pc android apk zip">
-                <div class="relative overflow-hidden aspect-video bg-slate-950">
-                    <img src="https://img.itch.zone/aW1hZ2UvNDUwNDkxMS8yNjkyOTQ2OC5wbmc=/original/ow3cOL.png" alt="The Bigfoot Snow Massacre" class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-all duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
-                    <div class="absolute top-3 right-3 z-10 bg-brand-500 text-white text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-brand-400 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
-                        <i class="fa-solid fa-fire-flame-curved"></i> HIGHEST RATED
-                    </div>
-                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
-                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-windows"></i> PC</span>
-                        <span class="bg-brand-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-android"></i> Android</span>
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex-grow flex flex-col">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold text-brand-400 tracking-wider uppercase">Survival Winter Horror</span>
-                        <div class="flex items-center gap-1 text-amber-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <span class="text-slate-400 text-xs ml-1">(4.9/5)</span>
+            <!-- GAME 6: GRANNY -->
+            <div class="tilt-container game-card" data-platform="pc" data-title="granny pc zip survival horror escape">
+                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
+                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
+                        <img src="https://img.tapimg.net/market/images/7aa1bed93f52772f6ee79cc3e1853e8e.jpg?imageView2/2/w/720/h/720/q/80/format/jpg/interlace/1/ignore-error/1&t=1" alt="Granny" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
+                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-brand-300 transition-colors">The Bigfoot Snow Massacre</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Trapped in a snowbound cabin surrounded by the vicious Bigfoot. Keep the campfire burning, watch the shadows, load your rifle, and attempt to survive.
-                    </p>
-                    <div class="grid grid-cols-1 gap-3">
-                        <div class="grid grid-cols-2 gap-3">
-                            <a href="https://www.mediafire.com/file/20jg5ty5sd9h6xl/The+Bigfoot+Snow+Massacre.zip/file" target="_blank" onclick="handleDownload('The Bigfoot Snow Massacre PC ZIP')" class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                                <i class="fa-brands fa-windows"></i> PC <span class="text-[11px] font-normal opacity-80">(ZIP)</span>
+
+                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-extrabold text-rose-400 tracking-widest uppercase bg-rose-400/10 px-3 py-1 rounded-lg">Escape Horror</span>
+                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        </div>
+                        
+                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-rose-400 transition-colors">Granny v1.2</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
+                            Welcome to Granny's house. You have 5 days to escape. She hears everything. Hide in wardrobes or under beds, but be careful.
+                        </p>
+                        
+                        <div class="flex flex-col gap-3 mt-auto">
+                            <a href="https://www.mediafire.com/file_premium/0on96q3sdrblgca/Granny.v1.2.zip/file" target="_blank" onclick="handleDownload('Granny PC')" class="w-full bg-white/5 hover:bg-rose-600 text-white font-bold py-3.5 rounded-xl transition-all duration-300 border border-white/10 hover:border-rose-500 flex items-center justify-center gap-2 text-sm group/btn shadow-lg">
+                                <i class="fa-brands fa-windows text-rose-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Download for PC (ZIP)
                             </a>
-                            <a href="https://www.mediafire.com/file/6ffu9c4zm3nzn0e/The+Bigfoot+Snow+Massacre.apk/file" target="_blank" onclick="handleDownload('The Bigfoot Snow Massacre Android APK')" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                                <i class="fa-brands fa-android"></i> APK <span class="text-[11px] font-semibold opacity-90">(APK)</span>
-                            </a>
+                            <button onclick="openDynamicModal('granny')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors active:scale-95 shadow-inner">
+                                <i class="fa-solid fa-list-check mr-1 text-rose-400"></i> View Requirements
+                            </button>
                         </div>
-                        <button onclick="toggleModal('modal-bigfoot')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
-                            <i class="fa-solid fa-circle-info"></i> Specs & Info
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GAME 3: MECCHA CHAMELEON -->
-            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc" data-title="meccha chameleon pc rar arcade adventure">
-                <div class="relative overflow-hidden aspect-video bg-slate-950">
-                    <img src="https://sm.ign.com/t/ign_nl/cover/m/meccha-cha/meccha-chameleon_stxy.600.jpg" alt="Meccha Chameleon" class="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-all duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
-                    <div class="absolute top-3 right-3 z-10 bg-purple-500 text-white text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-purple-400 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
-                        <i class="fa-solid fa-star"></i> NEW ARRIVAL
-                    </div>
-                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
-                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-windows"></i> PC</span>
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex-grow flex flex-col">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold text-purple-400 tracking-wider uppercase">Arcade Adventure</span>
-                        <div class="flex items-center gap-1 text-amber-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                            <span class="text-slate-400 text-xs ml-1">(4.0/5)</span>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-purple-300 transition-colors">Meccha Chameleon</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Take control of a hungry chameleon navigating through vibrant, treacherous levels. Use your long tongue to swing across gaps and devour enemies.
-                    </p>
-                    <div class="flex flex-col gap-3">
-                        <a href="https://www.mediafire.com/file_premium/98msmje7xzsjoz2/MECCHA.CHAMELEON-SteamRIP.com.rar/file" target="_blank" onclick="handleDownload('Meccha Chameleon PC RAR')" class="w-full bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-purple-500 hover:to-indigo-600 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                            <i class="fa-brands fa-windows"></i> PC Download <span class="text-[11px] font-normal opacity-80">(RAR)</span>
-                        </a>
-                        <button onclick="toggleModal('modal-meccha')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
-                            <i class="fa-solid fa-circle-info"></i> Specs & Info
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GAME 4: GTA SA MAROC -->
-            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc" data-title="gta san andreas maroc i3dadiaty pc rar open world mod">
-                <div class="relative overflow-hidden aspect-video bg-slate-950">
-                    <img src="https://2img.net/h/1.bp.blogspot.com/-P8ceA0FTqYc/Tio_2gj3RQI/AAAAAAAAADg/oJJ5fEEJB7U/s1600/gtamaroc.png" alt="GTA SA Maroc" class="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-all duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
-                    <div class="absolute top-3 right-3 z-10 bg-red-600 text-white text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-red-500 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
-                        <i class="fa-solid fa-fire"></i> LEGENDARY MOD
-                    </div>
-                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
-                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-windows"></i> PC</span>
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex-grow flex flex-col">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold text-red-400 tracking-wider uppercase">Open World Action</span>
-                        <div class="flex items-center gap-1 text-amber-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <span class="text-slate-400 text-xs ml-1">(4.9/5)</span>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-red-300 transition-colors">GTA San Andreas: Maroc</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-3 flex-grow">
-                        Experience the nostalgic open-world classic, fully modded to feature Moroccan streets, custom vehicles, local signs, and unique player skins.
-                    </p>
-                    <div class="mb-6 bg-red-500/10 border border-red-500/20 rounded-xl p-2.5 flex items-center justify-between">
-                        <span class="text-[11px] text-red-300 font-semibold uppercase tracking-wider"><i class="fa-solid fa-lock mr-1"></i> RAR Password:</span>
-                        <code class="text-white text-xs font-bold bg-slate-950 border border-white/10 px-2 py-1 rounded select-all cursor-text">www.i3dadiaty.com</code>
-                    </div>
-                    <div class="flex flex-col gap-3">
-                        <a href="https://www.mediafire.com/file_premium/3jd1s1bgroz7pzm/gta_sa_maroc_i3dadiaty.rar/file" target="_blank" onclick="handleDownload('GTA SA Maroc PC RAR')" class="w-full bg-gradient-to-r from-red-600 to-orange-700 hover:from-red-500 hover:to-orange-600 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                            <i class="fa-brands fa-windows"></i> PC Download <span class="text-[11px] font-normal opacity-80">(RAR)</span>
-                        </a>
-                        <button onclick="toggleModal('modal-gta')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
-                            <i class="fa-solid fa-circle-info"></i> Specs & Info
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GAME 5: GRANNY -->
-            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc" data-title="granny pc zip survival horror escape">
-                <div class="relative overflow-hidden aspect-video bg-slate-950">
-                    <img src="https://img.tapimg.net/market/images/7aa1bed93f52772f6ee79cc3e1853e8e.jpg?imageView2/2/w/720/h/720/q/80/format/jpg/interlace/1/ignore-error/1&t=1" alt="Granny" class="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-all duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
-                    <div class="absolute top-3 right-3 z-10 bg-rose-600 text-white text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-rose-500 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
-                        <i class="fa-solid fa-skull"></i> TERRIFYING
-                    </div>
-                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
-                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-windows"></i> PC</span>
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex-grow flex flex-col">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold text-rose-400 tracking-wider uppercase">Survival Escape Horror</span>
-                        <div class="flex items-center gap-1 text-amber-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                            <span class="text-slate-400 text-xs ml-1">(4.7/5)</span>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-rose-300 transition-colors">Granny v1.2</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Welcome to Granny's house. You have 5 days to escape. She hears everything. Hide in wardrobes or under beds, but you must be careful.
-                    </p>
-                    <div class="flex flex-col gap-3">
-                        <a href="https://www.mediafire.com/file_premium/0on96q3sdrblgca/Granny.v1.2.zip/file" target="_blank" onclick="handleDownload('Granny PC ZIP')" class="w-full bg-gradient-to-r from-rose-600 to-red-800 hover:from-rose-500 hover:to-red-700 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                            <i class="fa-brands fa-windows"></i> PC Download <span class="text-[11px] font-normal opacity-80">(ZIP)</span>
-                        </a>
-                        <button onclick="toggleModal('modal-granny')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
-                            <i class="fa-solid fa-circle-info"></i> Specs & Info
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GAME 6: BAD GUYS AT SCHOOL -->
-            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc" data-title="bad guys at school pc zip multiplayer action simulation">
-                <div class="relative overflow-hidden aspect-video bg-slate-950">
-                    <img src="https://drwtgamereviews.com/wp-content/uploads/2024/03/20240320100356_1.jpg?w=1024" alt="Bad Guys at School" class="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-all duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
-                    <div class="absolute top-3 right-3 z-10 bg-amber-500 text-slate-900 text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-amber-400 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
-                        <i class="fa-solid fa-users"></i> MULTIPLAYER
-                    </div>
-                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
-                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-windows"></i> PC</span>
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex-grow flex flex-col">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold text-amber-400 tracking-wider uppercase">Action Simulation</span>
-                        <div class="flex items-center gap-1 text-amber-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                            <span class="text-slate-400 text-xs ml-1">(4.5/5)</span>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-amber-300 transition-colors">Bad Guys at School</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Revolt against the school system as a student or maintain order as a teacher! Hilarious physics-based action game.
-                    </p>
-                    <div class="flex flex-col gap-3">
-                        <a href="https://www.mediafire.com/file_premium/eey2w6ksds48hn5/Bad.Guys.at.School.v2020.08.11.zip/file" target="_blank" onclick="handleDownload('Bad Guys at School PC ZIP')" class="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-900 font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                            <i class="fa-brands fa-windows"></i> PC Download <span class="text-[11px] font-semibold opacity-90">(ZIP)</span>
-                        </a>
-                        <button onclick="toggleModal('modal-badguys')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
-                            <i class="fa-solid fa-circle-info"></i> Specs & Info
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GAME 7: NFS MOST WANTED 2005 -->
-            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc" data-title="need for speed nfs most wanted 2005 pc zip racing classic">
-                <div class="relative overflow-hidden aspect-video bg-slate-950">
-                    <img src="https://imag.malavida.com/mvimgbig/download-fs/need-for-speed-most-wanted-624-4.jpg" alt="NFS Most Wanted 2005" class="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-all duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
-                    <div class="absolute top-3 right-3 z-10 bg-yellow-500 text-slate-900 text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-yellow-400 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
-                        <i class="fa-solid fa-car-side"></i> STREET LEGEND
-                    </div>
-                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
-                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-windows"></i> PC</span>
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex-grow flex flex-col">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold text-yellow-500 tracking-wider uppercase">Open World Racing</span>
-                        <div class="flex items-center gap-1 text-amber-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <span class="text-slate-400 text-xs ml-1">(5.0/5)</span>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-yellow-400 transition-colors">NFS: Most Wanted (2005)</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Become the most notorious street racer! Evade relentless police pursuits, customize your rides, and climb the Blacklist. Ready to run on modern PCs.
-                    </p>
-                    <div class="flex flex-col gap-3">
-                        <a href="https://www.mediafire.com/file_premium/kqga07pezdvawuu/NFS-Most-Wanted-2005.zip/file" target="_blank" onclick="handleDownload('NFS Most Wanted PC ZIP')" class="w-full bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                            <i class="fa-brands fa-windows"></i> PC Download <span class="text-[11px] font-normal opacity-80">(ZIP)</span>
-                        </a>
-                        <button onclick="toggleModal('modal-nfs')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
-                            <i class="fa-solid fa-circle-info"></i> Specs & Info
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GAME 8: CARNIVORE -->
-            <div class="game-card bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-500/5 transition-all duration-500 flex flex-col group" data-platform="pc android" data-title="carnivore retro pixel horror survival pc android apk zip">
-                <div class="relative overflow-hidden aspect-video bg-slate-950">
-                    <img src="https://img.itch.zone/aW1nLzI3MTU5MTkwLmdpZg==/original/pEjzAw.gif" alt="Carnivore!" class="w-full h-full object-cover object-center transform group-hover:scale-[1.03] transition-all duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
-                    <div class="absolute top-3 right-3 z-10 bg-fuchsia-600 text-white text-xs font-black px-4 py-2 rounded-xl shadow-lg border border-fuchsia-500 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
-                        <i class="fa-solid fa-ghost"></i> CREEPY RETRO
-                    </div>
-                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
-                        <span class="bg-blue-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-windows"></i> PC</span>
-                        <span class="bg-brand-500/90 text-white text-[11px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1"><i class="fa-brands fa-android"></i> Android</span>
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex-grow flex flex-col">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold text-fuchsia-400 tracking-wider uppercase">Retro Indie Horror</span>
-                        <div class="flex items-center gap-1 text-amber-400 text-sm">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                            <span class="text-slate-400 text-xs ml-1">(4.2/5)</span>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold space-title mb-3 group-hover:text-fuchsia-300 transition-colors">Carnivore!</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Step into a haunting, pixelated nightmare. Carnivore! delivers a tense retro survival experience filled with strange creatures.
-                    </p>
-                    <div class="grid grid-cols-1 gap-3">
-                        <div class="grid grid-cols-2 gap-3">
-                            <a href="https://www.mediafire.com/file/7xxju3x1ccd8ev0/Carnivore!+-+Windows.zip/file" target="_blank" onclick="handleDownload('Carnivore PC ZIP')" class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                                <i class="fa-brands fa-windows"></i> PC <span class="text-[11px] font-normal opacity-80">(ZIP)</span>
-                            </a>
-                            <a href="https://www.mediafire.com/file/fcx5whf29cd3sd3/Carnivore!+-+Android.apk/file" target="_blank" onclick="handleDownload('Carnivore Android APK')" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg active:scale-95 text-center text-sm">
-                                <i class="fa-brands fa-android"></i> APK <span class="text-[11px] font-semibold opacity-90">(APK)</span>
-                            </a>
-                        </div>
-                        <button onclick="toggleModal('modal-carnivore')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-1.5 text-sm">
-                            <i class="fa-solid fa-circle-info"></i> Specs & Info
-                        </button>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- No Games Found State -->
-        <div id="no-results-state" class="hidden text-center py-24 bg-slate-900/20 border border-dashed border-white/10 rounded-3xl max-w-lg mx-auto">
-            <div class="text-slate-500 text-5xl mb-4">
-                <i class="fa-solid fa-ghost"></i>
-            </div>
-            <h3 class="text-xl font-bold space-title text-slate-300 mb-1">No Games Found</h3>
-            <p class="text-slate-500 text-sm px-6">We couldn't find any games matching your current search or filter. Try checking your spelling or selecting "All Platforms".</p>
+        <!-- No Games Found -->
+        <div id="no-results-state" class="hidden text-center py-24 glass-card rounded-3xl max-w-2xl mx-auto mt-8 border-dashed border-white/10 shadow-2xl">
+            <div class="text-brand-500 text-6xl mb-6"><i class="fa-solid fa-ghost animate-float"></i></div>
+            <h3 class="text-2xl font-bold space-title text-white mb-2">No Titles Found</h3>
+            <p class="text-slate-400 text-sm px-6">Adjust your search or change the platform filter to discover more games.</p>
+            <button onclick="clearSearch()" class="mt-6 px-6 py-2 bg-white/5 hover:bg-white/10 text-white rounded-lg border border-white/10 transition-colors font-bold text-sm">Clear Search</button>
         </div>
-
     </main>
 
-    <!-- SECURITY & GUARANTEE SECTION -->
-    <section id="security-guarantee" class="bg-slate-900/30 border-t border-b border-white/5 py-16 px-6 md:px-12 my-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-xs font-semibold tracking-wider text-brand-400 uppercase">Our Integrity Pledge</span>
-                <h2 class="text-3xl font-bold space-title mt-2">Downloads You Can Trust</h2>
-                <p class="text-slate-400 text-sm mt-3">We understand downloading APKs online can feel unsafe. That's why we maintain strict screening procedures to ensure absolute gaming peace of mind.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Promise Card 1 -->
-                <div class="bg-brand-950/40 border border-white/5 p-6 rounded-2xl hover:border-white/10 transition-colors">
-                    <div class="text-emerald-400 text-2xl mb-4"><i class="fa-solid fa-shield-virus"></i></div>
-                    <h3 class="text-lg font-bold space-title mb-2">Zero Malware & Virustotal Screened</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Every direct download link provided is run through an array of premium antivirus engine checkers. There are no secondary repackagers or hidden file bundlers.</p>
-                </div>
-                <!-- Promise Card 2 -->
-                <div class="bg-brand-950/40 border border-white/5 p-6 rounded-2xl hover:border-white/10 transition-colors">
-                    <div class="text-brand-400 text-2xl mb-4"><i class="fa-solid fa-link"></i></div>
-                    <h3 class="text-lg font-bold space-title mb-2">Direct Mediafire Connections</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Say goodbye to annoying redirect link shrinkers, ads, and countdown traps. We link directly to raw file storage on Mediafire for the fastest speed possible on any bandwidth.</p>
-                </div>
-                <!-- Promise Card 3 -->
-                <div class="bg-brand-950/40 border border-white/5 p-6 rounded-2xl hover:border-white/10 transition-colors">
-                    <div class="text-cyan-400 text-2xl mb-4"><i class="fa-solid fa-gear"></i></div>
-                    <h3 class="text-lg font-bold space-title mb-2">Verified & Patched Compatibility</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">We manually launch and test games on targeted hardware before posting. The Baldi APK is thoroughly tested on multiple Android system API versions to guarantee stability.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-brand-950 border-t border-white/5 pt-16 pb-8 px-6 md:px-12 text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            <div class="md:col-span-2">
-                <div class="flex items-center gap-2 mb-4">
-                    <div class="bg-gradient-to-tr from-brand-500 to-indigo-500 p-2 rounded-lg text-white">
-                        <i class="fa-solid fa-gamepad"></i>
-                    </div>
-                    <span class="text-white font-extrabold space-title tracking-wider">LUMINA GAMES</span>
-                </div>
-                <p class="max-w-sm mb-4 text-xs leading-relaxed">
-                    Lumina Games is an independent, non-affiliated catalog showcasing classic game modifications, patched portable retro titles, and original indie horror developments. We value download transparency.
-                </p>
-                <p class="text-[11px] text-slate-600">
-                    &copy; 2026 Lumina Games distribution. Created as a custom gaming hub. All game rights reserved.
-                </p>
-            </div>
-            <div>
-                <h4 class="text-white font-semibold space-title mb-4 uppercase tracking-wider text-xs">Featured Downloads</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="#" class="hover:text-white transition-colors">Baldi's Basics 1.4.3 Android APK</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Baldi's Basics 1.4.3 PC (ZIP)</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">The Bigfoot PC (ZIP)</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">GTA SA Maroc PC (RAR)</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-semibold space-title mb-4 uppercase tracking-wider text-xs">Safe Play Disclaimer</h4>
-                <p class="text-[11px] text-slate-500 leading-relaxed">
-                    Downloads are made hosted via high-speed, secure servers. Remember to always scan any third-party app packages before starting configuration files to comply with standard security advice.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- INTERACTIVE MODALS -->
-    
-    <!-- MODAL: LOGIN / REGISTER -->
-    <div id="modal-login" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl relative">
-            <button onclick="toggleModal('modal-login')" class="absolute top-4 right-4 bg-white/5 hover:bg-white/10 border border-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors">
+    <!-- SECURE AUTHENTICATION MODAL (Strict Email & Password) -->
+    <div id="modal-login" class="hidden fixed inset-0 z-[100] bg-dark-950/90 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="glass-card rounded-[2rem] max-w-md w-full overflow-hidden shadow-2xl relative transform scale-95 transition-transform duration-300 border border-white/10" id="modal-login-content">
+            
+            <button onclick="toggleModal('modal-login')" class="absolute top-6 right-6 w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all z-20 active:scale-95">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <div class="p-8" id="login-fields-section">
-                <h3 class="text-2xl font-bold space-title mb-2 text-center">Welcome Back</h3>
-                <p class="text-slate-400 text-sm text-center mb-6">Sign in or create a new Lumina Games account.</p>
+            <div class="p-10 relative">
+                <div class="absolute -top-20 -right-20 w-40 h-40 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
                 
-                <div class="space-y-4 mb-6">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-700 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+                    <i class="fa-solid fa-shield-halved text-2xl text-white"></i>
+                </div>
+
+                <h3 class="text-3xl font-black space-title mb-2 text-white">Access Portal</h3>
+                <p class="text-slate-400 text-sm mb-8 font-medium">Securely sign in or register to unlock direct links.</p>
+                
+                <div class="space-y-5 mb-8">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Email Address</label>
-                        <input type="email" id="login-email" class="w-full bg-white/5 border border-white/10 focus:border-brand-500 rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-colors" placeholder="you@example.com">
+                        <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Email Address</label>
+                        <div class="relative group">
+                            <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-400 transition-colors"></i>
+                            <input type="email" id="login-email" class="w-full bg-dark-950 border border-white/10 focus:border-brand-500 rounded-xl pl-12 pr-4 py-4 text-sm text-white focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition-all placeholder:text-slate-600 font-medium" placeholder="gamer@example.com">
+                        </div>
                     </div>
                     <div>
                         <div class="flex justify-between items-center mb-2">
-                            <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Password</label>
-                            <button onclick="resetPassword()" class="text-[10px] text-brand-400 hover:text-brand-300 transition-colors font-bold">Forgot Password?</button>
+                            <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-widest">Password</label>
+                            <button onclick="resetPassword()" class="text-[11px] text-brand-400 hover:text-brand-300 transition-colors font-bold uppercase tracking-wider">Forgot?</button>
                         </div>
-                        <input type="password" id="login-password" class="w-full bg-white/5 border border-white/10 focus:border-brand-500 rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-colors" placeholder="••••••••">
+                        <div class="relative group">
+                            <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-400 transition-colors"></i>
+                            <input type="password" id="login-password" class="w-full bg-dark-950 border border-white/10 focus:border-brand-500 rounded-xl pl-12 pr-4 py-4 text-sm text-white focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition-all placeholder:text-slate-600 font-medium" placeholder="••••••••">
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex gap-3 mb-2">
-                    <button onclick="loginUser()" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-brand-600/20 active:scale-95 flex justify-center items-center gap-2">
-                        <i class="fa-solid fa-right-to-bracket"></i> Sign In
-                    </button>
-                    <button onclick="registerUser()" class="flex-1 bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-fuchsia-600/20 active:scale-95 flex justify-center items-center gap-2">
-                        <i class="fa-solid fa-user-plus"></i> Sign Up
-                    </button>
+                <div class="flex flex-col gap-3">
+                    <div class="flex gap-3">
+                        <button onclick="loginUser()" class="flex-1 bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] active:scale-[0.98] flex justify-center items-center gap-2 text-sm">
+                            Sign In
+                        </button>
+                        <button onclick="registerUser()" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold py-4 rounded-xl transition-all active:scale-[0.98] text-sm">
+                            Sign Up
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modals for Games Info (Structure remains, content simplified for brevity) -->
-    <div id="modal-baldi" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative p-6 md:p-8">
-            <button onclick="toggleModal('modal-baldi')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-2xl font-bold space-title mb-2">Baldi's Basics Info</h3>
-            <p class="text-sm text-slate-400">System Requirements: Windows 7+ or Android 5.0+</p>
-        </div>
-    </div>
-    <div id="modal-bigfoot" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative p-6 md:p-8">
-            <button onclick="toggleModal('modal-bigfoot')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-2xl font-bold space-title mb-2">The Bigfoot Snow Massacre Info</h3>
-            <p class="text-sm text-slate-400">System Requirements: Windows 10+ or Android 8.0+</p>
-        </div>
-    </div>
-    <div id="modal-meccha" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative p-6 md:p-8">
-            <button onclick="toggleModal('modal-meccha')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-2xl font-bold space-title mb-2">Meccha Chameleon Info</h3>
-            <p class="text-sm text-slate-400">System Requirements: Windows 10/11 (64-Bit), 4GB RAM</p>
-        </div>
-    </div>
-    <div id="modal-gta" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative p-6 md:p-8">
-            <button onclick="toggleModal('modal-gta')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-2xl font-bold space-title mb-2">GTA San Andreas: Maroc Info</h3>
-            <p class="text-sm text-slate-400">Extraction Password: <code class="bg-slate-950 px-2 py-1 rounded text-red-300">www.i3dadiaty.com</code></p>
-        </div>
-    </div>
-    <div id="modal-granny" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative p-6 md:p-8">
-            <button onclick="toggleModal('modal-granny')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-2xl font-bold space-title mb-2">Granny PC Info</h3>
-            <p class="text-sm text-slate-400">System Requirements: Windows 7/8/10, 4GB RAM</p>
-        </div>
-    </div>
-    <div id="modal-badguys" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative p-6 md:p-8">
-            <button onclick="toggleModal('modal-badguys')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-2xl font-bold space-title mb-2">Bad Guys at School Info</h3>
-            <p class="text-sm text-slate-400">System Requirements: Windows 10, 8GB RAM</p>
-        </div>
-    </div>
-    <div id="modal-nfs" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative p-6 md:p-8">
-            <button onclick="toggleModal('modal-nfs')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-2xl font-bold space-title mb-2">NFS: Most Wanted Info</h3>
-            <p class="text-sm text-slate-400">System Requirements: Windows 7/10, 256MB RAM</p>
-        </div>
-    </div>
-    <div id="modal-carnivore" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative p-6 md:p-8">
-            <button onclick="toggleModal('modal-carnivore')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-2xl font-bold space-title mb-2">Carnivore! Info</h3>
-            <p class="text-sm text-slate-400">System Requirements: Windows 7+ or Android 4.4+</p>
-        </div>
-    </div>
-
-    <!-- MODAL: MINECRAFT -->
-    <div id="modal-minecraft" class="hidden fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative p-6 md:p-8 flex flex-col sm:flex-row items-center gap-6">
-            <button onclick="toggleModal('modal-minecraft')" class="absolute top-4 right-4 bg-white/5 text-slate-400 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
-            <img src="https://store-images.s-microsoft.com/image/apps.17382.13510798885735219.9735d495-578c-4a4c-b892-3eb3a780b3a0.d3792486-cf98-40c0-a2c1-d6443f0e2b70?q=90&w=177&h=265" alt="Minecraft Edition" class="w-28 rounded-xl shadow-lg border border-white/10">
-            <div>
-                <h3 class="text-2xl font-bold space-title mb-3 text-green-400">Minecraft Info</h3>
-                <p class="text-sm text-slate-300 mb-2"><strong class="text-white">PC Edition (TLauncher):</strong> Requires Windows 7/8/10/11, 4GB RAM. Note: Requires Java installed on your system to run.</p>
-                <p class="text-sm text-slate-300"><strong class="text-white">Android Edition:</strong> Version 1.26.50.27 (Full). Requires Android 5.0 or higher.</p>
+    <!-- DYNAMIC GAME SPECS MODAL (One Modal for All Games) -->
+    <div id="dynamic-modal" class="hidden fixed inset-0 z-[100] bg-dark-950/90 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="glass-card rounded-[2rem] max-w-3xl w-full overflow-hidden shadow-2xl relative border border-white/10 p-8 flex flex-col md:flex-row gap-8 items-center transform scale-95 transition-transform duration-300" id="dynamic-modal-content">
+            <button onclick="closeDynamicModal()" class="absolute top-4 right-4 w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all active:scale-95 z-20"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="w-40 md:w-48 aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(139,92,246,0.2)] shrink-0 border border-white/10 relative group">
+                <img id="modal-img" src="" alt="Game Box" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            
+            <div class="flex-grow w-full">
+                <div id="modal-tag" class="inline-block text-[10px] font-black px-3 py-1 rounded-lg uppercase tracking-widest mb-3 border"></div>
+                <h3 id="modal-title" class="text-3xl font-black space-title mb-6 text-white"></h3>
+                
+                <div class="space-y-4" id="modal-specs-container">
+                    <!-- Dynamic Content Injected Here -->
+                </div>
             </div>
         </div>
     </div>
 
     <!-- TOAST NOTIFICATION CONTAINER -->
-    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none max-w-sm w-full"></div>
+    <div id="toast-container" class="fixed bottom-6 right-6 z-[110] flex flex-col gap-3 pointer-events-none max-w-sm w-full"></div>
 
-    <!-- FIREBASE AUTHENTICATION MODULE -->
+    <!-- FIREBASE MODULE -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signOut, onAuthStateChanged, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -700,47 +591,43 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
-        
-        // إجبار رسائل فايربيز على استخدام اللغة العربية
-        auth.languageCode = 'ar';
+        auth.languageCode = 'ar'; 
 
-        // 1. مراقبة حالة الدخول (مع نظام الفحص التلقائي)
+        // 1. Magic Authentication State
         onAuthStateChanged(auth, (user) => {
             const authContainer = document.getElementById('auth-container');
             if (!authContainer) return;
             
             if (user && user.emailVerified) {
-                // حالة: مسجل ومفعل
-                const displayName = user.displayName || user.email.split('@')[0];
+                const displayName = user.email.split('@')[0];
                 authContainer.innerHTML = `
-                    <div class="flex items-center gap-3 animate-fade-in">
-                        <div class="w-9 h-9 rounded-full bg-brand-600 border-2 border-brand-400 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-brand-500/30">
+                    <div class="flex items-center gap-3 animate-fade-in glass-panel px-4 py-2 rounded-xl border border-brand-500/30 shadow-inner">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_10px_rgba(139,92,246,0.5)]">
                             ${displayName.charAt(0).toUpperCase()}
                         </div>
-                        <div class="hidden lg:flex flex-col text-left">
-                            <span class="text-white text-xs font-bold truncate max-w-[120px]">${displayName}</span>
-                            <button onclick="logout()" class="text-slate-400 hover:text-rose-400 text-[10px] uppercase font-bold tracking-wider text-left transition-colors">تسجيل الخروج</button>
+                        <div class="hidden lg:flex flex-col text-left pr-2">
+                            <span class="text-white text-xs font-bold truncate max-w-[100px]">${displayName}</span>
+                            <button onclick="logout()" class="text-slate-500 hover:text-rose-400 text-[9px] uppercase font-bold tracking-widest text-left transition-colors">Disconnect</button>
                         </div>
                     </div>
                 `;
                 if (window.verificationInterval) clearInterval(window.verificationInterval);
             } else if (user && !user.emailVerified) {
-                // حالة: مسجل بانتظار تفعيل الإيميل
                 authContainer.innerHTML = `
-                    <div class="flex items-center gap-3 animate-fade-in bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-xl">
-                        <span class="text-amber-400 text-xs font-bold animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-1"></i> بانتظار تفعيل الإيميل...</span>
-                        <button onclick="logout()" class="text-slate-400 hover:text-rose-400 text-[10px] uppercase font-bold tracking-wider transition-colors border-l border-white/10 pl-2">إلغاء</button>
+                    <div class="flex items-center gap-3 animate-fade-in glass-panel border-amber-500/30 px-4 py-2.5 rounded-xl shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+                        <span class="text-amber-400 text-[10px] font-bold flex items-center gap-2 uppercase tracking-widest"><i class="fa-solid fa-spinner fa-spin text-sm"></i> Awaiting Verification...</span>
+                        <div class="w-px h-4 bg-white/10"></div>
+                        <button onclick="logout()" class="text-slate-400 hover:text-rose-400 text-[10px] uppercase font-bold tracking-wider transition-colors">Cancel</button>
                     </div>
                 `;
                 
-                // فحص تلقائي كل 3 ثواني للتفعيل
                 if (!window.verificationInterval) {
                     window.verificationInterval = setInterval(() => {
                         if (auth.currentUser) {
                             auth.currentUser.reload().then(() => {
                                 if (auth.currentUser.emailVerified) {
                                     clearInterval(window.verificationInterval);
-                                    showToast("🎉 تم تفعيل الحساب بنجاح! جاري الدخول...", "success");
+                                    showToast("🎉 Account Securely Verified! Initiating session...", "success");
                                     setTimeout(() => window.location.reload(), 1500); 
                                 }
                             });
@@ -748,126 +635,263 @@
                     }, 3000);
                 }
             } else {
-                // حالة: زائر غير مسجل
                 authContainer.innerHTML = `
-                    <button onclick="toggleModal('modal-login')" class="animate-fade-in bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 shadow-lg shadow-brand-500/20 flex items-center gap-2 active:scale-95">
-                        <i class="fa-solid fa-right-to-bracket"></i> Sign In
+                    <button onclick="toggleModal('modal-login')" class="glass-panel hover:bg-white/10 text-white px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 flex items-center gap-2 border-white/10 hover:border-brand-500/50 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] active:scale-95">
+                        <i class="fa-solid fa-shield-halved text-brand-400"></i> Secure Login
                     </button>
                 `;
                 if (window.verificationInterval) clearInterval(window.verificationInterval);
             }
         });
 
-        // 2. تسجيل الدخول
+        // 2. Login
         window.loginUser = function() {
             const emailInput = document.getElementById('login-email').value.trim();
             const passInput = document.getElementById('login-password').value;
             
             if(!emailInput || !passInput) {
-                showToast("يرجى ملء جميع الحقول", "error");
+                showToast("الرجاء إدخال البريد الإلكتروني وكلمة المرور.", "error");
                 return;
             }
 
-            showToast("جاري التحقق من البيانات...", "info");
+            const btn = event.currentTarget;
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Authenticating...';
 
             setPersistence(auth, browserLocalPersistence)
                 .then(() => signInWithEmailAndPassword(auth, emailInput, passInput))
                 .then((userCredential) => {
-                    const user = userCredential.user;
-                    if (user.emailVerified) {
-                        showToast(`تم تسجيل الدخول بنجاح!`, 'success');
+                    if (userCredential.user.emailVerified) {
+                        showToast(`Welcome back to the portal!`, 'success');
                         toggleModal('modal-login');
                     } else {
-                        showToast("حسابك غير مفعل! يرجى مراجعة بريدك الإلكتروني والضغط على رابط التفعيل.", 'error');
-                        toggleModal('modal-login'); 
+                        showToast("حسابك غير مفعل! أرسلنا لك رابطاً، يرجى الضغط عليه.", 'error');
+                        toggleModal('modal-login');
                     }
                 })
                 .catch((error) => {
-                    if (error.code === 'auth/invalid-credential' || error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-                         showToast("❌ الإيميل أو كلمة المرور غير صحيحة.", "error");
-                    } else {
-                         showToast(`❌ حدث خطأ: ${error.message}`, 'error');
-                    }
-                });
+                    showToast(`بيانات الدخول غير صحيحة.`, 'error');
+                })
+                .finally(() => btn.innerHTML = originalHTML);
         };
 
-        // 3. إنشاء حساب جديد
+        // 3. Register
         window.registerUser = function() {
             const emailInput = document.getElementById('login-email').value.trim();
             const passInput = document.getElementById('login-password').value;
             
             if(!emailInput || !passInput) {
-                showToast("يرجى إدخال البريد الإلكتروني وكلمة المرور لإنشاء حساب", "error");
+                showToast("الرجاء تعبئة الحقول لإنشاء الحساب.", "error");
                 return;
             }
 
-            showToast("جاري إنشاء الحساب...", "info");
+            const btn = event.currentTarget;
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Initializing...';
 
             createUserWithEmailAndPassword(auth, emailInput, passInput)
                 .then((userCredential) => {
-                    const user = userCredential.user;
-                    
-                    sendEmailVerification(user)
+                    sendEmailVerification(userCredential.user)
                         .then(() => {
-                            showToast("✅ تم التسجيل! أرسلنا رابط تفعيل لبريدك. اضغط عليه لتدخل الموقع.", "success");
+                            showToast("✅ أرسلنا رابط التفعيل لبريدك! اضغط عليه لتدخل الموقع فوراً.", "success");
                             document.getElementById('login-password').value = '';
                             toggleModal('modal-login'); 
                         })
                         .catch((error) => {
-                            showToast("❌ تم إنشاء الحساب لكن فشل إرسال الإيميل. يرجى المحاولة لاحقاً.", "error");
-                            console.error(error);
+                            showToast("❌ مشكلة في الإرسال: " + error.message, "error");
                         });
                 })
                 .catch((error) => {
-                    if (error.code === 'auth/email-already-in-use') {
-                        showToast("❌ هذا البريد مستخدم بالفعل! يمكنك تسجيل الدخول.", "error");
-                    } else if (error.code === 'auth/weak-password') {
-                        showToast("❌ كلمة المرور ضعيفة! يجب أن تكون 6 أحرف على الأقل.", "error");
-                    } else if (error.code === 'auth/invalid-email') {
-                         showToast("❌ صيغة البريد الإلكتروني خاطئة.", "error");
-                    } else {
-                        showToast(`❌ خطأ: ${error.message}`, 'error');
-                    }
-                });
+                    if (error.code === 'auth/email-already-in-use') showToast("البريد مستخدم مسبقاً!", "error");
+                    else if (error.code === 'auth/weak-password') showToast("كلمة المرور ضعيفة (استخدم 6 أحرف).", "error");
+                    else showToast(`خطأ: ${error.message}`, 'error');
+                })
+                .finally(() => btn.innerHTML = originalHTML);
         };
 
-        // 4. استعادة كلمة المرور
+        // 4. Password Reset
         window.resetPassword = function() {
             const emailInput = document.getElementById('login-email').value.trim();
-            
             if(!emailInput) {
-                showToast("⚠️ يرجى كتابة بريدك الإلكتروني في الحقل المخصص أولاً لكي نرسل لك رابط التغيير.", "error");
+                showToast("الرجاء كتابة إيميلك في الحقل أولاً لاستعادة الكلمة.", "error");
                 return;
             }
-
-            showToast("جاري الإرسال...", "info");
-
             sendPasswordResetEmail(auth, emailInput)
-                .then(() => {
-                    showToast("✅ تم إرسال رابط لإعادة تعيين كلمة المرور إلى بريدك. تفقد صندوق الوارد.", "success");
-                })
+                .then(() => showToast("✅ تم إرسال رابط التعيين إلى إيميلك.", "success"))
                 .catch((error) => {
-                    if (error.code === 'auth/user-not-found') {
-                        showToast("❌ هذا البريد غير مسجل لدينا.", "error");
-                    } else if (error.code === 'auth/invalid-email') {
-                        showToast("❌ صيغة الإيميل غير صحيحة.", "error");
-                    } else {
-                        showToast("❌ حدث خطأ: " + error.message, "error");
-                    }
+                    if(error.code === 'auth/user-not-found') showToast("❌ البريد غير مسجل.", "error");
+                    else showToast("❌ حدث خطأ.", "error");
                 });
         };
 
-        window.logout = () => {
-            signOut(auth).then(() => {
-                showToast('تم تسجيل الخروج بنجاح.', 'info');
-            });
-        };
+        window.logout = () => signOut(auth).then(() => showToast('Session Terminated.', 'info'));
     </script>
 
-    <!-- UI Scripts -->
     <script>
+        // --- GAMES DATABASE FOR DYNAMIC MODAL ---
+        const gamesDB = {
+            'minecraft': {
+                title: 'Minecraft Details',
+                tag: 'System Information',
+                tagColor: 'text-emerald-400',
+                tagBg: 'bg-emerald-500/20',
+                tagBorder: 'border-emerald-500/30',
+                img: 'https://store-images.s-microsoft.com/image/apps.17382.13510798885735219.9735d495-578c-4a4c-b892-3eb3a780b3a0.d3792486-cf98-40c0-a2c1-d6443f0e2b70?q=90&w=177&h=265',
+                specs: [
+                    { icon: 'fa-brands fa-windows', title: 'PC Edition (TLauncher)', desc: 'Runs perfectly on Windows 10/11. Minimum 4GB RAM required. Requires Java runtime. TLauncher handles free automatic updates.', color: 'text-brand-400' },
+                    { icon: 'fa-brands fa-android', title: 'Android Edition (APK)', desc: 'Version 1.26.50.27 (Full Native Build). Requires Android 8.0 or higher. 100% offline playable without license verification.', color: 'text-emerald-400' }
+                ]
+            },
+            'baldi': {
+                title: 'Baldi\'s Basics Specs',
+                tag: 'System Information',
+                tagColor: 'text-brand-400',
+                tagBg: 'bg-brand-500/20',
+                tagBorder: 'border-brand-500/30',
+                img: 'https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=500w',
+                specs: [
+                    { icon: 'fa-brands fa-windows', title: 'Windows Requirements', desc: 'Classic 64-Bit Build. Requires Windows 7 or higher. 2GB RAM. No installation required, just extract and play.', color: 'text-brand-400' },
+                    { icon: 'fa-brands fa-android', title: 'Mobile Requirements', desc: 'Custom-patched APK for Android 10+. Enhanced touch controls and 60FPS unlock.', color: 'text-emerald-400' }
+                ]
+            },
+            'bigfoot': {
+                title: 'Bigfoot Requirements',
+                tag: 'Hardware Specs',
+                tagColor: 'text-cyan-400',
+                tagBg: 'bg-cyan-500/20',
+                tagBorder: 'border-cyan-500/30',
+                img: 'https://img.itch.zone/aW1hZ2UvNDUwNDkxMS8yNjkyOTQ2OC5wbmc=/original/ow3cOL.png',
+                specs: [
+                    { icon: 'fa-brands fa-windows', title: 'PC Edition', desc: 'Requires Windows 10 64-bit. Intel Core i5 / AMD Ryzen 5. 8GB RAM. GTX 1060 or equivalent for smooth performance.', color: 'text-cyan-400' },
+                    { icon: 'fa-brands fa-android', title: 'Android Edition', desc: 'Optimized for high-end mobile devices. Requires Android 9.0+ and minimum 4GB RAM to prevent crashes.', color: 'text-emerald-400' }
+                ]
+            },
+            'gtamaroc': {
+                title: 'GTA Maroc Mod Specs',
+                tag: 'Installation Info',
+                tagColor: 'text-red-400',
+                tagBg: 'bg-red-500/20',
+                tagBorder: 'border-red-500/30',
+                img: 'https://2img.net/h/1.bp.blogspot.com/-P8ceA0FTqYc/Tio_2gj3RQI/AAAAAAAAADg/oJJ5fEEJB7U/s1600/gtamaroc.png',
+                specs: [
+                    { icon: 'fa-brands fa-windows', title: 'Windows Requirements', desc: 'Nostalgic mod pack. Requires Windows 7/10. 4GB RAM. Pre-installed, no complex setup needed. Just extract using WinRAR.', color: 'text-red-400' },
+                    { icon: 'fa-solid fa-key', title: 'Extraction Password', desc: 'Important: You will need the password "www.i3dadiaty.com" to extract the downloaded RAR file.', color: 'text-amber-400' }
+                ]
+            },
+            'meccha': {
+                title: 'Meccha Chameleon',
+                tag: 'System Information',
+                tagColor: 'text-purple-400',
+                tagBg: 'bg-purple-500/20',
+                tagBorder: 'border-purple-500/30',
+                img: 'https://sm.ign.com/t/ign_nl/cover/m/meccha-cha/meccha-chameleon_stxy.600.jpg',
+                specs: [
+                    { icon: 'fa-brands fa-windows', title: 'PC Requirements', desc: 'Lightweight arcade game. Runs on almost any modern PC. Windows 10. 2GB RAM. Keyboard or Xbox Controller support natively.', color: 'text-purple-400' }
+                ]
+            },
+            'granny': {
+                title: 'Granny Specs',
+                tag: 'Hardware Requirements',
+                tagColor: 'text-rose-400',
+                tagBg: 'bg-rose-500/20',
+                tagBorder: 'border-rose-500/30',
+                img: 'https://img.tapimg.net/market/images/7aa1bed93f52772f6ee79cc3e1853e8e.jpg?imageView2/2/w/720/h/720/q/80/format/jpg/interlace/1/ignore-error/1&t=1',
+                specs: [
+                    { icon: 'fa-brands fa-windows', title: 'Windows Edition', desc: 'Classic escape horror. Very low requirements. Windows 7/8/10. 1GB RAM. Headphones strongly recommended for spatial audio tracking.', color: 'text-rose-400' }
+                ]
+            }
+        };
+
+        // --- PRELOADER & ANIMATIONS ---
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => preloader.style.visibility = 'hidden', 800);
+                
+                // Staggered entry for game cards
+                const cards = document.querySelectorAll('.tilt-container');
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.classList.add('animate-fade-up');
+                    }, index * 100); // 100ms delay between each card
+                });
+            }, 500); // 500ms delay for cinematic feel
+        });
+
+        // --- 3D TILT EFFECT ---
+        const tiltContainers = document.querySelectorAll('.tilt-container');
+        tiltContainers.forEach(container => {
+            const card = container.querySelector('.tilt-card');
+            
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -12; // Max rotation deg
+                const rotateY = ((x - centerX) / centerX) * 12;
+                
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+            });
+        });
+
+        // --- DYNAMIC MODAL LOGIC ---
+        function openDynamicModal(gameKey) {
+            const data = gamesDB[gameKey];
+            if(!data) return;
+
+            // Populate Modal
+            document.getElementById('modal-img').src = data.img;
+            document.getElementById('modal-title').innerText = data.title;
+            
+            const tag = document.getElementById('modal-tag');
+            tag.innerText = data.tag;
+            tag.className = `inline-block ${data.tagColor} ${data.tagBg} text-[10px] font-black px-3 py-1 rounded-lg uppercase tracking-widest mb-3 border ${data.tagBorder}`;
+
+            const specsContainer = document.getElementById('modal-specs-container');
+            specsContainer.innerHTML = ''; // Clear previous
+
+            data.specs.forEach(spec => {
+                specsContainer.innerHTML += `
+                    <div class="bg-dark-950 border border-white/5 p-5 rounded-2xl shadow-inner transform transition-transform hover:-translate-y-1 hover:border-white/10">
+                        <h4 class="${spec.color} font-bold text-xs uppercase tracking-wider mb-2 flex items-center gap-2">
+                            <i class="${spec.icon} text-lg"></i> ${spec.title}
+                        </h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">${spec.desc}</p>
+                    </div>
+                `;
+            });
+
+            // Show Modal
+            const modal = document.getElementById('dynamic-modal');
+            const content = document.getElementById('dynamic-modal-content');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeDynamicModal() {
+            const modal = document.getElementById('dynamic-modal');
+            const content = document.getElementById('dynamic-modal-content');
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        // --- GENERAL UI FUNCTIONS ---
         function handleDownload(gameName) {
-            showToast(`Initiating secure download for ${gameName}...`, 'success');
+            showToast(`Initiating secure protocol for ${gameName}...`, 'success');
             const stats = document.getElementById('live-total-downloads');
             if (stats) {
                 let current = parseInt(stats.innerText.replace(/,/g, ''));
@@ -880,17 +904,15 @@
             const query = document.getElementById('game-search').value.toLowerCase().trim();
             const cards = document.querySelectorAll('.game-card');
             let foundCount = 0;
-
             cards.forEach(card => {
-                const searchTags = card.getAttribute('data-title');
-                if (searchTags.includes(query)) {
-                    card.style.display = "flex";
+                const container = card.closest('.tilt-container') || card; 
+                if (card.getAttribute('data-title').includes(query)) {
+                    container.style.display = "block";
                     foundCount++;
                 } else {
-                    card.style.display = "none";
+                    container.style.display = "none";
                 }
             });
-
             document.getElementById('no-results-state').classList.toggle('hidden', foundCount > 0);
         }
 
@@ -907,19 +929,20 @@
             buttons.forEach(p => {
                 const btn = document.getElementById(`btn-${p}`);
                 if(p === platform) {
-                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-brand-600 text-white shadow";
+                    btn.className = "px-6 py-3 text-xs font-bold rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-[0_0_20px_rgba(124,58,237,0.3)] transition-all duration-300";
                 } else {
-                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all duration-300";
+                    btn.className = "px-6 py-3 text-xs font-bold rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300";
                 }
             });
 
             let foundCount = 0;
             cards.forEach(card => {
+                const container = card.closest('.tilt-container') || card;
                 if (platform === 'all' || card.getAttribute('data-platform').includes(platform)) {
-                    card.style.display = "flex";
+                    container.style.display = "block";
                     foundCount++;
                 } else {
-                    card.style.display = "none";
+                    container.style.display = "none";
                 }
             });
             document.getElementById('no-results-state').classList.toggle('hidden', foundCount > 0);
@@ -927,7 +950,20 @@
 
         function toggleModal(id) {
             const modal = document.getElementById(id);
-            if (modal) modal.classList.toggle('hidden');
+            const content = document.getElementById(id + '-content');
+            if (!modal) return;
+            
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    if(content) content.classList.remove('scale-95');
+                }, 10);
+            } else {
+                modal.classList.add('opacity-0');
+                if(content) content.classList.add('scale-95');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
         }
 
         function showToast(message, type = 'info') {
@@ -935,25 +971,29 @@
             if (!container) return;
 
             const toast = document.createElement('div');
-            toast.className = `flex items-center gap-3 p-4 rounded-xl text-sm font-medium shadow-2xl border transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto`;
+            toast.className = `glass-card flex items-center gap-4 p-4 rounded-2xl text-sm font-bold transition-all duration-500 translate-y-6 opacity-0 pointer-events-auto border-l-4 shadow-[0_10px_40px_rgba(0,0,0,0.5)]`;
             
             if (type === 'success') {
-                toast.classList.add('bg-emerald-950/90', 'border-emerald-500/30', 'text-emerald-300');
-                toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i> <span>${message}</span>`;
+                toast.classList.add('border-l-emerald-500', 'text-white');
+                toast.innerHTML = `<div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0"><i class="fa-solid fa-check"></i></div> <span class="leading-relaxed">${message}</span>`;
             } else if (type === 'error') {
-                toast.classList.add('bg-rose-950/90', 'border-rose-500/30', 'text-rose-300');
-                toast.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-rose-400 text-lg"></i> <span>${message}</span>`;
+                toast.classList.add('border-l-rose-500', 'text-white');
+                toast.innerHTML = `<div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center text-rose-400 shrink-0"><i class="fa-solid fa-shield-cat"></i></div> <span class="leading-relaxed">${message}</span>`;
             } else {
-                toast.classList.add('bg-slate-900/90', 'border-white/10', 'text-slate-200');
-                toast.innerHTML = `<i class="fa-solid fa-circle-info text-brand-400 text-lg"></i> <span>${message}</span>`;
+                toast.classList.add('border-l-brand-500', 'text-white');
+                toast.innerHTML = `<div class="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center text-brand-400 shrink-0"><i class="fa-solid fa-satellite-dish animate-pulse"></i></div> <span class="leading-relaxed">${message}</span>`;
             }
 
             container.appendChild(toast);
-            setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
+            
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-6', 'opacity-0');
+            });
+
             setTimeout(() => {
-                toast.classList.add('translate-y-2', 'opacity-0');
-                setTimeout(() => toast.remove(), 300);
-            }, 4000);
+                toast.classList.add('translate-y-6', 'opacity-0');
+                setTimeout(() => toast.remove(), 500);
+            }, 5000); // 5 seconds display
         }
     </script>
 </body>
