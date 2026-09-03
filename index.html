@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumina Games | Premium Distribution</title>
+    <title>LUMINA ARCADE</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,63 +11,27 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Space+Grotesk:wght@600;800&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
+                        sans: ['Cairo', 'Outfit', 'sans-serif'],
                         space: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
-                        brand: {
-                            400: '#a78bfa',
-                            500: '#8b5cf6',
-                            600: '#7c3aed',
-                            900: '#4c1d95',
-                            950: '#2e1065',
-                        },
-                        dark: {
-                            950: '#030305',
-                            900: '#0a0a0c',
-                            800: '#121217',
-                            700: '#1c1c24',
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 3s ease-in-out infinite alternate',
-                        'shimmer': 'shimmer 2s linear infinite',
-                        'blob': 'blob 7s infinite',
-                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        glow: {
-                            '0%': { opacity: 0.5, transform: 'scale(1)' },
-                            '100%': { opacity: 1, transform: 'scale(1.05)' },
-                        },
-                        shimmer: {
-                            from: { backgroundPosition: '200% 0' },
-                            to: { backgroundPosition: '-200% 0' }
-                        },
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
-                        },
-                        fadeUp: {
-                            '0%': { opacity: 0, transform: 'translateY(40px)' },
-                            '100%': { opacity: 1, transform: 'translateY(0)' }
+                        lumina: {
+                            cyan: '#06b6d4',
+                            purple: '#8b5cf6',
+                            violet: '#6d28d9',
+                            dark: '#050508',
+                            card: '#0a0b10',
+                            border: 'rgba(255, 255, 255, 0.08)'
                         }
                     }
                 }
@@ -76,844 +40,607 @@
     </script>
 
     <style>
-        /* Premium Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #030305; }
-        ::-webkit-scrollbar-thumb { background: #2e1065; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: #050508; }
+        ::-webkit-scrollbar-thumb { background: #6d28d9; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8b5cf6; }
 
-        /* Cinematic Background */
         body {
-            background-color: #030305;
-            color: #e2e8f0;
+            background-color: #050508;
+            color: #f1f5f9;
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.05) 0%, transparent 50%);
+                radial-gradient(ellipse at top right, rgba(109, 40, 217, 0.12), transparent 50%),
+                radial-gradient(ellipse at bottom left, rgba(6, 182, 212, 0.08), transparent 55%),
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
             background-attachment: fixed;
             overflow-x: hidden;
         }
 
-        /* Ultimate Glassmorphism */
         .glass-panel {
-            background: rgba(18, 18, 23, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 11, 16, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
         }
 
         .glass-card {
-            background: linear-gradient(145deg, rgba(30, 30, 40, 0.6) 0%, rgba(15, 15, 20, 0.8) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
+            background: linear-gradient(180deg, rgba(16, 17, 26, 0.8) 0%, rgba(10, 11, 16, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        /* 3D Tilt Effect Container */
-        .tilt-container { perspective: 1000px; opacity: 0; } /* Opacity 0 for initial load animation */
-        .tilt-card { transition: transform 0.1s ease, box-shadow 0.3s ease; transform-style: preserve-3d; }
-        .tilt-card img { transform: translateZ(30px); }
-        .tilt-card .content-layer { transform: translateZ(50px); }
-
-        .hover-glow:hover {
-            box-shadow: 0 0 50px rgba(139, 92, 246, 0.25), inset 0 0 0 1px rgba(139, 92, 246, 0.5);
-            border-color: rgba(139, 92, 246, 0.3);
+        .tilt-container { perspective: 1200px; }
+        .tilt-card { transform-style: preserve-3d; transition: transform 0.1s ease-out, border-color 0.3s ease; }
+        .tilt-card:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(109, 40, 217, 0.3);
         }
 
-        .space-title { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.03em; }
-
-        /* Loader */
-        #preloader {
-            position: fixed; inset: 0; z-index: 9999;
-            background: #030305; display: flex; justify-content: center; align-items: center;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-        
-        /* Shimmer Text */
-        .text-shimmer {
-            background: linear-gradient(90deg, #fff, #7c3aed, #fff);
-            background-size: 200% auto;
-            color: transparent;
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, #a78bfa 70%, #38bdf8 100%);
             -webkit-background-clip: text;
-            background-clip: text;
-            animation: shimmer 3s linear infinite;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-brand-500 selection:text-white antialiased">
+<body class="min-h-screen flex flex-col selection:bg-lumina-purple selection:text-white antialiased">
 
-    <!-- PRELOADER -->
-    <div id="preloader">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-[#050508] flex items-center justify-center transition-opacity duration-500">
         <div class="flex flex-col items-center gap-4">
-            <div class="relative w-16 h-16 flex items-center justify-center">
-                <div class="absolute inset-0 rounded-full border-t-2 border-brand-500 animate-spin"></div>
-                <div class="absolute inset-2 rounded-full border-r-2 border-cyan-400 animate-[spin_1.5s_reverse_infinite]"></div>
-                <i class="fa-solid fa-gamepad text-xl text-white animate-pulse"></i>
+            <div class="relative w-14 h-14">
+                <div class="absolute inset-0 rounded-full border-2 border-lumina-purple/20"></div>
+                <div class="absolute inset-0 rounded-full border-t-2 border-lumina-purple animate-spin"></div>
             </div>
-            <div class="text-brand-400 font-bold space-title tracking-widest text-sm uppercase animate-pulse">Initializing System</div>
         </div>
     </div>
 
-    <!-- SECURE ANNOUNCEMENT BAR -->
-    <div class="bg-gradient-to-r from-brand-950 via-brand-900 to-indigo-950 text-center py-2 px-4 text-[10px] sm:text-xs font-bold tracking-[0.2em] text-white/80 uppercase flex items-center justify-center gap-3 relative overflow-hidden border-b border-white/5">
-        <span class="flex h-2 w-2 relative z-10">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-        </span>
-        <span class="z-10">Defense System Active: 100% Secure Downloads</span>
+    <!-- Live Status Ribbon -->
+    <div class="border-b border-white/5 bg-lumina-violet/10 backdrop-blur-md py-2 px-6">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2 text-emerald-400 font-bold">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                <span data-i18n="server_status">خوادم التوزيع تعمل بكفاءة 100% (روابط سريعة ومفحوصة)</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-4 text-slate-400 font-mono text-[11px]">
+                <span><i class="fa-solid fa-shield-virus text-lumina-cyan"></i> <span data-i18n="secure_cloud">حماية السحاب مفعلة</span></span>
+            </div>
+        </div>
     </div>
 
-    <!-- PREMIUM NAVBAR -->
-    <nav class="sticky top-0 z-50 glass-panel border-b border-white/5 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-            
-            <!-- Logo -->
+    <!-- Header Navigation -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group">
-                <div class="relative w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-700 shadow-[0_0_20px_rgba(124,58,237,0.3)] group-hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all duration-500">
-                    <i class="fa-solid fa-gamepad text-white text-xl relative z-10 group-hover:rotate-12 transition-transform"></i>
-                    <div class="absolute inset-0 rounded-2xl bg-brand-400 blur-md opacity-40 group-hover:opacity-80 transition-opacity"></div>
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-lumina-violet to-lumina-cyan flex items-center justify-center shadow-lg shadow-lumina-violet/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-gamepad text-white text-lg"></i>
                 </div>
-                <span class="text-2xl font-extrabold space-title tracking-tight text-white">LUMINA<span class="text-brand-500">.</span></span>
+                <span class="text-2xl font-black font-space tracking-wider text-white">LUMINA<span class="text-lumina-cyan">.</span></span>
             </a>
 
-            <!-- Right Actions & Auth -->
-            <div class="flex items-center gap-6">
-                <div class="hidden lg:flex flex-col items-end">
-                    <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Network Traffic</span>
-                    <span class="text-emerald-400 font-bold text-sm font-mono flex items-center gap-1.5"><i class="fa-solid fa-chart-line text-[10px]"></i> <span id="live-total-downloads">142,891</span> TB</span>
+            <div class="flex items-center gap-4">
+                <!-- Language Selector -->
+                <div class="relative">
+                    <select id="lang-select" onchange="switchLanguage(this.value)" class="bg-black/40 border border-white/10 hover:border-lumina-purple text-xs font-bold text-slate-200 py-2 px-3 rounded-xl outline-none transition-colors cursor-pointer appearance-none pr-7 pl-3 text-center">
+                        <option value="ar">العربية (AR)</option>
+                        <option value="en">English (EN)</option>
+                        <option value="fr">Français (FR)</option>
+                    </select>
+                    <i class="fa-solid fa-globe absolute top-1/2 -translate-y-1/2 right-2.5 text-[10px] text-lumina-cyan pointer-events-none"></i>
                 </div>
-                
-                <!-- Auth Container -->
-                <div id="auth-container" class="relative">
-                    <div class="animate-pulse h-10 w-28 bg-white/5 rounded-xl border border-white/10"></div>
+
+                <div id="auth-container">
+                    <button onclick="toggleModal('modal-login')" data-i18n="login_btn" class="px-4 py-2 bg-lumina-violet hover:bg-lumina-purple text-white text-xs font-bold rounded-xl transition-all shadow-lg shadow-lumina-violet/20">
+                        تسجيل الدخول
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION (Cinematic) -->
-    <header class="relative pt-24 pb-32 px-6 md:px-12 overflow-hidden flex flex-col items-center justify-center min-h-[75vh]">
-        <!-- Animated Background Blobs -->
-        <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-600/20 rounded-full blur-[120px] mix-blend-screen animate-blob pointer-events-none"></div>
-        <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-600/20 rounded-full blur-[120px] mix-blend-screen animate-blob animation-delay-2000 pointer-events-none"></div>
-        <div class="absolute -bottom-32 left-1/2 w-[700px] h-[700px] bg-indigo-600/20 rounded-full blur-[120px] mix-blend-screen animate-blob animation-delay-4000 pointer-events-none"></div>
-
-        <div class="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
-            
-            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-panel border-brand-500/30 mb-8 animate-float shadow-[0_0_20px_rgba(124,58,237,0.1)]">
-                <i class="fa-solid fa-crown text-brand-400 text-xs"></i>
-                <span class="text-xs font-bold text-brand-300 uppercase tracking-widest">The Ultimate Hub</span>
+    <!-- Hero Section -->
+    <header class="relative pt-16 pb-20 px-6 text-center overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-lumina-purple/30 bg-lumina-purple/10 text-xs font-bold text-lumina-purple mb-6">
+                <i class="fa-solid fa-bolt text-[10px]"></i> <span data-i18n="badge_text">النسخ الأحدث مجهزة بالكامل ومجانية</span>
             </div>
 
-            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black space-title leading-[1.05] tracking-tight mb-6 drop-shadow-2xl">
-                Gaming <br />
-                <span class="text-shimmer">Without Limits.</span>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black leading-tight tracking-tight mb-6">
+                <span data-i18n="hero_title_1">أقوى ألعاب الكمبيوتر والموبايل</span> <br>
+                <span class="text-gradient" data-i18n="hero_title_2">بروابط سريعة ومجانية</span>
             </h1>
-            
-            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
-                Secure, high-speed direct downloads for curated masterpieces. Experience gaming the way it was meant to be, with zero restrictions.
+
+            <p class="text-slate-400 max-w-xl mx-auto text-sm sm:text-base mb-8 leading-relaxed" data-i18n="hero_desc">
+                حمل ألعابك المفضلة مباشرة بدون إعلانات مزعجة وبحزم جاهزة للتنصيب الفوري لجميع الأنظمة.
             </p>
 
-            <!-- Premium Search Bar -->
-            <div class="w-full max-w-2xl glass-card rounded-2xl p-2.5 flex items-center gap-2 focus-within:ring-2 focus-within:ring-brand-500/50 transition-all duration-500 relative z-20">
-                <div class="relative flex-grow flex items-center pl-4">
-                    <i class="fa-solid fa-magnifying-glass text-brand-400 text-lg"></i>
-                    <input type="text" id="game-search" oninput="searchGames()" placeholder="Search titles, genres, or platforms..." class="w-full bg-transparent pl-4 pr-4 py-3.5 text-slate-100 placeholder:text-slate-500 focus:outline-none text-base font-medium">
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto glass-panel p-2 rounded-2xl flex items-center gap-2 border border-white/10 shadow-2xl focus-within:border-lumina-purple transition-colors">
+                <div class="flex items-center flex-grow px-3">
+                    <i class="fa-solid fa-magnifying-glass text-slate-500 text-sm"></i>
+                    <input type="text" id="game-search" oninput="searchGames()" data-i18n-placeholder="search_placeholder" placeholder="ابحث باسم اللعبة، التصنيف، أو النظام..." class="w-full bg-transparent px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none">
                 </div>
-                <button onclick="clearSearch()" class="px-6 py-3.5 bg-dark-800 hover:bg-dark-700 text-slate-300 rounded-xl text-sm font-bold transition-colors flex items-center gap-2 border border-white/5 active:scale-95">
-                    <i class="fa-solid fa-rotate-right"></i> Reset
+                <button onclick="clearSearch()" data-i18n="reset_btn" class="px-4 py-2 bg-white/5 hover:bg-white/10 text-slate-300 rounded-xl text-xs font-bold transition-all">
+                    مسح
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- GAMES SHOWCASE -->
-    <main id="games-section" class="max-w-7xl mx-auto px-6 md:px-12 py-16 flex-grow w-full relative z-20">
-        
-        <!-- Filters -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+    <!-- Games Hub -->
+    <main class="max-w-7xl mx-auto px-6 pb-24 flex-grow w-full">
+        <!-- Filter Tabs -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
             <div>
-                <h2 class="text-3xl md:text-4xl font-black space-title text-white mb-2 flex items-center gap-3">
-                    <i class="fa-solid fa-layer-group text-brand-500"></i> Featured Collection
+                <h2 class="text-xl font-black text-white flex items-center gap-2">
+                    <i class="fa-solid fa-fire text-lumina-purple"></i> <span data-i18n="section_title">الألعاب المتوفرة حالياً</span>
                 </h2>
-                <p class="text-slate-400 text-sm font-medium">Hand-picked and verified across all platforms.</p>
+                <p class="text-xs text-slate-400 mt-1" data-i18n="section_sub">اضغط على زر المتطلبات لمراجعة تشغيل اللعبة قبل التحميل</p>
             </div>
             
-            <div class="glass-panel p-1.5 rounded-2xl inline-flex shadow-lg shadow-black/50">
-                <button onclick="filterPlatform('all')" id="btn-all" class="px-6 py-3 text-xs font-bold rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-lg transition-all duration-300">All Platforms</button>
-                <button onclick="filterPlatform('pc')" id="btn-pc" class="px-6 py-3 text-xs font-bold rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Windows PC</button>
-                <button onclick="filterPlatform('android')" id="btn-android" class="px-6 py-3 text-xs font-bold rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Android APK</button>
+            <div class="glass-panel p-1 rounded-xl flex gap-1 border border-white/5">
+                <button onclick="filterPlatform('all')" id="btn-all" data-i18n="tab_all" class="px-4 py-2 text-xs font-bold rounded-lg bg-lumina-violet text-white transition-all">الكل</button>
+                <button onclick="filterPlatform('pc')" id="btn-pc" data-i18n="tab_pc" class="px-4 py-2 text-xs font-bold rounded-lg text-slate-400 hover:text-white transition-all">كمبيوتر (PC)</button>
+                <button onclick="filterPlatform('android')" id="btn-android" data-i18n="tab_android" class="px-4 py-2 text-xs font-bold rounded-lg text-slate-400 hover:text-white transition-all">أندرويد (APK)</button>
             </div>
         </div>
 
-        <!-- Games Grid (Tilt Containers) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="games-grid">
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="games-grid">
             
-            <!-- GAME 1: MINECRAFT -->
-            <div class="tilt-container game-card" data-platform="pc android" data-title="minecraft pc android apk exe survival sandbox">
-                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
-                    <div class="absolute top-4 right-4 z-30 bg-emerald-500/90 backdrop-blur text-white text-[10px] font-black px-4 py-2 rounded-xl shadow-lg shadow-emerald-500/30 uppercase tracking-widest flex items-center gap-1.5 border border-emerald-400/50">
-                        <i class="fa-solid fa-gem animate-pulse"></i> ESSENTIAL
+            <!-- MINECRAFT -->
+            <div class="tilt-container game-card" data-platform="pc android" data-title="minecraft ماينكرافت">
+                <div class="tilt-card glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://preview.redd.it/went-on-blender-i-made-a-minecraft-poster-v0-8b15yijpcgtc1.png?width=1080&crop=smart&auto=webp&s=59b3af78ee004907fa41c529b5f36620898ab851" alt="Minecraft" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-emerald-500/90 text-[10px] font-black text-white px-2.5 py-1 rounded-lg" data-i18n="badge_popular">شائع جداً</span>
                     </div>
 
-                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
-                        <img src="https://preview.redd.it/went-on-blender-i-made-a-minecraft-poster-v0-8b15yijpcgtc1.png?width=1080&crop=smart&auto=webp&s=59b3af78ee004907fa41c529b5f36620898ab851" alt="Minecraft" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
-                        
-                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
-                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
-                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-android text-lg"></i></div>
-                        </div>
-                    </div>
-
-                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-[10px] font-extrabold text-emerald-400 tracking-widest uppercase bg-emerald-400/10 px-3 py-1 rounded-lg">Sandbox</span>
-                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        </div>
-                        
-                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-emerald-300 transition-colors">Minecraft</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
-                            Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Includes the latest Android APK and TLauncher for PC!
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="game1_title">ماين كرافت (Minecraft)</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-grow" data-i18n="game1_desc">
+                            ابنِ عوالم بلا حدود واستكشف الطبيعة، متوفرة برابط مباشر للأندرويد ومشغل مجاني للكمبيوتر.
                         </p>
 
-                        <div class="flex flex-col gap-3 mt-auto">
-                            <div class="grid grid-cols-2 gap-3">
-                                <a href="https://www.mediafire.com/file/ks92ln8qhmi33rr/TLauncher-Installer-1.9.5.1.exe/file" target="_blank" onclick="handleDownload('Minecraft PC')" class="bg-white/5 hover:bg-brand-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-brand-500 flex flex-col items-center justify-center text-xs text-center group/btn shadow-lg">
-                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-windows text-brand-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> PC (EXE)</span>
-                                </a>
-                                <a href="https://www.mediafire.com/file/ifjcoutbjgb5kgo/Minecraft-v1.26.50.27-full-apkvision.apk/file" target="_blank" onclick="handleDownload('Minecraft Android')" class="bg-white/5 hover:bg-emerald-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-emerald-500 flex flex-col items-center justify-center text-xs text-center group/btn shadow-lg">
-                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-android text-emerald-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Mobile (APK)</span>
-                                </a>
-                            </div>
-                            <button onclick="openDynamicModal('minecraft')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors mt-2 active:scale-95 shadow-inner">
-                                <i class="fa-solid fa-list-check mr-1 text-brand-400"></i> View Requirements
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GAME 2: BALDI'S BASICS -->
-            <div class="tilt-container game-card" data-platform="pc android" data-title="baldi's basics pc android patched">
-                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
-                    <div class="absolute top-4 right-4 z-30 bg-brand-500/90 backdrop-blur text-white text-[10px] font-black px-4 py-2 rounded-xl shadow-lg shadow-brand-500/30 uppercase tracking-widest flex items-center gap-1.5 border border-brand-400/50">
-                        <i class="fa-solid fa-fire animate-pulse"></i> TRENDING
-                    </div>
-
-                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
-                        <img src="https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=2500w" alt="Baldi's Basics" class="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
-                        
-                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
-                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
-                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-android text-lg"></i></div>
-                        </div>
-                    </div>
-
-                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-[10px] font-extrabold text-brand-400 tracking-widest uppercase bg-brand-400/10 px-3 py-1 rounded-lg">Retro Horror</span>
-                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i></div>
-                        </div>
-                        
-                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-brand-300 transition-colors">Baldi's Basics 1.4.3</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
-                            Solve math notebooks, outrun Baldi, and experience the bizarre horror. Includes the classic 64-Bit PC build and custom-patched Android 10+ APK.
-                        </p>
-
-                        <div class="flex flex-col gap-3 mt-auto">
-                            <div class="grid grid-cols-2 gap-3">
-                                <a href="https://www.mediafire.com/file_premium/1f5bhvzi98aqshy/BALDI_1.4.3_Windows_64Bit_patched.zip/file" target="_blank" onclick="handleDownload('Baldi PC')" class="bg-white/5 hover:bg-brand-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-brand-500 flex flex-col items-center justify-center text-xs group/btn shadow-lg">
-                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-windows text-brand-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> PC (ZIP)</span>
-                                </a>
-                                <a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" onclick="handleDownload('Baldi Android')" class="bg-white/5 hover:bg-brand-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-brand-500 flex flex-col items-center justify-center text-xs group/btn shadow-lg">
-                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-android text-brand-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Mobile (APK)</span>
-                                </a>
-                            </div>
-                            <button onclick="openDynamicModal('baldi')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors mt-2 active:scale-95 shadow-inner">
-                                <i class="fa-solid fa-list-check mr-1 text-brand-400"></i> View Requirements
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GAME 3: BIGFOOT SNOW MASSACRE -->
-            <div class="tilt-container game-card" data-platform="pc android" data-title="bigfoot snow massacre survival horror">
-                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
-                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
-                        <img src="https://img.itch.zone/aW1hZ2UvNDUwNDkxMS8yNjkyOTQ2OC5wbmc=/original/ow3cOL.png" alt="Bigfoot" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
-                        
-                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
-                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
-                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-android text-lg"></i></div>
-                        </div>
-                    </div>
-
-                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-[10px] font-extrabold text-cyan-400 tracking-widest uppercase bg-cyan-400/10 px-3 py-1 rounded-lg">Winter Survival</span>
-                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        </div>
-                        
-                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-cyan-300 transition-colors">Bigfoot Snow Massacre</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
-                            Trapped in a snowbound cabin surrounded by the vicious Bigfoot. Keep the campfire burning, watch the shadows, and survive the freezing nightmare.
-                        </p>
-
-                        <div class="flex flex-col gap-3 mt-auto">
-                            <div class="grid grid-cols-2 gap-3">
-                                <a href="https://www.mediafire.com/file/20jg5ty5sd9h6xl/The+Bigfoot+Snow+Massacre.zip/file" target="_blank" onclick="handleDownload('Bigfoot PC')" class="bg-white/5 hover:bg-cyan-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-cyan-500 flex flex-col items-center justify-center text-xs group/btn shadow-lg">
-                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-windows text-cyan-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> PC (ZIP)</span>
-                                </a>
-                                <a href="https://www.mediafire.com/file/6ffu9c4zm3nzn0e/The+Bigfoot+Snow+Massacre.apk/file" target="_blank" onclick="handleDownload('Bigfoot Android')" class="bg-white/5 hover:bg-cyan-600 text-white font-bold py-3 px-2 rounded-xl transition-all duration-300 border border-white/10 hover:border-cyan-500 flex flex-col items-center justify-center text-xs group/btn shadow-lg">
-                                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-android text-cyan-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Mobile (APK)</span>
-                                </a>
-                            </div>
-                            <button onclick="openDynamicModal('bigfoot')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors mt-2 active:scale-95 shadow-inner">
-                                <i class="fa-solid fa-list-check mr-1 text-cyan-400"></i> View Requirements
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GAME 4: GTA MAROC -->
-            <div class="tilt-container game-card" data-platform="pc" data-title="gta san andreas maroc mod open world">
-                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
-                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
-                        <img src="https://2img.net/h/1.bp.blogspot.com/-P8ceA0FTqYc/Tio_2gj3RQI/AAAAAAAAADg/oJJ5fEEJB7U/s1600/gtamaroc.png" alt="GTA Maroc" class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
-                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
-                        </div>
-                    </div>
-
-                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-[10px] font-extrabold text-red-400 tracking-widest uppercase bg-red-400/10 px-3 py-1 rounded-lg">Open World Mod</span>
-                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        </div>
-                        
-                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-red-400 transition-colors">GTA SA: Maroc</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
-                            The ultimate nostalgic classic modded to feature Moroccan streets, custom vehicles, and unique skins.
-                        </p>
-                        
-                        <div class="mb-5 bg-dark-950 border border-white/10 rounded-xl p-3 flex items-center justify-between shadow-inner">
-                            <span class="text-[10px] text-red-400 font-bold uppercase"><i class="fa-solid fa-lock mr-1"></i> Pass:</span>
-                            <code class="text-white text-xs font-mono font-bold select-all bg-white/5 px-2 py-1 rounded">www.i3dadiaty.com</code>
-                        </div>
-
-                        <div class="flex flex-col gap-3 mt-auto">
-                            <a href="https://www.mediafire.com/file_premium/3jd1s1bgroz7pzm/gta_sa_maroc_i3dadiaty.rar/file" target="_blank" onclick="handleDownload('GTA Maroc')" class="w-full bg-white/5 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-all duration-300 border border-white/10 hover:border-red-500 flex items-center justify-center gap-2 text-sm group/btn shadow-lg">
-                                <i class="fa-brands fa-windows text-red-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Download for PC (RAR)
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <a href="https://www.mediafire.com/file/ks92ln8qhmi33rr/TLauncher-Installer-1.9.5.1.exe/file" target="_blank" onclick="handleDownload('Minecraft PC')" class="py-2 px-3 bg-white/5 hover:bg-lumina-violet text-white text-xs font-bold rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fa-brands fa-windows text-lumina-cyan"></i> <span data-i18n="btn_pc_exe">حاسوب (EXE)</span>
                             </a>
-                            <button onclick="openDynamicModal('gtamaroc')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors active:scale-95 shadow-inner">
-                                <i class="fa-solid fa-list-check mr-1 text-red-400"></i> View Requirements
-                            </button>
+                            <a href="https://www.mediafire.com/file/ifjcoutbjgb5kgo/Minecraft-v1.26.50.27-full-apkvision.apk/file" target="_blank" onclick="handleDownload('Minecraft Android')" class="py-2 px-3 bg-white/5 hover:bg-emerald-600 text-white text-xs font-bold rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fa-brands fa-android text-emerald-400"></i> <span data-i18n="btn_apk">أندرويد (APK)</span>
+                            </a>
                         </div>
+
+                        <button onclick="openDynamicModal('minecraft')" data-i18n="btn_specs" class="w-full py-2 bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-bold rounded-xl border border-white/5 transition-all">
+                            متطلبات التشغيل والتفاصيل
+                        </button>
                     </div>
                 </div>
             </div>
 
-             <!-- GAME 5: MECCHA CHAMELEON -->
-             <div class="tilt-container game-card" data-platform="pc" data-title="meccha chameleon arcade">
-                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
-                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
-                        <img src="https://sm.ign.com/t/ign_nl/cover/m/meccha-cha/meccha-chameleon_stxy.600.jpg" alt="Meccha" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
-                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
-                        </div>
+            <!-- BALDI'S BASICS -->
+            <div class="tilt-container game-card" data-platform="pc android" data-title="baldi basics بالدي">
+                <div class="tilt-card glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=2500w" alt="Baldi's Basics" class="w-full h-full object-cover">
                     </div>
 
-                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-[10px] font-extrabold text-purple-400 tracking-widest uppercase bg-purple-400/10 px-3 py-1 rounded-lg">Arcade</span>
-                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-                        </div>
-                        
-                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-purple-400 transition-colors">Meccha Chameleon</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
-                            Dive into a colorful and chaotic arcade experience! Use your long tongue to swing across gaps and devour enemies.
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Baldi's Basics 1.4.3</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-grow" data-i18n="game2_desc">
+                            لعبة الرعب والرياضيات الشهيرة بنسختها الأصلية والباتش الخاص بأنظمة الأندرويد الحديثة.
                         </p>
-                        
-                        <div class="flex flex-col gap-3 mt-auto">
-                            <a href="https://www.mediafire.com/file_premium/98msmje7xzsjoz2/MECCHA.CHAMELEON-SteamRIP.com.rar/file" target="_blank" onclick="handleDownload('Meccha Chameleon')" class="w-full bg-white/5 hover:bg-purple-600 text-white font-bold py-3.5 rounded-xl transition-all duration-300 border border-white/10 hover:border-purple-500 flex items-center justify-center gap-2 text-sm group/btn shadow-lg">
-                                <i class="fa-brands fa-windows text-purple-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Download for PC
+
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <a href="https://www.mediafire.com/file_premium/1f5bhvzi98aqshy/BALDI_1.4.3_Windows_64Bit_patched.zip/file" target="_blank" onclick="handleDownload('Baldi PC')" class="py-2 px-3 bg-white/5 hover:bg-lumina-violet text-white text-xs font-bold rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fa-brands fa-windows text-lumina-cyan"></i> <span data-i18n="btn_pc_zip">حاسوب (ZIP)</span>
                             </a>
-                            <button onclick="openDynamicModal('meccha')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors active:scale-95 shadow-inner">
-                                <i class="fa-solid fa-list-check mr-1 text-purple-400"></i> View Requirements
-                            </button>
+                            <a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" onclick="handleDownload('Baldi Android')" class="py-2 px-3 bg-white/5 hover:bg-lumina-purple text-white text-xs font-bold rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fa-brands fa-android text-lumina-purple"></i> <span data-i18n="btn_apk">أندرويد (APK)</span>
+                            </a>
                         </div>
+
+                        <button onclick="openDynamicModal('baldi')" data-i18n="btn_specs" class="w-full py-2 bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-bold rounded-xl border border-white/5 transition-all">
+                            متطلبات التشغيل والتفاصيل
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- GAME 6: GRANNY -->
-            <div class="tilt-container game-card" data-platform="pc" data-title="granny pc zip survival horror escape">
-                <div class="tilt-card glass-card rounded-3xl overflow-hidden hover-glow flex flex-col group h-full relative">
-                    <div class="relative overflow-hidden aspect-[16/10] border-b border-white/5">
-                        <img src="https://img.tapimg.net/market/images/7aa1bed93f52772f6ee79cc3e1853e8e.jpg?imageView2/2/w/720/h/720/q/80/format/jpg/interlace/1/ignore-error/1&t=1" alt="Granny" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 flex gap-2 z-20 content-layer">
-                            <div class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white/90 shadow-lg border border-white/10"><i class="fa-brands fa-windows text-lg"></i></div>
-                        </div>
+            <!-- BIGFOOT -->
+            <div class="tilt-container game-card" data-platform="pc android" data-title="bigfoot snow massacre بيغ فوت">
+                <div class="tilt-card glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://img.itch.zone/aW1hZ2UvNDUwNDkxMS8yNjkyOTQ2OC5wbmc=/original/ow3cOL.png" alt="Bigfoot" class="w-full h-full object-cover">
                     </div>
 
-                    <div class="p-8 flex-grow flex flex-col content-layer z-20">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-[10px] font-extrabold text-rose-400 tracking-widest uppercase bg-rose-400/10 px-3 py-1 rounded-lg">Escape Horror</span>
-                            <div class="flex text-amber-400 text-[10px] gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
-                        </div>
-                        
-                        <h3 class="text-2xl font-black space-title text-white mb-3 group-hover:text-rose-400 transition-colors">Granny v1.2</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
-                            Welcome to Granny's house. You have 5 days to escape. She hears everything. Hide in wardrobes or under beds, but be careful.
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Bigfoot Snow Massacre</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-grow" data-i18n="game3_desc">
+                            النجاة في كوخ ثلجي مظلم ضد وحش الغابة المرعب. حافظ على إشعال النار للبقاء حياً.
                         </p>
-                        
-                        <div class="flex flex-col gap-3 mt-auto">
-                            <a href="https://www.mediafire.com/file_premium/0on96q3sdrblgca/Granny.v1.2.zip/file" target="_blank" onclick="handleDownload('Granny PC')" class="w-full bg-white/5 hover:bg-rose-600 text-white font-bold py-3.5 rounded-xl transition-all duration-300 border border-white/10 hover:border-rose-500 flex items-center justify-center gap-2 text-sm group/btn shadow-lg">
-                                <i class="fa-brands fa-windows text-rose-400 group-hover/btn:text-white group-hover/btn:animate-bounce"></i> Download for PC (ZIP)
+
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <a href="https://www.mediafire.com/file/20jg5ty5sd9h6xl/The+Bigfoot+Snow+Massacre.zip/file" target="_blank" onclick="handleDownload('Bigfoot PC')" class="py-2 px-3 bg-white/5 hover:bg-lumina-cyan text-white text-xs font-bold rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fa-brands fa-windows"></i> <span data-i18n="btn_pc_zip">حاسوب (ZIP)</span>
                             </a>
-                            <button onclick="openDynamicModal('granny')" class="w-full py-3 bg-dark-800 hover:bg-dark-700 text-white border border-white/5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors active:scale-95 shadow-inner">
-                                <i class="fa-solid fa-list-check mr-1 text-rose-400"></i> View Requirements
-                            </button>
+                            <a href="https://www.mediafire.com/file/6ffu9c4zm3nzn0e/The+Bigfoot+Snow+Massacre.apk/file" target="_blank" onclick="handleDownload('Bigfoot Android')" class="py-2 px-3 bg-white/5 hover:bg-lumina-cyan text-white text-xs font-bold rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fa-brands fa-android"></i> <span data-i18n="btn_apk">أندرويد (APK)</span>
+                            </a>
                         </div>
+
+                        <button onclick="openDynamicModal('bigfoot')" data-i18n="btn_specs" class="w-full py-2 bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-bold rounded-xl border border-white/5 transition-all">
+                            متطلبات التشغيل والتفاصيل
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GTA MAROC -->
+            <div class="tilt-container game-card" data-platform="pc" data-title="gta maroc قراند المغرب">
+                <div class="tilt-card glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://2img.net/h/1.bp.blogspot.com/-P8ceA0FTqYc/Tio_2gj3RQI/AAAAAAAAADg/oJJ5fEEJB7U/s1600/gtamaroc.png" alt="GTA Maroc" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">GTA San Andreas: Maroc</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-grow" data-i18n="game4_desc">
+                            المود المغربي الكلاسيكي النادر، شوارع وسيارات وملابس مغربية مخصصة بالكامل.
+                        </p>
+
+                        <div class="mb-4 bg-black/40 p-2.5 rounded-xl border border-white/5 flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400" data-i18n="pass_label">كلمة فك الضغط:</span>
+                            <code class="text-xs text-lumina-cyan font-mono select-all">www.i3dadiaty.com</code>
+                        </div>
+
+                        <a href="https://www.mediafire.com/file_premium/3jd1s1bgroz7pzm/gta_sa_maroc_i3dadiaty.rar/file" target="_blank" onclick="handleDownload('GTA Maroc')" class="w-full py-2.5 mb-2 bg-white/5 hover:bg-red-600 text-white text-xs font-bold rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                            <i class="fa-brands fa-windows"></i> <span data-i18n="btn_pc_rar">تحميل للكمبيوتر (RAR)</span>
+                        </a>
+
+                        <button onclick="openDynamicModal('gtamaroc')" data-i18n="btn_specs" class="w-full py-2 bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-bold rounded-xl border border-white/5 transition-all">
+                            متطلبات التشغيل والتفاصيل
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MECCHA -->
+            <div class="tilt-container game-card" data-platform="pc" data-title="meccha chameleon اركيد">
+                <div class="tilt-card glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://sm.ign.com/t/ign_nl/cover/m/meccha-cha/meccha-chameleon_stxy.600.jpg" alt="Meccha" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Meccha Chameleon</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-grow" data-i18n="game5_desc">
+                            لعبة أركيد مرحة وسريعة تعتمد على التأرجح باللسان وتخطي العقبات والوحوش.
+                        </p>
+
+                        <a href="https://www.mediafire.com/file_premium/98msmje7xzsjoz2/MECCHA.CHAMELEON-SteamRIP.com.rar/file" target="_blank" onclick="handleDownload('Meccha Chameleon')" class="w-full py-2.5 mb-2 bg-white/5 hover:bg-lumina-violet text-white text-xs font-bold rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                            <i class="fa-brands fa-windows"></i> <span data-i18n="btn_pc_direct">تحميل للكمبيوتر</span>
+                        </a>
+
+                        <button onclick="openDynamicModal('meccha')" data-i18n="btn_specs" class="w-full py-2 bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-bold rounded-xl border border-white/5 transition-all">
+                            متطلبات التشغيل والتفاصيل
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRANNY -->
+            <div class="tilt-container game-card" data-platform="pc" data-title="granny قراني رعب">
+                <div class="tilt-card glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://img.tapimg.net/market/images/7aa1bed93f52772f6ee79cc3e1853e8e.jpg?imageView2/2/w/720/h/720/q/80/format/jpg/interlace/1/ignore-error/1&t=1" alt="Granny" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Granny v1.2</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-grow" data-i18n="game6_desc">
+                            أمامك 5 أيام للهروب من منزل الجدة المرعبة دون أن تشعر بحركتك في الغرف.
+                        </p>
+
+                        <a href="https://www.mediafire.com/file_premium/0on96q3sdrblgca/Granny.v1.2.zip/file" target="_blank" onclick="handleDownload('Granny PC')" class="w-full py-2.5 mb-2 bg-white/5 hover:bg-rose-600 text-white text-xs font-bold rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                            <i class="fa-brands fa-windows"></i> <span data-i18n="btn_pc_zip">تحميل للكمبيوتر (ZIP)</span>
+                        </a>
+
+                        <button onclick="openDynamicModal('granny')" data-i18n="btn_specs" class="w-full py-2 bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-bold rounded-xl border border-white/5 transition-all">
+                            متطلبات التشغيل والتفاصيل
+                        </button>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- No Games Found -->
-        <div id="no-results-state" class="hidden text-center py-24 glass-card rounded-3xl max-w-2xl mx-auto mt-8 border-dashed border-white/10 shadow-2xl">
-            <div class="text-brand-500 text-6xl mb-6"><i class="fa-solid fa-ghost animate-float"></i></div>
-            <h3 class="text-2xl font-bold space-title text-white mb-2">No Titles Found</h3>
-            <p class="text-slate-400 text-sm px-6">Adjust your search or change the platform filter to discover more games.</p>
-            <button onclick="clearSearch()" class="mt-6 px-6 py-2 bg-white/5 hover:bg-white/10 text-white rounded-lg border border-white/10 transition-colors font-bold text-sm">Clear Search</button>
+        <div id="no-results" class="hidden text-center py-20">
+            <i class="fa-solid fa-ghost text-4xl text-slate-600 mb-3"></i>
+            <p class="text-slate-400 text-sm" data-i18n="no_results">لم يتم العثور على ألعاب تطابق بحثك.</p>
         </div>
     </main>
 
-    <!-- SECURE AUTHENTICATION MODAL (Strict Email & Password) -->
-    <div id="modal-login" class="hidden fixed inset-0 z-[100] bg-dark-950/90 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="glass-card rounded-[2rem] max-w-md w-full overflow-hidden shadow-2xl relative transform scale-95 transition-transform duration-300 border border-white/10" id="modal-login-content">
-            
-            <button onclick="toggleModal('modal-login')" class="absolute top-6 right-6 w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all z-20 active:scale-95">
+    <!-- Authentication Modal -->
+    <div id="modal-login" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-card rounded-2xl max-w-sm w-full p-8 relative border border-white/10">
+            <button onclick="toggleModal('modal-login')" class="absolute top-4 left-4 text-slate-400 hover:text-white text-sm">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <div class="p-10 relative">
-                <div class="absolute -top-20 -right-20 w-40 h-40 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
-                
-                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-700 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(124,58,237,0.3)]">
-                    <i class="fa-solid fa-shield-halved text-2xl text-white"></i>
-                </div>
+            <h3 class="text-xl font-bold text-white mb-1" data-i18n="modal_login_title">تسجيل الدخول</h3>
+            <p class="text-xs text-slate-400 mb-6" data-i18n="modal_login_sub">سجل للوصول إلى كافة الميزات والتحديثات.</p>
 
-                <h3 class="text-3xl font-black space-title mb-2 text-white">Access Portal</h3>
-                <p class="text-slate-400 text-sm mb-8 font-medium">Securely sign in or register to unlock direct links.</p>
-                
-                <div class="space-y-5 mb-8">
-                    <div>
-                        <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Email Address</label>
-                        <div class="relative group">
-                            <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-400 transition-colors"></i>
-                            <input type="email" id="login-email" class="w-full bg-dark-950 border border-white/10 focus:border-brand-500 rounded-xl pl-12 pr-4 py-4 text-sm text-white focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition-all placeholder:text-slate-600 font-medium" placeholder="gamer@example.com">
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-widest">Password</label>
-                            <button onclick="resetPassword()" class="text-[11px] text-brand-400 hover:text-brand-300 transition-colors font-bold uppercase tracking-wider">Forgot?</button>
-                        </div>
-                        <div class="relative group">
-                            <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-400 transition-colors"></i>
-                            <input type="password" id="login-password" class="w-full bg-dark-950 border border-white/10 focus:border-brand-500 rounded-xl pl-12 pr-4 py-4 text-sm text-white focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition-all placeholder:text-slate-600 font-medium" placeholder="••••••••">
-                        </div>
-                    </div>
+            <div class="space-y-4 mb-6">
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-300 mb-1.5" data-i18n="label_email">البريد الإلكتروني</label>
+                    <input type="email" id="login-email" class="w-full bg-black/40 border border-white/10 focus:border-lumina-purple rounded-xl px-3 py-2.5 text-xs text-white outline-none" placeholder="name@example.com">
                 </div>
+                <div>
+                    <div class="flex justify-between items-center mb-1.5">
+                        <label class="block text-[11px] font-bold text-slate-300" data-i18n="label_pass">كلمة المرور</label>
+                        <button onclick="resetPassword()" class="text-[10px] text-lumina-cyan hover:underline" data-i18n="btn_forgot">نسيت الكلمة؟</button>
+                    </div>
+                    <input type="password" id="login-password" class="w-full bg-black/40 border border-white/10 focus:border-lumina-purple rounded-xl px-3 py-2.5 text-xs text-white outline-none" placeholder="••••••••">
+                </div>
+            </div>
 
-                <div class="flex flex-col gap-3">
-                    <div class="flex gap-3">
-                        <button onclick="loginUser()" class="flex-1 bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] active:scale-[0.98] flex justify-center items-center gap-2 text-sm">
-                            Sign In
-                        </button>
-                        <button onclick="registerUser()" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold py-4 rounded-xl transition-all active:scale-[0.98] text-sm">
-                            Sign Up
-                        </button>
-                    </div>
-                </div>
+            <div class="flex gap-2">
+                <button onclick="loginUser()" class="flex-1 py-2.5 bg-lumina-violet hover:bg-lumina-purple text-white text-xs font-bold rounded-xl transition-all" data-i18n="btn_signin">دخول</button>
+                <button onclick="registerUser()" class="flex-1 py-2.5 bg-white/5 hover:bg-white/10 text-white text-xs font-bold rounded-xl border border-white/10 transition-all" data-i18n="btn_signup">تسجيل جديد</button>
             </div>
         </div>
     </div>
 
-    <!-- DYNAMIC GAME SPECS MODAL (One Modal for All Games) -->
-    <div id="dynamic-modal" class="hidden fixed inset-0 z-[100] bg-dark-950/90 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="glass-card rounded-[2rem] max-w-3xl w-full overflow-hidden shadow-2xl relative border border-white/10 p-8 flex flex-col md:flex-row gap-8 items-center transform scale-95 transition-transform duration-300" id="dynamic-modal-content">
-            <button onclick="closeDynamicModal()" class="absolute top-4 right-4 w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all active:scale-95 z-20"><i class="fa-solid fa-xmark"></i></button>
+    <!-- Specs Modal -->
+    <div id="dynamic-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-card rounded-2xl max-w-xl w-full p-6 relative border border-white/10">
+            <button onclick="closeDynamicModal()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-sm">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
             
-            <div class="w-40 md:w-48 aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(139,92,246,0.2)] shrink-0 border border-white/10 relative group">
-                <img id="modal-img" src="" alt="Game Box" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            </div>
-            
-            <div class="flex-grow w-full">
-                <div id="modal-tag" class="inline-block text-[10px] font-black px-3 py-1 rounded-lg uppercase tracking-widest mb-3 border"></div>
-                <h3 id="modal-title" class="text-3xl font-black space-title mb-6 text-white"></h3>
-                
-                <div class="space-y-4" id="modal-specs-container">
-                    <!-- Dynamic Content Injected Here -->
+            <div class="flex items-center gap-4 mb-6">
+                <img id="modal-img" src="" class="w-16 h-20 rounded-xl object-cover border border-white/10">
+                <div>
+                    <span id="modal-tag" class="text-[10px] font-bold px-2 py-0.5 rounded bg-lumina-purple/20 text-lumina-purple"></span>
+                    <h3 id="modal-title" class="text-xl font-bold text-white mt-1"></h3>
                 </div>
             </div>
+
+            <div class="space-y-3" id="modal-specs-container"></div>
         </div>
     </div>
 
-    <!-- TOAST NOTIFICATION CONTAINER -->
-    <div id="toast-container" class="fixed bottom-6 right-6 z-[110] flex flex-col gap-3 pointer-events-none max-w-sm w-full"></div>
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-    <!-- FIREBASE MODULE -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signOut, onAuthStateChanged, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyCJtNlBh_wQXRkKcoF80FDj0QSQb9BITHU",
-            authDomain: "lumina-games-ab477.firebaseapp.com",
-            projectId: "lumina-games-ab477",
-            storageBucket: "lumina-games-ab477.firebasestorage.app",
-            messagingSenderId: "1071069150146",
-            appId: "1:1071069150146:web:705d40455506968ba3345b"
+    <!-- Translations & Engine -->
+    <script>
+        const translations = {
+            ar: {
+                server_status: "خوادم التوزيع تعمل بكفاءة 100% (روابط سريعة ومفحوصة)",
+                secure_cloud: "حماية السحاب مفعلة",
+                login_btn: "تسجيل الدخول",
+                badge_text: "النسخ الأحدث مجهزة بالكامل ومجانية",
+                hero_title_1: "أقوى ألعاب الكمبيوتر والموبايل",
+                hero_title_2: "بروابط سريعة ومجانية",
+                hero_desc: "حمل ألعابك المفضلة مباشرة بدون إعلانات مزعجة وبحزم جاهزة للتنصيب الفوري لجميع الأنظمة.",
+                search_placeholder: "ابحث باسم اللعبة، التصنيف، أو النظام...",
+                reset_btn: "مسح",
+                section_title: "الألعاب المتوفرة حالياً",
+                section_sub: "اضغط على زر المتطلبات لمراجعة تشغيل اللعبة قبل التحميل",
+                tab_all: "الكل",
+                tab_pc: "كمبيوتر (PC)",
+                tab_android: "أندرويد (APK)",
+                badge_popular: "شائع جداً",
+                game1_title: "ماين كرافت (Minecraft)",
+                game1_desc: "ابنِ عوالم بلا حدود واستكشف الطبيعة، متوفرة برابط مباشر للأندرويد ومشغل مجاني للكمبيوتر.",
+                game2_desc: "لعبة الرعب والرياضيات الشهيرة بنسختها الأصلية والباتش الخاص بأنظمة الأندرويد الحديثة.",
+                game3_desc: "النجاة في كوخ ثلجي مظلم ضد وحش الغابة المرعب. حافظ على إشعال النار للبقاء حياً.",
+                game4_desc: "المود المغربي الكلاسيكي النادر، شوارع وسيارات وملابس مغربية مخصصة بالكامل.",
+                game5_desc: "لعبة أركيد مرحة وسريعة تعتمد على التأرجح باللسان وتخطي العقبات والوحوش.",
+                game6_desc: "أمامك 5 أيام للهروب من منزل الجدة المرعبة دون أن تشعر بحركتك في الغرف.",
+                pass_label: "كلمة فك الضغط:",
+                btn_pc_exe: "حاسوب (EXE)",
+                btn_apk: "أندرويد (APK)",
+                btn_pc_zip: "حاسوب (ZIP)",
+                btn_pc_rar: "تحميل للكمبيوتر (RAR)",
+                btn_pc_direct: "تحميل للكمبيوتر",
+                btn_specs: "متطلبات التشغيل والتفاصيل",
+                no_results: "لم يتم العثور على ألعاب تطابق بحثك.",
+                modal_login_title: "تسجيل الدخول",
+                modal_login_sub: "سجل للوصول إلى كافة الميزات والتحديثات.",
+                label_email: "البريد الإلكتروني",
+                label_pass: "كلمة المرور",
+                btn_forgot: "نسيت الكلمة؟",
+                btn_signin: "دخول",
+                btn_signup: "تسجيل جديد"
+            },
+            en: {
+                server_status: "Distribution servers operating at 100% (Fast & verified links)",
+                secure_cloud: "Cloud defense active",
+                login_btn: "Sign In",
+                badge_text: "Latest builds fully unlocked & free",
+                hero_title_1: "Ultimate PC & Mobile Gaming",
+                hero_title_2: "Fast & Direct Free Downloads",
+                hero_desc: "Download your favorite titles instantly with zero annoying ads and complete standalone installation packages.",
+                search_placeholder: "Search titles, genres, or platforms...",
+                reset_btn: "Reset",
+                section_title: "Available Games",
+                section_sub: "Check hardware requirements before downloading",
+                tab_all: "All",
+                tab_pc: "PC (Windows)",
+                tab_android: "Android (APK)",
+                badge_popular: "Trending",
+                game1_title: "Minecraft",
+                game1_desc: "Build infinite worlds and explore freely. Includes direct Android APK and PC launcher.",
+                game2_desc: "The bizarre retro horror experience. Includes classic 64-bit PC build and modern Android patch.",
+                game3_desc: "Survive in a freezing cabin against the brutal forest creature. Keep the fire alive to survive.",
+                game4_desc: "The nostalgic mod featuring Moroccan streets, unique vehicles, and authentic atmosphere.",
+                game5_desc: "Fast-paced arcade fun swinging with your chameleon tongue and conquering obstacles.",
+                game6_desc: "You have 5 days to escape Granny's house unnoticed. Silence is your only ally.",
+                pass_label: "Extract Password:",
+                btn_pc_exe: "PC (EXE)",
+                btn_apk: "Mobile (APK)",
+                btn_pc_zip: "PC (ZIP)",
+                btn_pc_rar: "PC (RAR)",
+                btn_pc_direct: "PC Direct",
+                btn_specs: "Hardware Specs & Info",
+                no_results: "No matching games found.",
+                modal_login_title: "Access Portal",
+                modal_login_sub: "Sign in to access direct downloads and updates.",
+                label_email: "Email Address",
+                label_pass: "Password",
+                btn_forgot: "Forgot?",
+                btn_signin: "Sign In",
+                btn_signup: "Register"
+            },
+            fr: {
+                server_status: "Serveurs actifs à 100% (Liens directs et vérifiés)",
+                secure_cloud: "Protection Cloud active",
+                login_btn: "Connexion",
+                badge_text: "Dernières versions complètes et gratuites",
+                hero_title_1: "Jeux PC & Mobile Ultimes",
+                hero_title_2: "Téléchargements Rapides et Gratuits",
+                hero_desc: "Téléchargez vos jeux préférés sans publicités intrusives avec des installateurs complets.",
+                search_placeholder: "Rechercher par titre, genre ou système...",
+                reset_btn: "Effacer",
+                section_title: "Jeux Disponibles",
+                section_sub: "Consultez la configuration requise avant le téléchargement",
+                tab_all: "Tous",
+                tab_pc: "PC (Windows)",
+                tab_android: "Android (APK)",
+                badge_popular: "Populaire",
+                game1_title: "Minecraft",
+                game1_desc: "Construisez des mondes infinis. Comprend l'APK Android et le lanceur PC.",
+                game2_desc: "L'expérience d'horreur rétro insolite. Version PC 64-bit et APK optimisé inclus.",
+                game3_desc: "Survivez dans une cabane isolée face à la bête féroce. Gardez le feu allumé.",
+                game4_desc: "Le mod nostalgique mythique avec rues, véhicules et textures marocaines.",
+                game5_desc: "Jeu d'arcade dynamique où vous balancez votre langue pour franchir les pièges.",
+                game6_desc: "Vous avez 5 jours pour vous échapper sans faire de bruit de la maison de Granny.",
+                pass_label: "Mot de passe d'extraction:",
+                btn_pc_exe: "PC (EXE)",
+                btn_apk: "Android (APK)",
+                btn_pc_zip: "PC (ZIP)",
+                btn_pc_rar: "PC (RAR)",
+                btn_pc_direct: "PC Direct",
+                btn_specs: "Configuration & Détails",
+                no_results: "Aucun jeu ne correspond à votre recherche.",
+                modal_login_title: "Connexion",
+                modal_login_sub: "Connectez-vous pour débloquer les liens et mises à jour.",
+                label_email: "Adresse e-mail",
+                label_pass: "Mot de passe",
+                btn_forgot: "Oublié ?",
+                btn_signin: "Se connecter",
+                btn_signup: "S'inscrire"
+            }
         };
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        auth.languageCode = 'ar'; 
+        function switchLanguage(lang) {
+            if (!translations[lang]) lang = 'ar';
+            localStorage.setItem('lumina_lang', lang);
 
-        // 1. Magic Authentication State
-        onAuthStateChanged(auth, (user) => {
-            const authContainer = document.getElementById('auth-container');
-            if (!authContainer) return;
-            
-            if (user && user.emailVerified) {
-                const displayName = user.email.split('@')[0];
-                authContainer.innerHTML = `
-                    <div class="flex items-center gap-3 animate-fade-in glass-panel px-4 py-2 rounded-xl border border-brand-500/30 shadow-inner">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_10px_rgba(139,92,246,0.5)]">
-                            ${displayName.charAt(0).toUpperCase()}
-                        </div>
-                        <div class="hidden lg:flex flex-col text-left pr-2">
-                            <span class="text-white text-xs font-bold truncate max-w-[100px]">${displayName}</span>
-                            <button onclick="logout()" class="text-slate-500 hover:text-rose-400 text-[9px] uppercase font-bold tracking-widest text-left transition-colors">Disconnect</button>
-                        </div>
-                    </div>
-                `;
-                if (window.verificationInterval) clearInterval(window.verificationInterval);
-            } else if (user && !user.emailVerified) {
-                authContainer.innerHTML = `
-                    <div class="flex items-center gap-3 animate-fade-in glass-panel border-amber-500/30 px-4 py-2.5 rounded-xl shadow-[0_0_15px_rgba(245,158,11,0.1)]">
-                        <span class="text-amber-400 text-[10px] font-bold flex items-center gap-2 uppercase tracking-widest"><i class="fa-solid fa-spinner fa-spin text-sm"></i> Awaiting Verification...</span>
-                        <div class="w-px h-4 bg-white/10"></div>
-                        <button onclick="logout()" class="text-slate-400 hover:text-rose-400 text-[10px] uppercase font-bold tracking-wider transition-colors">Cancel</button>
-                    </div>
-                `;
-                
-                if (!window.verificationInterval) {
-                    window.verificationInterval = setInterval(() => {
-                        if (auth.currentUser) {
-                            auth.currentUser.reload().then(() => {
-                                if (auth.currentUser.emailVerified) {
-                                    clearInterval(window.verificationInterval);
-                                    showToast("🎉 Account Securely Verified! Initiating session...", "success");
-                                    setTimeout(() => window.location.reload(), 1500); 
-                                }
-                            });
-                        }
-                    }, 3000);
-                }
-            } else {
-                authContainer.innerHTML = `
-                    <button onclick="toggleModal('modal-login')" class="glass-panel hover:bg-white/10 text-white px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 flex items-center gap-2 border-white/10 hover:border-brand-500/50 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] active:scale-95">
-                        <i class="fa-solid fa-shield-halved text-brand-400"></i> Secure Login
-                    </button>
-                `;
-                if (window.verificationInterval) clearInterval(window.verificationInterval);
-            }
-        });
+            const isRTL = lang === 'ar';
+            document.documentElement.lang = lang;
+            document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
 
-        // 2. Login
-        window.loginUser = function() {
-            const emailInput = document.getElementById('login-email').value.trim();
-            const passInput = document.getElementById('login-password').value;
-            
-            if(!emailInput || !passInput) {
-                showToast("الرجاء إدخال البريد الإلكتروني وكلمة المرور.", "error");
-                return;
-            }
+            // Update text elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.textContent = translations[lang][key];
+            });
 
-            const btn = event.currentTarget;
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Authenticating...';
+            // Update placeholder inputs
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
+            });
 
-            setPersistence(auth, browserLocalPersistence)
-                .then(() => signInWithEmailAndPassword(auth, emailInput, passInput))
-                .then((userCredential) => {
-                    if (userCredential.user.emailVerified) {
-                        showToast(`Welcome back to the portal!`, 'success');
-                        toggleModal('modal-login');
-                    } else {
-                        showToast("حسابك غير مفعل! أرسلنا لك رابطاً، يرجى الضغط عليه.", 'error');
-                        toggleModal('modal-login');
-                    }
-                })
-                .catch((error) => {
-                    showToast(`بيانات الدخول غير صحيحة.`, 'error');
-                })
-                .finally(() => btn.innerHTML = originalHTML);
-        };
+            document.getElementById('lang-select').value = lang;
+        }
 
-        // 3. Register
-        window.registerUser = function() {
-            const emailInput = document.getElementById('login-email').value.trim();
-            const passInput = document.getElementById('login-password').value;
-            
-            if(!emailInput || !passInput) {
-                showToast("الرجاء تعبئة الحقول لإنشاء الحساب.", "error");
-                return;
-            }
-
-            const btn = event.currentTarget;
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Initializing...';
-
-            createUserWithEmailAndPassword(auth, emailInput, passInput)
-                .then((userCredential) => {
-                    sendEmailVerification(userCredential.user)
-                        .then(() => {
-                            showToast("✅ أرسلنا رابط التفعيل لبريدك! اضغط عليه لتدخل الموقع فوراً.", "success");
-                            document.getElementById('login-password').value = '';
-                            toggleModal('modal-login'); 
-                        })
-                        .catch((error) => {
-                            showToast("❌ مشكلة في الإرسال: " + error.message, "error");
-                        });
-                })
-                .catch((error) => {
-                    if (error.code === 'auth/email-already-in-use') showToast("البريد مستخدم مسبقاً!", "error");
-                    else if (error.code === 'auth/weak-password') showToast("كلمة المرور ضعيفة (استخدم 6 أحرف).", "error");
-                    else showToast(`خطأ: ${error.message}`, 'error');
-                })
-                .finally(() => btn.innerHTML = originalHTML);
-        };
-
-        // 4. Password Reset
-        window.resetPassword = function() {
-            const emailInput = document.getElementById('login-email').value.trim();
-            if(!emailInput) {
-                showToast("الرجاء كتابة إيميلك في الحقل أولاً لاستعادة الكلمة.", "error");
-                return;
-            }
-            sendPasswordResetEmail(auth, emailInput)
-                .then(() => showToast("✅ تم إرسال رابط التعيين إلى إيميلك.", "success"))
-                .catch((error) => {
-                    if(error.code === 'auth/user-not-found') showToast("❌ البريد غير مسجل.", "error");
-                    else showToast("❌ حدث خطأ.", "error");
-                });
-        };
-
-        window.logout = () => signOut(auth).then(() => showToast('Session Terminated.', 'info'));
+        // Initialize language from storage or default to Arabic
+        const savedLang = localStorage.getItem('lumina_lang') || 'ar';
+        switchLanguage(savedLang);
     </script>
 
+    <!-- Interactive Scripts -->
     <script>
-        // --- GAMES DATABASE FOR DYNAMIC MODAL ---
         const gamesDB = {
             'minecraft': {
-                title: 'Minecraft Details',
-                tag: 'System Information',
-                tagColor: 'text-emerald-400',
-                tagBg: 'bg-emerald-500/20',
-                tagBorder: 'border-emerald-500/30',
-                img: 'https://store-images.s-microsoft.com/image/apps.17382.13510798885735219.9735d495-578c-4a4c-b892-3eb3a780b3a0.d3792486-cf98-40c0-a2c1-d6443f0e2b70?q=90&w=177&h=265',
+                title: 'Minecraft',
+                tag: 'Specs',
+                img: 'https://preview.redd.it/went-on-blender-i-made-a-minecraft-poster-v0-8b15yijpcgtc1.png?width=1080&crop=smart&auto=webp&s=59b3af78ee004907fa41c529b5f36620898ab851',
                 specs: [
-                    { icon: 'fa-brands fa-windows', title: 'PC Edition (TLauncher)', desc: 'Runs perfectly on Windows 10/11. Minimum 4GB RAM required. Requires Java runtime. TLauncher handles free automatic updates.', color: 'text-brand-400' },
-                    { icon: 'fa-brands fa-android', title: 'Android Edition (APK)', desc: 'Version 1.26.50.27 (Full Native Build). Requires Android 8.0 or higher. 100% offline playable without license verification.', color: 'text-emerald-400' }
+                    { title: 'PC (TLauncher)', desc: 'Windows 10/11, 4GB RAM, Java Runtime Environment required.' },
+                    { title: 'Android (APK)', desc: 'v1.26 Native build, Android 8.0+, offline capable.' }
                 ]
             },
             'baldi': {
-                title: 'Baldi\'s Basics Specs',
-                tag: 'System Information',
-                tagColor: 'text-brand-400',
-                tagBg: 'bg-brand-500/20',
-                tagBorder: 'border-brand-500/30',
+                title: "Baldi's Basics 1.4.3",
+                tag: 'Specs',
                 img: 'https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=500w',
                 specs: [
-                    { icon: 'fa-brands fa-windows', title: 'Windows Requirements', desc: 'Classic 64-Bit Build. Requires Windows 7 or higher. 2GB RAM. No installation required, just extract and play.', color: 'text-brand-400' },
-                    { icon: 'fa-brands fa-android', title: 'Mobile Requirements', desc: 'Custom-patched APK for Android 10+. Enhanced touch controls and 60FPS unlock.', color: 'text-emerald-400' }
+                    { title: 'Windows', desc: '64-Bit standalone, 2GB RAM, extract and play.' },
+                    { title: 'Android', desc: 'Patched APK for Android 10+ devices.' }
                 ]
             },
             'bigfoot': {
-                title: 'Bigfoot Requirements',
-                tag: 'Hardware Specs',
-                tagColor: 'text-cyan-400',
-                tagBg: 'bg-cyan-500/20',
-                tagBorder: 'border-cyan-500/30',
+                title: 'The Bigfoot Snow Massacre',
+                tag: 'Specs',
                 img: 'https://img.itch.zone/aW1hZ2UvNDUwNDkxMS8yNjkyOTQ2OC5wbmc=/original/ow3cOL.png',
                 specs: [
-                    { icon: 'fa-brands fa-windows', title: 'PC Edition', desc: 'Requires Windows 10 64-bit. Intel Core i5 / AMD Ryzen 5. 8GB RAM. GTX 1060 or equivalent for smooth performance.', color: 'text-cyan-400' },
-                    { icon: 'fa-brands fa-android', title: 'Android Edition', desc: 'Optimized for high-end mobile devices. Requires Android 9.0+ and minimum 4GB RAM to prevent crashes.', color: 'text-emerald-400' }
+                    { title: 'Windows', desc: 'Core i5 / 8GB RAM / GTX 1060 recommended.' },
+                    { title: 'Android', desc: 'Android 9.0+, 4GB RAM minimum.' }
                 ]
             },
             'gtamaroc': {
-                title: 'GTA Maroc Mod Specs',
-                tag: 'Installation Info',
-                tagColor: 'text-red-400',
-                tagBg: 'bg-red-500/20',
-                tagBorder: 'border-red-500/30',
+                title: 'GTA San Andreas: Maroc',
+                tag: 'Specs',
                 img: 'https://2img.net/h/1.bp.blogspot.com/-P8ceA0FTqYc/Tio_2gj3RQI/AAAAAAAAADg/oJJ5fEEJB7U/s1600/gtamaroc.png',
                 specs: [
-                    { icon: 'fa-brands fa-windows', title: 'Windows Requirements', desc: 'Nostalgic mod pack. Requires Windows 7/10. 4GB RAM. Pre-installed, no complex setup needed. Just extract using WinRAR.', color: 'text-red-400' },
-                    { icon: 'fa-solid fa-key', title: 'Extraction Password', desc: 'Important: You will need the password "www.i3dadiaty.com" to extract the downloaded RAR file.', color: 'text-amber-400' }
+                    { title: 'Installation', desc: 'Extract via WinRAR using password "www.i3dadiaty.com".' },
+                    { title: 'Windows', desc: 'Works on Windows 7/10/11, 2GB RAM.' }
                 ]
             },
             'meccha': {
                 title: 'Meccha Chameleon',
-                tag: 'System Information',
-                tagColor: 'text-purple-400',
-                tagBg: 'bg-purple-500/20',
-                tagBorder: 'border-purple-500/30',
+                tag: 'Specs',
                 img: 'https://sm.ign.com/t/ign_nl/cover/m/meccha-cha/meccha-chameleon_stxy.600.jpg',
                 specs: [
-                    { icon: 'fa-brands fa-windows', title: 'PC Requirements', desc: 'Lightweight arcade game. Runs on almost any modern PC. Windows 10. 2GB RAM. Keyboard or Xbox Controller support natively.', color: 'text-purple-400' }
+                    { title: 'PC Requirements', desc: 'Lightweight arcade game, runs on any PC, controller supported.' }
                 ]
             },
             'granny': {
-                title: 'Granny Specs',
-                tag: 'Hardware Requirements',
-                tagColor: 'text-rose-400',
-                tagBg: 'bg-rose-500/20',
-                tagBorder: 'border-rose-500/30',
+                title: 'Granny v1.2',
+                tag: 'Specs',
                 img: 'https://img.tapimg.net/market/images/7aa1bed93f52772f6ee79cc3e1853e8e.jpg?imageView2/2/w/720/h/720/q/80/format/jpg/interlace/1/ignore-error/1&t=1',
                 specs: [
-                    { icon: 'fa-brands fa-windows', title: 'Windows Edition', desc: 'Classic escape horror. Very low requirements. Windows 7/8/10. 1GB RAM. Headphones strongly recommended for spatial audio tracking.', color: 'text-rose-400' }
+                    { title: 'PC Requirements', desc: '1GB RAM, Windows 7/8/10. Headphones recommended.' }
                 ]
             }
         };
 
-        // --- PRELOADER & ANIMATIONS ---
         window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.style.opacity = '0';
-                setTimeout(() => preloader.style.visibility = 'hidden', 800);
-                
-                // Staggered entry for game cards
-                const cards = document.querySelectorAll('.tilt-container');
-                cards.forEach((card, index) => {
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.classList.add('animate-fade-up');
-                    }, index * 100); // 100ms delay between each card
-                });
-            }, 500); // 500ms delay for cinematic feel
-        });
-
-        // --- 3D TILT EFFECT ---
-        const tiltContainers = document.querySelectorAll('.tilt-container');
-        tiltContainers.forEach(container => {
-            const card = container.querySelector('.tilt-card');
-            
-            container.addEventListener('mousemove', (e) => {
-                const rect = container.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -12; // Max rotation deg
-                const rotateY = ((x - centerX) / centerX) * 12;
-                
-                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-            
-            container.addEventListener('mouseleave', () => {
-                card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-            });
-        });
-
-        // --- DYNAMIC MODAL LOGIC ---
-        function openDynamicModal(gameKey) {
-            const data = gamesDB[gameKey];
-            if(!data) return;
-
-            // Populate Modal
-            document.getElementById('modal-img').src = data.img;
-            document.getElementById('modal-title').innerText = data.title;
-            
-            const tag = document.getElementById('modal-tag');
-            tag.innerText = data.tag;
-            tag.className = `inline-block ${data.tagColor} ${data.tagBg} text-[10px] font-black px-3 py-1 rounded-lg uppercase tracking-widest mb-3 border ${data.tagBorder}`;
-
-            const specsContainer = document.getElementById('modal-specs-container');
-            specsContainer.innerHTML = ''; // Clear previous
-
-            data.specs.forEach(spec => {
-                specsContainer.innerHTML += `
-                    <div class="bg-dark-950 border border-white/5 p-5 rounded-2xl shadow-inner transform transition-transform hover:-translate-y-1 hover:border-white/10">
-                        <h4 class="${spec.color} font-bold text-xs uppercase tracking-wider mb-2 flex items-center gap-2">
-                            <i class="${spec.icon} text-lg"></i> ${spec.title}
-                        </h4>
-                        <p class="text-sm text-slate-400 leading-relaxed">${spec.desc}</p>
-                    </div>
-                `;
-            });
-
-            // Show Modal
-            const modal = document.getElementById('dynamic-modal');
-            const content = document.getElementById('dynamic-modal-content');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                content.classList.remove('scale-95');
-            }, 10);
-        }
-
-        function closeDynamicModal() {
-            const modal = document.getElementById('dynamic-modal');
-            const content = document.getElementById('dynamic-modal-content');
-            modal.classList.add('opacity-0');
-            content.classList.add('scale-95');
-            setTimeout(() => modal.classList.add('hidden'), 300);
-        }
-
-        // --- GENERAL UI FUNCTIONS ---
-        function handleDownload(gameName) {
-            showToast(`Initiating secure protocol for ${gameName}...`, 'success');
-            const stats = document.getElementById('live-total-downloads');
-            if (stats) {
-                let current = parseInt(stats.innerText.replace(/,/g, ''));
-                current += 1;
-                stats.innerText = current.toLocaleString();
+            const loader = document.getElementById('preloader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
             }
-        }
+        });
 
         function searchGames() {
             const query = document.getElementById('game-search').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.game-card');
-            let foundCount = 0;
-            cards.forEach(card => {
-                const container = card.closest('.tilt-container') || card; 
-                if (card.getAttribute('data-title').includes(query)) {
-                    container.style.display = "block";
-                    foundCount++;
-                } else {
-                    container.style.display = "none";
-                }
+            let count = 0;
+            document.querySelectorAll('.game-card').forEach(card => {
+                const match = card.getAttribute('data-title').toLowerCase().includes(query);
+                card.style.display = match ? 'block' : 'none';
+                if (match) count++;
             });
-            document.getElementById('no-results-state').classList.toggle('hidden', foundCount > 0);
+            document.getElementById('no-results').classList.toggle('hidden', count > 0);
         }
 
         function clearSearch() {
@@ -922,78 +649,61 @@
             searchGames();
         }
 
-        function filterPlatform(platform) {
-            const cards = document.querySelectorAll('.game-card');
-            const buttons = ['all', 'android', 'pc'];
-            
-            buttons.forEach(p => {
-                const btn = document.getElementById(`btn-${p}`);
-                if(p === platform) {
-                    btn.className = "px-6 py-3 text-xs font-bold rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-[0_0_20px_rgba(124,58,237,0.3)] transition-all duration-300";
-                } else {
-                    btn.className = "px-6 py-3 text-xs font-bold rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300";
-                }
+        function filterPlatform(p) {
+            ['all', 'pc', 'android'].forEach(type => {
+                const btn = document.getElementById(`btn-${type}`);
+                btn.className = type === p ? 'px-4 py-2 text-xs font-bold rounded-lg bg-lumina-violet text-white transition-all' : 'px-4 py-2 text-xs font-bold rounded-lg text-slate-400 hover:text-white transition-all';
             });
+            let count = 0;
+            document.querySelectorAll('.game-card').forEach(card => {
+                const match = p === 'all' || card.getAttribute('data-platform').includes(p);
+                card.style.display = match ? 'block' : 'none';
+                if (match) count++;
+            });
+            document.getElementById('no-results').classList.toggle('hidden', count > 0);
+        }
 
-            let foundCount = 0;
-            cards.forEach(card => {
-                const container = card.closest('.tilt-container') || card;
-                if (platform === 'all' || card.getAttribute('data-platform').includes(platform)) {
-                    container.style.display = "block";
-                    foundCount++;
-                } else {
-                    container.style.display = "none";
-                }
+        function openDynamicModal(key) {
+            const d = gamesDB[key];
+            if (!d) return;
+            document.getElementById('modal-img').src = d.img;
+            document.getElementById('modal-title').innerText = d.title;
+            document.getElementById('modal-tag').innerText = d.tag;
+            
+            const cont = document.getElementById('modal-specs-container');
+            cont.innerHTML = '';
+            d.specs.forEach(s => {
+                cont.innerHTML += `
+                    <div class="bg-black/30 p-3 rounded-xl border border-white/5">
+                        <h4 class="text-xs font-bold text-lumina-cyan mb-1">${s.title}</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">${s.desc}</p>
+                    </div>
+                `;
             });
-            document.getElementById('no-results-state').classList.toggle('hidden', foundCount > 0);
+            document.getElementById('dynamic-modal').classList.remove('hidden');
+        }
+
+        function closeDynamicModal() {
+            document.getElementById('dynamic-modal').classList.add('hidden');
         }
 
         function toggleModal(id) {
-            const modal = document.getElementById(id);
-            const content = document.getElementById(id + '-content');
-            if (!modal) return;
-            
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                setTimeout(() => {
-                    modal.classList.remove('opacity-0');
-                    if(content) content.classList.remove('scale-95');
-                }, 10);
-            } else {
-                modal.classList.add('opacity-0');
-                if(content) content.classList.add('scale-95');
-                setTimeout(() => modal.classList.add('hidden'), 300);
-            }
+            const m = document.getElementById(id);
+            m.classList.toggle('hidden');
         }
 
-        function showToast(message, type = 'info') {
+        function handleDownload(name) {
+            showToast(`Starting download: ${name}...`, 'info');
+        }
+
+        function showToast(msg, type = 'info') {
             const container = document.getElementById('toast-container');
-            if (!container) return;
-
             const toast = document.createElement('div');
-            toast.className = `glass-card flex items-center gap-4 p-4 rounded-2xl text-sm font-bold transition-all duration-500 translate-y-6 opacity-0 pointer-events-auto border-l-4 shadow-[0_10px_40px_rgba(0,0,0,0.5)]`;
-            
-            if (type === 'success') {
-                toast.classList.add('border-l-emerald-500', 'text-white');
-                toast.innerHTML = `<div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0"><i class="fa-solid fa-check"></i></div> <span class="leading-relaxed">${message}</span>`;
-            } else if (type === 'error') {
-                toast.classList.add('border-l-rose-500', 'text-white');
-                toast.innerHTML = `<div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center text-rose-400 shrink-0"><i class="fa-solid fa-shield-cat"></i></div> <span class="leading-relaxed">${message}</span>`;
-            } else {
-                toast.classList.add('border-l-brand-500', 'text-white');
-                toast.innerHTML = `<div class="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center text-brand-400 shrink-0"><i class="fa-solid fa-satellite-dish animate-pulse"></i></div> <span class="leading-relaxed">${message}</span>`;
-            }
-
+            const bg = type === 'success' ? 'border-emerald-500 text-emerald-400' : (type === 'error' ? 'border-rose-500 text-rose-400' : 'border-lumina-cyan text-lumina-cyan');
+            toast.className = `glass-card border-l-4 ${bg} px-4 py-3 rounded-xl text-xs font-bold shadow-xl transition-all duration-300 pointer-events-auto`;
+            toast.innerText = msg;
             container.appendChild(toast);
-            
-            requestAnimationFrame(() => {
-                toast.classList.remove('translate-y-6', 'opacity-0');
-            });
-
-            setTimeout(() => {
-                toast.classList.add('translate-y-6', 'opacity-0');
-                setTimeout(() => toast.remove(), 500);
-            }, 5000); // 5 seconds display
+            setTimeout(() => toast.remove(), 4000);
         }
     </script>
 </body>
