@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STEAM HUB | LUMINA DISTRIBUTION</title>
+    <title>NEXUS - Next-Gen Gaming Network</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Motiva+Sans:wght@400;700&family=Space+Grotesk:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Orbitron:wght@700;900&family=Space+Grotesk:wght@600;800&display=swap" rel="stylesheet">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -21,21 +21,24 @@
             theme: {
                 extend: {
                     colors: {
-                        steam: {
-                            base: '#171a21',
-                            dark: '#0e141b',
-                            card: '#1b2838',
-                            cardLight: '#2a475e',
-                            blue: '#66c0f4',
-                            btn: '#214b6b',
-                            green: '#5c7e10',
-                            greenHover: '#79991b',
-                            accent: '#1999ff'
+                        nexus: {
+                            header: '#0b0e14',
+                            nav: '#111722',
+                            bg: '#141c28',
+                            dark: '#070a0f',
+                            card: '#162232',
+                            cardHover: '#1c2b3f',
+                            cyan: '#00f2fe',
+                            blue: '#4facfe',
+                            accent: '#6366f1',
+                            textMuted: '#8a99ad',
+                            green: '#10b981',
+                            greenHover: '#059669'
                         }
                     },
                     fontFamily: {
                         sans: ['Cairo', 'sans-serif'],
-                        steam: ['"Motiva Sans"', 'Cairo', 'sans-serif'],
+                        brand: ['Orbitron', 'Space Grotesk', 'sans-serif']
                     }
                 }
             }
@@ -44,89 +47,105 @@
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0e141b; }
-        ::-webkit-scrollbar-thumb { background: #2a475e; border-radius: 2px; }
-        ::-webkit-scrollbar-thumb:hover { background: #66c0f4; }
+        ::-webkit-scrollbar-track { background: #070a0f; }
+        ::-webkit-scrollbar-thumb { background: #1c2b3f; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00f2fe; }
 
         body {
-            background: #1b2838 linear-gradient(180deg, #171a21 0%, #1b2838 50%, #0e141b 100%);
-            background-attachment: fixed;
+            background-color: #141c28;
+            background-image: 
+                radial-gradient(circle at 15% 10%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 90%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                linear-gradient(180deg, #0b0e14 0%, #141c28 350px, #070a0f 100%);
+            background-repeat: no-repeat;
             color: #c7d5e0;
             overflow-x: hidden;
         }
 
-        .steam-gradient-bar {
-            background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
+        .nexus-logo-glow {
+            filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.6));
+            transition: filter 0.3s ease;
+        }
+        .nexus-logo-glow:hover {
+            filter: drop-shadow(0 0 18px rgba(0, 242, 254, 0.9));
         }
 
-        .steam-card {
-            background: #16202d;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-            transition: all 0.25s ease;
+        .game-card-custom {
+            background: rgba(17, 23, 34, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .steam-card:hover {
+        .game-card-custom:hover {
             transform: translateY(-4px);
-            background: #1b2838;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+            background: #182333;
+            border-color: rgba(0, 242, 254, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 242, 254, 0.1);
         }
 
-        .steam-btn {
-            background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        .btn-cyan-gradient {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            color: #070a0f;
+            font-weight: 800;
         }
-        .steam-btn:hover {
-            background: linear-gradient(to right, #66c0f4 0%, #2358ff 60%);
+        .btn-cyan-gradient:hover {
+            background: linear-gradient(135deg, #38f9d7 0%, #4facfe 100%);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+        }
+
+        .btn-green-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        .btn-green-gradient:hover {
+            background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col font-steam text-slate-300">
+<body class="min-h-screen flex flex-col">
 
-    <!-- STEAM TOP GLOBAL BAR -->
-    <div class="bg-steam-dark text-slate-400 text-xs border-b border-white/5 py-1.5 px-6">
+    <!-- TOP GLOBAL BAR -->
+    <div class="bg-nexus-header border-b border-white/5 text-xs py-2 px-6">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <span class="text-emerald-400 font-bold flex items-center gap-1">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span data-i18n="steam_online">خوادم ستيم نشطة - التحميل فوري</span>
-                </span>
-            </div>
-            <div class="flex items-center gap-4">
-                <button onclick="toggleModal('modal-welcome-download')" class="text-steam-blue hover:text-white transition-colors flex items-center gap-1 font-bold">
-                    <i class="fa-solid fa-download"></i> <span data-i18n="quick_get">شاشة التحميل</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- STEAM NAVIGATION HEADER -->
-    <header class="bg-steam-base sticky top-0 z-40 border-b border-black/50 shadow-xl">
-        <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
-            <!-- Brand -->
-            <div class="flex items-center gap-8">
-                <a href="#" class="flex items-center gap-3">
-                    <i class="fa-brands fa-steam text-white text-4xl"></i>
-                    <div class="flex flex-col">
-                        <span class="text-xl font-black tracking-widest text-white uppercase leading-tight">STEAM<span class="text-steam-blue">.LUMINA</span></span>
-                        <span class="text-[9px] text-slate-500 tracking-wider">GAME VAULT & REPOSITORY</span>
-                    </div>
-                </a>
-
-                <!-- Steam Tabs -->
-                <nav class="hidden md:flex items-center gap-6 text-sm font-bold uppercase text-slate-400">
-                    <a href="#games-section" class="hover:text-white transition-colors text-steam-blue" data-i18n="nav_store">المتجر</a>
-                    <button onclick="setTabFilter('new')" class="hover:text-white transition-colors" data-i18n="nav_new">الألعاب الجديدة</button>
-                    <button onclick="setTabFilter('classic')" class="hover:text-white transition-colors" data-i18n="nav_classic">الكلاسيكية القديمة</button>
-                    <button onclick="setTabFilter('mobile')" class="hover:text-white transition-colors" data-i18n="nav_mobile">ألعاب الموبايل</button>
-                    <button onclick="toggleModal('modal-support')" class="hover:text-white text-amber-400 flex items-center gap-1 transition-colors">
-                        <i class="fa-solid fa-headset text-xs"></i> <span data-i18n="nav_support">الدعم الفني (Support)</span>
-                    </button>
-                </nav>
-            </div>
+            
+            <!-- Custom High-End Vector Logo -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="relative w-11 h-11 flex items-center justify-center">
+                    <!-- High-Tech Neon Geometric Vector -->
+                    <svg class="w-full h-full nexus-logo-glow" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" stroke="url(#logo-grad-1)" stroke-width="4" fill="rgba(11,14,20,0.85)"/>
+                        <circle cx="50" cy="50" r="18" stroke="url(#logo-grad-2)" stroke-width="4"/>
+                        <path d="M50 20 L50 32 M50 68 L50 80 M20 50 L32 50 M68 50 L80 50" stroke="#00f2fe" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="50" cy="50" r="7" fill="#00f2fe"/>
+                        <defs>
+                            <linearGradient id="logo-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00f2fe"/>
+                                <stop offset="50%" stop-color="#4facfe"/>
+                                <stop offset="100%" stop-color="#6366f1"/>
+                            </linearGradient>
+                            <linearGradient id="logo-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#6366f1"/>
+                                <stop offset="100%" stop-color="#00f2fe"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-black font-brand tracking-widest text-white leading-none">NEXUS<span class="text-nexus-cyan">.</span>GG</span>
+                    <span class="text-[9px] text-nexus-textMuted tracking-widest uppercase font-bold mt-0.5">ELITE DISTRIBUTION</span>
+                </div>
+            </a>
 
             <!-- Right Options -->
-            <div class="flex items-center gap-3">
-                <!-- Language Selector -->
-                <select id="lang-select" onchange="switchLanguage(this.value)" class="bg-steam-dark border border-white/10 text-xs font-bold text-slate-300 py-1.5 px-2.5 rounded outline-none hover:border-steam-blue cursor-pointer">
+            <div class="flex items-center gap-4">
+                <!-- Instant Client Button -->
+                <button onclick="toggleModal('modal-welcome-download')" class="btn-cyan-gradient text-[11px] px-3.5 py-1.5 rounded flex items-center gap-2 shadow transition-all">
+                    <i class="fa-solid fa-cloud-arrow-down"></i>
+                    <span data-i18n="install_app">مركز التحميل السريع</span>
+                </button>
+
+                <!-- Language Switcher -->
+                <select id="lang-select" onchange="switchLanguage(this.value)" class="bg-[#17202d] border border-white/10 text-[11px] font-bold text-slate-300 py-1.5 px-2.5 rounded outline-none cursor-pointer hover:border-nexus-cyan transition-colors">
                     <option value="ar">العربية</option>
                     <option value="en">English</option>
                     <option value="fr">Français</option>
@@ -134,173 +153,198 @@
 
                 <!-- Auth -->
                 <div id="auth-container">
-                    <button onclick="toggleModal('modal-login')" class="bg-steam-cardLight hover:bg-steam-blue text-white hover:text-black px-4 py-1.5 rounded text-xs font-bold transition-all" data-i18n="login_btn">
+                    <button onclick="toggleModal('modal-login')" class="text-nexus-textMuted hover:text-white text-xs font-bold transition-colors" data-i18n="login_link">
                         تسجيل الدخول
                     </button>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
-    <!-- STEAM HERO BANNER -->
-    <section class="relative py-12 px-6 border-b border-black/40" style="background: radial-gradient(circle at 70% 30%, #1f364d 0%, #101822 100%);">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-            <div class="max-w-2xl">
-                <div class="inline-block bg-steam-blue/20 text-steam-blue border border-steam-blue/40 text-[11px] font-bold px-3 py-1 rounded mb-4 uppercase tracking-wider" data-i18n="hero_pill">
-                    مستودع ستيم المباشر - مجاني بالكامل
-                </div>
-                <h1 class="text-3xl sm:text-5xl font-black text-white mb-4 leading-tight" data-i18n="hero_title">
-                    استكشف، حمّل، والعب بدون قيود
-                </h1>
-                <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-6" data-i18n="hero_sub">
-                    روابط نظيفة ومباشرة لأفضل ألعاب الكمبيوتر وأجهزة الأندرويد. مع تحديثات فورية ودعم فني متاح دائماً.
-                </p>
-
-                <!-- Search Input -->
-                <div class="flex items-center bg-steam-dark/90 border border-white/15 rounded p-1 max-w-lg shadow-inner focus-within:border-steam-blue">
-                    <input type="text" id="steam-search" oninput="executeSearch()" placeholder="ابحث عن لعبة، نظام، أو تصنيف في ستيم..." class="bg-transparent w-full text-xs sm:text-sm text-white px-3 py-2 outline-none" data-i18n-placeholder="search_placeholder">
-                    <button onclick="resetSearch()" class="bg-steam-cardLight hover:bg-steam-blue hover:text-black px-4 py-2 text-xs font-bold rounded text-white transition-colors" data-i18n="reset_btn">
-                        مسح
-                    </button>
-                </div>
-            </div>
-
-            <!-- Quick Action Box -->
-            <div class="bg-steam-dark/80 border border-white/10 p-6 rounded-lg max-w-sm w-full shadow-2xl flex flex-col gap-4 text-center">
-                <i class="fa-solid fa-cloud-arrow-down text-4xl text-steam-blue mx-auto animate-bounce"></i>
-                <h3 class="text-lg font-bold text-white" data-i18n="download_box_title">مركز التنزيلات الفوري</h3>
-                <p class="text-xs text-slate-400" data-i18n="download_box_desc">افتح لوحة التنزيلات المباشرة لكافة الألعاب المثبتة على خوادمنا.</p>
-                <button onclick="toggleModal('modal-welcome-download')" class="steam-btn py-3 px-4 rounded text-xs font-bold uppercase tracking-wider text-white shadow hover:opacity-95 transition-opacity" data-i18n="download_box_btn">
-                    فتح شاشة التحميل الآن
+    <!-- MAIN NAVBAR -->
+    <nav class="bg-nexus-nav border-b border-black/40 shadow-xl sticky top-0 z-40 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-2.5 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-nexus-textMuted">
+                <a href="#games-section" class="text-nexus-cyan border-b-2 border-nexus-cyan pb-1" data-i18n="nav_store">المتجر الرئيسي</a>
+                <button onclick="setTabFilter('new')" class="hover:text-white transition-colors" data-i18n="nav_new">الألعاب الجديدة</button>
+                <button onclick="setTabFilter('classic')" class="hover:text-white transition-colors" data-i18n="nav_classic">ألعاب كلاسيكية</button>
+                <button onclick="setTabFilter('mobile')" class="hover:text-white transition-colors" data-i18n="nav_mobile">ألعاب الموبايل</button>
+                <button onclick="toggleModal('modal-support')" class="hover:text-white text-amber-400 flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-headset text-xs"></i>
+                    <span data-i18n="nav_support">الدعم الفني (Support)</span>
                 </button>
             </div>
-        </div>
-    </section>
 
-    <!-- STEAM GAMES CATALOG SECTION -->
-    <main id="games-section" class="max-w-7xl mx-auto px-6 py-12 flex-grow w-full">
-        <!-- Section Filter Tabs -->
-        <div class="flex flex-wrap items-center justify-between gap-4 mb-8 border-b border-white/10 pb-4">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-gamepad text-steam-blue text-xl"></i>
-                <h2 class="text-xl font-bold text-white uppercase tracking-wide" data-i18n="catalog_title">قائمة ألعاب ستيم المتاحة</h2>
-            </div>
-
-            <div class="flex flex-wrap gap-2">
-                <button onclick="setTabFilter('all')" id="tab-all" class="bg-steam-blue text-black px-4 py-1.5 text-xs font-bold rounded" data-i18n="tab_all">الكل</button>
-                <button onclick="setTabFilter('new')" id="tab-new" class="bg-steam-card hover:bg-steam-cardLight text-slate-300 px-4 py-1.5 text-xs font-bold rounded transition-colors" data-i18n="tab_new">ألعاب جديدة</button>
-                <button onclick="setTabFilter('classic')" id="tab-classic" class="bg-steam-card hover:bg-steam-cardLight text-slate-300 px-4 py-1.5 text-xs font-bold rounded transition-colors" data-i18n="tab_classic">كلاسيكية قديمة</button>
-                <button onclick="setTabFilter('mobile')" id="tab-mobile" class="bg-steam-card hover:bg-steam-cardLight text-slate-300 px-4 py-1.5 text-xs font-bold rounded transition-colors" data-i18n="tab_mobile">ألعاب الموبايل</button>
+            <!-- Search Field -->
+            <div class="relative flex items-center">
+                <input type="text" id="store-search" oninput="executeSearch()" placeholder="بحث في المستودع..." class="bg-[#1a2332] text-white placeholder-slate-400 text-xs px-3.5 py-2 pr-8 rounded outline-none border border-transparent focus:border-nexus-cyan w-52 sm:w-64 transition-all" data-i18n-placeholder="search_ph">
+                <i class="fa-solid fa-magnifying-glass absolute right-3 text-slate-400 text-xs pointer-events-none"></i>
             </div>
         </div>
+    </nav>
 
-        <!-- Games Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="games-grid">
+    <!-- FEATURED HERO -->
+    <header class="max-w-7xl mx-auto px-6 pt-8 pb-4 w-full">
+        <div class="relative rounded-lg overflow-hidden shadow-2xl bg-[#090d14] border border-white/10 flex flex-col md:flex-row items-stretch">
+            <div class="md:w-2/3 aspect-video relative overflow-hidden">
+                <img src="https://preview.redd.it/went-on-blender-i-made-a-minecraft-poster-v0-8b15yijpcgtc1.png?width=1080&crop=smart&auto=webp&s=59b3af78ee004907fa41c529b5f36620898ab851" alt="Featured Minecraft" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#090d14] via-transparent to-transparent"></div>
+            </div>
             
-            <!-- MINECRAFT (New + Mobile) -->
-            <div class="steam-card rounded border border-white/5 overflow-hidden flex flex-col game-box" data-tags="new mobile pc minecraft sandbox ماين كرافت">
-                <div class="relative aspect-video">
-                    <img src="https://preview.redd.it/went-on-blender-i-made-a-minecraft-poster-v0-8b15yijpcgtc1.png?width=1080&crop=smart&auto=webp&s=59b3af78ee004907fa41c529b5f36620898ab851" alt="Minecraft" class="w-full h-full object-cover">
-                    <span class="absolute top-2 right-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">NEW / MOBILE</span>
+            <div class="md:w-1/3 p-6 flex flex-col justify-between bg-[#0e141f]">
+                <div>
+                    <span class="text-[10px] font-bold text-nexus-cyan uppercase tracking-widest block mb-1.5" data-i18n="featured_badge">العنوان الأبرز هذا الأسبوع</span>
+                    <h2 class="text-2xl font-black text-white mb-2 font-brand tracking-wider">Minecraft: Ultimate</h2>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4" data-i18n="hero_desc">
+                        عوالم حرة، بناء واستكشاف بدون حدود. الحزم الأحدث خالية تماماً من القيود ومجهزة للأجهزة الضعيفة والقوية.
+                    </p>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="bg-[#1b2637] text-slate-300 text-[10px] px-2.5 py-1 rounded font-bold">بقاء وساندبوكس</span>
+                        <span class="bg-[#1b2637] text-slate-300 text-[10px] px-2.5 py-1 rounded font-bold">أوفلاين / أونلاين</span>
+                    </div>
                 </div>
-                <div class="p-5 flex flex-col flex-grow">
-                    <h3 class="text-lg font-bold text-white mb-1">Minecraft</h3>
-                    <p class="text-xs text-slate-400 mb-4 flex-grow" data-i18n="desc_minecraft">عوالم مفتوحة وإمكانيات لانهائية للبناء والاستكشاف على الكمبيوتر والموبايل.</p>
-                    <div class="grid grid-cols-2 gap-2 mb-2">
-                        <a href="https://www.mediafire.com/file/ks92ln8qhmi33rr/TLauncher-Installer-1.9.5.1.exe/file" target="_blank" class="bg-steam-cardLight hover:bg-steam-blue hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
+
+                <div>
+                    <div class="text-[11px] text-emerald-400 font-bold mb-2.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-shield-check"></i> <span data-i18n="verified_pkg">حزم رسمية مجانية ومفحوصة بالكامل</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="https://www.mediafire.com/file/ks92ln8qhmi33rr/TLauncher-Installer-1.9.5.1.exe/file" target="_blank" class="btn-cyan-gradient text-center py-2 text-xs rounded flex items-center justify-center gap-1.5 shadow">
                             <i class="fa-brands fa-windows"></i> PC (EXE)
                         </a>
-                        <a href="https://www.mediafire.com/file/ifjcoutbjgb5kgo/Minecraft-v1.26.50.27-full-apkvision.apk/file" target="_blank" class="bg-steam-green hover:bg-steam-greenHover text-white text-center py-2 text-xs font-bold rounded transition-colors">
+                        <a href="https://www.mediafire.com/file/ifjcoutbjgb5kgo/Minecraft-v1.26.50.27-full-apkvision.apk/file" target="_blank" class="btn-green-gradient text-white text-center py-2 text-xs font-bold rounded flex items-center justify-center gap-1.5 shadow">
+                            <i class="fa-brands fa-android"></i> APK Mobile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- GAMES SECTION -->
+    <main id="games-section" class="max-w-7xl mx-auto px-6 py-10 flex-grow w-full">
+        <!-- Section Filter Header -->
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-[#213043] pb-3">
+            <h3 class="text-base font-bold text-white uppercase tracking-wider flex items-center gap-2 font-brand">
+                <i class="fa-solid fa-layer-group text-nexus-cyan"></i>
+                <span data-i18n="browse_title">مستودع الألعاب المباشرة</span>
+            </h3>
+
+            <div class="flex gap-1.5 bg-[#0b1017] p-1 rounded border border-white/5">
+                <button onclick="setTabFilter('all')" id="tab-all" class="bg-nexus-cyan text-black px-3.5 py-1 text-xs font-bold rounded" data-i18n="tab_all">الكل</button>
+                <button onclick="setTabFilter('new')" id="tab-new" class="text-nexus-textMuted hover:text-white px-3.5 py-1 text-xs font-bold rounded transition-colors" data-i18n="tab_new">ألعاب جديدة</button>
+                <button onclick="setTabFilter('classic')" id="tab-classic" class="text-nexus-textMuted hover:text-white px-3.5 py-1 text-xs font-bold rounded transition-colors" data-i18n="tab_classic">كلاسيكية قديمة</button>
+                <button onclick="setTabFilter('mobile')" id="tab-mobile" class="text-nexus-textMuted hover:text-white px-3.5 py-1 text-xs font-bold rounded transition-colors" data-i18n="tab_mobile">ألعاب الموبايل</button>
+            </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="games-grid">
+            
+            <!-- MINECRAFT -->
+            <div class="game-card-custom rounded-lg overflow-hidden flex flex-col game-card" data-tags="new mobile pc minecraft ماينكرافت">
+                <div class="relative aspect-video">
+                    <img src="https://preview.redd.it/went-on-blender-i-made-a-minecraft-poster-v0-8b15yijpcgtc1.png?width=1080&crop=smart&auto=webp&s=59b3af78ee004907fa41c529b5f36620898ab851" alt="Minecraft" class="w-full h-full object-cover">
+                    <span class="absolute top-2 right-2 bg-nexus-cyan text-black text-[10px] font-black px-2 py-0.5 rounded font-brand">HOT / MOBILE</span>
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h4 class="text-base font-bold text-white mb-1">Minecraft</h4>
+                    <p class="text-xs text-slate-400 mb-4 flex-grow" data-i18n="desc_minecraft">عوالم مفتوحة وإمكانيات لانهائية للبناء والاستكشاف على الكمبيوتر والموبايل.</p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="https://www.mediafire.com/file/ks92ln8qhmi33rr/TLauncher-Installer-1.9.5.1.exe/file" target="_blank" class="bg-[#212f42] hover:bg-nexus-cyan hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
+                            <i class="fa-brands fa-windows"></i> PC (EXE)
+                        </a>
+                        <a href="https://www.mediafire.com/file/ifjcoutbjgb5kgo/Minecraft-v1.26.50.27-full-apkvision.apk/file" target="_blank" class="btn-green-gradient text-white text-center py-2 text-xs font-bold rounded transition-colors">
                             <i class="fa-brands fa-android"></i> Android (APK)
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- BALDI'S BASICS (Classic + Mobile) -->
-            <div class="steam-card rounded border border-white/5 overflow-hidden flex flex-col game-box" data-tags="classic mobile pc baldi بالدي رعب">
+            <!-- BALDI -->
+            <div class="game-card-custom rounded-lg overflow-hidden flex flex-col game-card" data-tags="classic mobile pc baldi بالدي">
                 <div class="relative aspect-video">
-                    <img src="https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=2500w" alt="Baldi's Basics" class="w-full h-full object-cover">
-                    <span class="absolute top-2 right-2 bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">CLASSIC</span>
+                    <img src="https://images.squarespace-cdn.com/content/v1/6491eb91bb711304dd556188/b5872840-a608-4e82-b104-a01c4830d0d9/3840x2160_screenshot_2025-06-25_13h57_09.jpg?format=2500w" alt="Baldi" class="w-full h-full object-cover">
+                    <span class="absolute top-2 right-2 bg-amber-500 text-black text-[10px] font-black px-2 py-0.5 rounded font-brand">CLASSIC</span>
                 </div>
-                <div class="p-5 flex flex-col flex-grow">
-                    <h3 class="text-lg font-bold text-white mb-1">Baldi's Basics 1.4.3</h3>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h4 class="text-base font-bold text-white mb-1">Baldi's Basics 1.4.3</h4>
                     <p class="text-xs text-slate-400 mb-4 flex-grow" data-i18n="desc_baldi">رعب المدرسة الساخر مع الباتش الخاص لأجهزة أندرويد ونسخة الكمبيوتر.</p>
-                    <div class="grid grid-cols-2 gap-2 mb-2">
-                        <a href="https://www.mediafire.com/file_premium/1f5bhvzi98aqshy/BALDI_1.4.3_Windows_64Bit_patched.zip/file" target="_blank" class="bg-steam-cardLight hover:bg-steam-blue hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="https://www.mediafire.com/file_premium/1f5bhvzi98aqshy/BALDI_1.4.3_Windows_64Bit_patched.zip/file" target="_blank" class="bg-[#212f42] hover:bg-nexus-cyan hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
                             <i class="fa-brands fa-windows"></i> PC (ZIP)
                         </a>
-                        <a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" class="bg-steam-green hover:bg-steam-greenHover text-white text-center py-2 text-xs font-bold rounded transition-colors">
+                        <a href="https://www.mediafire.com/file/zolnguun43793tp/BALDI_1.4.3_Android_patched.apk/file" target="_blank" class="btn-green-gradient text-white text-center py-2 text-xs font-bold rounded transition-colors">
                             <i class="fa-brands fa-android"></i> Android (APK)
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- BIGFOOT (New) -->
-            <div class="steam-card rounded border border-white/5 overflow-hidden flex flex-col game-box" data-tags="new mobile pc bigfoot بيغ فوت نجاة">
+            <!-- BIGFOOT -->
+            <div class="game-card-custom rounded-lg overflow-hidden flex flex-col game-card" data-tags="new mobile pc bigfoot بيغ فوت">
                 <div class="relative aspect-video">
                     <img src="https://img.itch.zone/aW1hZ2UvNDUwNDkxMS8yNjkyOTQ2OC5wbmc=/original/ow3cOL.png" alt="Bigfoot" class="w-full h-full object-cover">
-                    <span class="absolute top-2 right-2 bg-steam-blue text-black text-[10px] font-bold px-2 py-0.5 rounded">NEW RELEASE</span>
+                    <span class="absolute top-2 right-2 bg-nexus-cyan text-black text-[10px] font-black px-2 py-0.5 rounded font-brand">NEW</span>
                 </div>
-                <div class="p-5 flex flex-col flex-grow">
-                    <h3 class="text-lg font-bold text-white mb-1">Bigfoot Snow Massacre</h3>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h4 class="text-base font-bold text-white mb-1">The Bigfoot Snow Massacre</h4>
                     <p class="text-xs text-slate-400 mb-4 flex-grow" data-i18n="desc_bigfoot">حرب النجاة في كوخ مظلم ضد وحش الغابة الثلجي الأسطوري.</p>
-                    <div class="grid grid-cols-2 gap-2 mb-2">
-                        <a href="https://www.mediafire.com/file/20jg5ty5sd9h6xl/The+Bigfoot+Snow+Massacre.zip/file" target="_blank" class="bg-steam-cardLight hover:bg-steam-blue hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="https://www.mediafire.com/file/20jg5ty5sd9h6xl/The+Bigfoot+Snow+Massacre.zip/file" target="_blank" class="bg-[#212f42] hover:bg-nexus-cyan hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
                             <i class="fa-brands fa-windows"></i> PC (ZIP)
                         </a>
-                        <a href="https://www.mediafire.com/file/6ffu9c4zm3nzn0e/The+Bigfoot+Snow+Massacre.apk/file" target="_blank" class="bg-steam-green hover:bg-steam-greenHover text-white text-center py-2 text-xs font-bold rounded transition-colors">
+                        <a href="https://www.mediafire.com/file/6ffu9c4zm3nzn0e/The+Bigfoot+Snow+Massacre.apk/file" target="_blank" class="btn-green-gradient text-white text-center py-2 text-xs font-bold rounded transition-colors">
                             <i class="fa-brands fa-android"></i> Android (APK)
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- GTA MAROC (Classic) -->
-            <div class="steam-card rounded border border-white/5 overflow-hidden flex flex-col game-box" data-tags="classic pc gta maroc قراند المغرب">
+            <!-- GTA MAROC -->
+            <div class="game-card-custom rounded-lg overflow-hidden flex flex-col game-card" data-tags="classic pc gta maroc قراند المغرب">
                 <div class="relative aspect-video">
                     <img src="https://2img.net/h/1.bp.blogspot.com/-P8ceA0FTqYc/Tio_2gj3RQI/AAAAAAAAADg/oJJ5fEEJB7U/s1600/gtamaroc.png" alt="GTA Maroc" class="w-full h-full object-cover">
-                    <span class="absolute top-2 right-2 bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">CLASSIC MOD</span>
+                    <span class="absolute top-2 right-2 bg-amber-500 text-black text-[10px] font-black px-2 py-0.5 rounded font-brand">CLASSIC</span>
                 </div>
-                <div class="p-5 flex flex-col flex-grow">
-                    <h3 class="text-lg font-bold text-white mb-1">GTA San Andreas: Maroc</h3>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h4 class="text-base font-bold text-white mb-1">GTA San Andreas: Maroc</h4>
                     <p class="text-xs text-slate-400 mb-2 flex-grow" data-i18n="desc_gtamaroc">النسخة الكلاسيكية المغربية المحبوبة مع شوارع وسيارات مخصصة.</p>
-                    <div class="bg-steam-dark p-2 rounded text-[11px] mb-3 border border-white/5 flex justify-between items-center">
+                    <div class="bg-[#0b1017] p-2 rounded text-[11px] mb-3 border border-white/5 flex justify-between items-center">
                         <span class="text-slate-400">Pass:</span>
-                        <code class="text-steam-blue select-all font-mono font-bold">www.i3dadiaty.com</code>
+                        <code class="text-nexus-cyan select-all font-mono font-bold">www.i3dadiaty.com</code>
                     </div>
-                    <a href="https://www.mediafire.com/file_premium/3jd1s1bgroz7pzm/gta_sa_maroc_i3dadiaty.rar/file" target="_blank" class="w-full bg-steam-cardLight hover:bg-steam-blue hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
+                    <a href="https://www.mediafire.com/file_premium/3jd1s1bgroz7pzm/gta_sa_maroc_i3dadiaty.rar/file" target="_blank" class="w-full bg-[#212f42] hover:bg-nexus-cyan hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
                         <i class="fa-brands fa-windows"></i> Download PC (RAR)
                     </a>
                 </div>
             </div>
 
-            <!-- MECCHA CHAMELEON (New) -->
-            <div class="steam-card rounded border border-white/5 overflow-hidden flex flex-col game-box" data-tags="new pc meccha chameleon حرباء">
+            <!-- MECCHA CHAMELEON -->
+            <div class="game-card-custom rounded-lg overflow-hidden flex flex-col game-card" data-tags="new pc meccha chameleon حرباء">
                 <div class="relative aspect-video">
                     <img src="https://sm.ign.com/t/ign_nl/cover/m/meccha-cha/meccha-chameleon_stxy.600.jpg" alt="Meccha Chameleon" class="w-full h-full object-cover">
-                    <span class="absolute top-2 right-2 bg-steam-blue text-black text-[10px] font-bold px-2 py-0.5 rounded">NEW INDIE</span>
+                    <span class="absolute top-2 right-2 bg-nexus-cyan text-black text-[10px] font-black px-2 py-0.5 rounded font-brand">INDIE</span>
                 </div>
-                <div class="p-5 flex flex-col flex-grow">
-                    <h3 class="text-lg font-bold text-white mb-1">Meccha Chameleon</h3>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h4 class="text-base font-bold text-white mb-1">Meccha Chameleon</h4>
                     <p class="text-xs text-slate-400 mb-4 flex-grow" data-i18n="desc_meccha">مغامرة أركيد مرحة تعتمد على التأرجح باللسان وتخطي الفخاخ.</p>
-                    <a href="https://www.mediafire.com/file_premium/98msmje7xzsjoz2/MECCHA.CHAMELEON-SteamRIP.com.rar/file" target="_blank" class="w-full bg-steam-cardLight hover:bg-steam-blue hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
+                    <a href="https://www.mediafire.com/file_premium/98msmje7xzsjoz2/MECCHA.CHAMELEON-SteamRIP.com.rar/file" target="_blank" class="w-full bg-[#212f42] hover:bg-nexus-cyan hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
                         <i class="fa-brands fa-windows"></i> Download PC
                     </a>
                 </div>
             </div>
 
-            <!-- GRANNY (Classic) -->
-            <div class="steam-card rounded border border-white/5 overflow-hidden flex flex-col game-box" data-tags="classic pc granny قراني رعب">
+            <!-- GRANNY -->
+            <div class="game-card-custom rounded-lg overflow-hidden flex flex-col game-card" data-tags="classic pc granny قراني">
                 <div class="relative aspect-video">
                     <img src="https://img.tapimg.net/market/images/7aa1bed93f52772f6ee79cc3e1853e8e.jpg?imageView2/2/w/720/h/720/q/80/format/jpg/interlace/1/ignore-error/1&t=1" alt="Granny" class="w-full h-full object-cover">
-                    <span class="absolute top-2 right-2 bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">CLASSIC HORROR</span>
+                    <span class="absolute top-2 right-2 bg-rose-500 text-white text-[10px] font-black px-2 py-0.5 rounded font-brand">HORROR</span>
                 </div>
-                <div class="p-5 flex flex-col flex-grow">
-                    <h3 class="text-lg font-bold text-white mb-1">Granny v1.2</h3>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h4 class="text-base font-bold text-white mb-1">Granny v1.2</h4>
                     <p class="text-xs text-slate-400 mb-4 flex-grow" data-i18n="desc_granny">لعبة الهروب الكلاسيكية من المنزل المشؤوم قبل انقضاء 5 أيام.</p>
-                    <a href="https://www.mediafire.com/file_premium/0on96q3sdrblgca/Granny.v1.2.zip/file" target="_blank" class="w-full bg-steam-cardLight hover:bg-steam-blue hover:text-black text-white text-center py-2 text-xs font-bold rounded transition-colors">
+                    <a href="https://www.mediafire.com/file_premium/0on96q3sdrblgca/Granny.v1.2.zip/file" target="_blank" class="w-full bg-[#212f42] hover:bg-rose-500 text-white text-center py-2 text-xs font-bold rounded transition-colors">
                         <i class="fa-brands fa-windows"></i> Download PC (ZIP)
                     </a>
                 </div>
@@ -309,140 +353,150 @@
         </div>
 
         <div id="no-search-results" class="hidden text-center py-16">
-            <i class="fa-solid fa-face-frown text-4xl text-slate-600 mb-2"></i>
-            <p class="text-slate-400 text-sm" data-i18n="no_results">لم يتم العثور على ألعاب مطابقة.</p>
+            <i class="fa-solid fa-magnifying-glass-chart text-4xl text-slate-600 mb-2"></i>
+            <p class="text-slate-400 text-sm" data-i18n="no_results">لم يتم العثور على ألعاب مطابقة لبحثك.</p>
         </div>
     </main>
 
-    <!-- STEAM FOOTER -->
-    <footer class="bg-steam-dark border-t border-black/40 py-10 px-6 text-xs text-slate-500">
+    <!-- FOOTER -->
+    <footer class="bg-nexus-header border-t border-white/5 py-10 px-6 text-xs text-nexus-textMuted">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-3">
-                <i class="fa-brands fa-steam text-3xl text-slate-600"></i>
-                <p>© 2026 Steam Lumina. منصة توزيع تفاعلية آمنة وسريعة للألعاب.</p>
+                <span class="font-brand font-black text-nexus-cyan text-xl tracking-wider">NEXUS</span>
+                <div>
+                    <p>© 2026 NEXUS.GG Network. جميع الحقوق محفوظة لشبكة التوزيع الآمنة.</p>
+                </div>
             </div>
-            <div class="flex items-center gap-6 text-slate-400 font-bold">
-                <button onclick="toggleModal('modal-support')" class="hover:text-steam-blue flex items-center gap-1.5">
-                    <i class="fa-solid fa-envelope"></i> <span data-i18n="footer_support">اتصل بالدعم: ssads9268@gmail.com</span>
+            
+            <div class="flex items-center gap-4">
+                <button onclick="toggleModal('modal-support')" class="hover:text-nexus-cyan flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>مساعدة الدعم: ssads9268@gmail.com</span>
                 </button>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL 1: STEAM SUPPORT (Sends to ssads9268@gmail.com) -->
+    <!-- MODAL: SUPPORT (Sends to ssads9268@gmail.com) -->
     <div id="modal-support" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-steam-base border border-steam-blue/30 rounded-lg max-w-md w-full p-6 relative shadow-2xl">
+        <div class="bg-nexus-nav border border-nexus-cyan/30 rounded-xl max-w-md w-full p-6 relative shadow-2xl">
             <button onclick="toggleModal('modal-support')" class="absolute top-4 left-4 text-slate-400 hover:text-white">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             
             <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 rounded bg-steam-blue/10 border border-steam-blue/30 flex items-center justify-center text-steam-blue">
+                <div class="w-10 h-10 rounded-lg bg-nexus-cyan/10 border border-nexus-cyan/40 flex items-center justify-center text-nexus-cyan">
                     <i class="fa-solid fa-headset text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold text-white uppercase tracking-wide" data-i18n="support_title">Steam Support | الدعم الفني</h3>
+                    <h3 class="text-base font-bold text-white uppercase tracking-wider font-brand" data-i18n="support_title">Nexus Support Desk</h3>
                     <p class="text-xs text-slate-400" data-i18n="support_subtitle">أرسل مشكلتك مباشرة إلى فريق الدعم</p>
                 </div>
             </div>
 
-            <div class="bg-steam-dark p-3 rounded border border-white/5 text-xs text-slate-400 mb-4">
-                <span class="text-steam-blue font-bold">البريد المعتمد:</span> ssads9268@gmail.com
+            <div class="bg-[#0b1017] p-2.5 rounded border border-white/5 text-xs text-slate-300 mb-4">
+                <span class="text-nexus-cyan font-bold">بريد الدعم المعتمد:</span> ssads9268@gmail.com
             </div>
 
-            <form onsubmit="sendSupportTicket(event)" class="space-y-4">
+            <form onsubmit="submitSupportTicket(event)" class="space-y-3 text-xs">
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 mb-1" data-i18n="support_name">الاسم / اسم المستخدم</label>
-                    <input type="text" id="sup-name" required class="w-full bg-steam-dark border border-white/10 rounded px-3 py-2 text-xs text-white focus:border-steam-blue outline-none" placeholder="Steam User">
+                    <label class="block font-bold text-slate-300 mb-1" data-i18n="support_name">الاسم / اسم المستخدم</label>
+                    <input type="text" id="sup-name" required class="w-full bg-[#0b1017] border border-white/10 rounded px-3 py-2 text-white outline-none focus:border-nexus-cyan" placeholder="User Name">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 mb-1" data-i18n="support_email">بريدك الإلكتروني للرد عليك</label>
-                    <input type="email" id="sup-email" required class="w-full bg-steam-dark border border-white/10 rounded px-3 py-2 text-xs text-white focus:border-steam-blue outline-none" placeholder="yourname@gmail.com">
+                    <label class="block font-bold text-slate-300 mb-1" data-i18n="support_email">بريدك الإلكتروني للرد عليك</label>
+                    <input type="email" id="sup-email" required class="w-full bg-[#0b1017] border border-white/10 rounded px-3 py-2 text-white outline-none focus:border-nexus-cyan" placeholder="you@domain.com">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 mb-1" data-i18n="support_message">تفاصيل المشكلة (Game Issue)</label>
-                    <textarea id="sup-msg" rows="4" required class="w-full bg-steam-dark border border-white/10 rounded px-3 py-2 text-xs text-white focus:border-steam-blue outline-none" placeholder="أشرح المشكلة التي واجهتك أثناء التحميل أو التشغيل..."></textarea>
+                    <label class="block font-bold text-slate-300 mb-1" data-i18n="support_msg">تفاصيل المشكلة (Problem Details)</label>
+                    <textarea id="sup-msg" rows="4" required class="w-full bg-[#0b1017] border border-white/10 rounded px-3 py-2 text-white outline-none focus:border-nexus-cyan" placeholder="اشرح ما حدث معك أثناء التنزيل أو التشغيل..."></textarea>
                 </div>
-                <button type="submit" class="w-full steam-btn text-white py-2.5 rounded text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2">
+                <button type="submit" class="w-full btn-cyan-gradient py-2.5 rounded font-bold uppercase tracking-wider flex items-center justify-center gap-2 mt-2 shadow">
                     <i class="fa-solid fa-paper-plane"></i> <span data-i18n="support_send">إرسال التذكرة الآن</span>
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- MODAL 2: WELCOME / INSTANT DOWNLOAD SCREEN (Shows on Entry) -->
+    <!-- MODAL: WELCOME DOWNLOAD SCREEN -->
     <div id="modal-welcome-download" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-steam-base border border-steam-blue/40 rounded-lg max-w-xl w-full p-8 relative shadow-2xl">
+        <div class="bg-nexus-nav border border-nexus-cyan/40 rounded-xl max-w-xl w-full p-8 relative shadow-2xl">
             <button onclick="toggleModal('modal-welcome-download')" class="absolute top-4 left-4 text-slate-400 hover:text-white">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             
             <div class="text-center mb-6">
-                <i class="fa-brands fa-steam text-5xl text-steam-blue mb-3"></i>
-                <h2 class="text-2xl font-black text-white uppercase tracking-wider" data-i18n="welcome_title">Steam Download Manager</h2>
+                <div class="w-16 h-16 mx-auto mb-3">
+                    <svg class="w-full h-full nexus-logo-glow" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" stroke="#00f2fe" stroke-width="4" fill="rgba(11,14,20,0.9)"/>
+                        <circle cx="50" cy="50" r="15" stroke="#6366f1" stroke-width="4"/>
+                        <circle cx="50" cy="50" r="6" fill="#00f2fe"/>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-black text-white uppercase tracking-wider font-brand" data-i18n="welcome_title">Nexus Instant Hub</h2>
                 <p class="text-xs text-slate-400 mt-1" data-i18n="welcome_desc">مرحباً بك في منصة التحميل المباشر. اختر ما تريد تحميله الآن:</p>
             </div>
 
-            <div class="space-y-3 mb-6">
-                <div class="bg-steam-dark p-3 rounded flex items-center justify-between border border-white/5">
+            <div class="space-y-3 mb-6 text-xs">
+                <div class="bg-[#0b1017] p-3.5 rounded-lg flex items-center justify-between border border-white/5">
                     <div class="flex items-center gap-3">
-                        <i class="fa-brands fa-windows text-steam-blue text-xl"></i>
+                        <i class="fa-brands fa-windows text-nexus-cyan text-2xl"></i>
                         <div>
-                            <h4 class="text-xs font-bold text-white">Minecraft PC + Baldi PC + Bigfoot PC</h4>
-                            <p class="text-[10px] text-slate-500">حزم التثبيت الكاملة لأجهزة الحاسوب</p>
+                            <h4 class="font-bold text-white">ألعاب الحاسوب الكاملة (Windows PC)</h4>
+                            <p class="text-[11px] text-slate-500">حزم تثبيت مباشرة (EXE & ZIP) لأقوى الألعاب</p>
                         </div>
                     </div>
-                    <a href="#games-section" onclick="toggleModal('modal-welcome-download')" class="bg-steam-blue text-black px-3 py-1.5 rounded text-xs font-bold hover:bg-white transition-colors" data-i18n="go_library">
-                        تصفح
+                    <a href="#games-section" onclick="toggleModal('modal-welcome-download'); setTabFilter('all');" class="btn-cyan-gradient px-3 py-1.5 rounded font-bold transition-all" data-i18n="go_pc">
+                        تصفح PC
                     </a>
                 </div>
 
-                <div class="bg-steam-dark p-3 rounded flex items-center justify-between border border-white/5">
+                <div class="bg-[#0b1017] p-3.5 rounded-lg flex items-center justify-between border border-white/5">
                     <div class="flex items-center gap-3">
-                        <i class="fa-brands fa-android text-emerald-400 text-xl"></i>
+                        <i class="fa-brands fa-android text-emerald-400 text-2xl"></i>
                         <div>
-                            <h4 class="text-xs font-bold text-white">Minecraft APK + Bigfoot APK</h4>
-                            <p class="text-[10px] text-slate-500">نسخ الأندرويد المباشرة بدون إعلانات</p>
+                            <h4 class="font-bold text-white">ألعاب الموبايل (Android APK)</h4>
+                            <p class="text-[11px] text-slate-500">نسخ أندرويد مفحوصة 100% وبدون إعلانات</p>
                         </div>
                     </div>
-                    <a href="#games-section" onclick="toggleModal('modal-welcome-download'); setTabFilter('mobile');" class="bg-emerald-500 text-white px-3 py-1.5 rounded text-xs font-bold hover:bg-emerald-400 transition-colors" data-i18n="go_mobile">
-                        قسم الموبايل
+                    <a href="#games-section" onclick="toggleModal('modal-welcome-download'); setTabFilter('mobile');" class="btn-green-gradient text-white px-3 py-1.5 rounded font-bold transition-all" data-i18n="go_mobile">
+                        تصفح APK
                     </a>
                 </div>
             </div>
 
-            <div class="flex gap-3">
-                <button onclick="toggleModal('modal-welcome-download')" class="flex-1 steam-btn text-white py-2.5 rounded text-xs font-bold uppercase tracking-wider" data-i18n="enter_site">
-                    الدخول إلى كامل ألعاب المتجر
-                </button>
-            </div>
+            <button onclick="toggleModal('modal-welcome-download')" class="w-full btn-cyan-gradient py-2.5 rounded text-xs font-bold uppercase tracking-wider" data-i18n="enter_store">
+                الدخول وتصفح كامل المتجر الآن
+            </button>
         </div>
     </div>
 
-    <!-- MODAL 3: LOGIN / AUTH -->
+    <!-- MODAL: LOGIN -->
     <div id="modal-login" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-steam-base border border-white/10 rounded-lg max-w-sm w-full p-6 relative shadow-2xl">
+        <div class="bg-nexus-nav border border-white/10 rounded-xl max-w-sm w-full p-6 relative shadow-2xl">
             <button onclick="toggleModal('modal-login')" class="absolute top-4 left-4 text-slate-400 hover:text-white">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             
-            <h3 class="text-lg font-bold text-white mb-1 uppercase tracking-wide" data-i18n="login_title">تسجيل الدخول إلى ستيم</h3>
-            <p class="text-xs text-slate-400 mb-6" data-i18n="login_subtitle">أدخل بريدك الإلكتروني وكلمة المرور</p>
+            <div class="flex items-center gap-2.5 mb-4">
+                <i class="fa-solid fa-circle-user text-2xl text-nexus-cyan"></i>
+                <h3 class="text-base font-bold text-white uppercase tracking-wide font-brand" data-i18n="login_title">Nexus Network Access</h3>
+            </div>
 
-            <div class="space-y-4 mb-6">
+            <div class="space-y-3 mb-5 text-xs">
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 mb-1" data-i18n="login_email">البريد الإلكتروني</label>
-                    <input type="email" id="login-email" class="w-full bg-steam-dark border border-white/10 rounded px-3 py-2 text-xs text-white outline-none focus:border-steam-blue" placeholder="gamer@steam.com">
+                    <label class="block font-bold text-slate-300 mb-1" data-i18n="login_email">البريد الإلكتروني</label>
+                    <input type="email" id="login-email" class="w-full bg-[#0b1017] border border-white/10 rounded px-3 py-2 text-white outline-none focus:border-nexus-cyan" placeholder="user@domain.com">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 mb-1" data-i18n="login_pass">كلمة المرور</label>
-                    <input type="password" id="login-password" class="w-full bg-steam-dark border border-white/10 rounded px-3 py-2 text-xs text-white outline-none focus:border-steam-blue" placeholder="••••••••">
+                    <label class="block font-bold text-slate-300 mb-1" data-i18n="login_pass">كلمة المرور</label>
+                    <input type="password" id="login-password" class="w-full bg-[#0b1017] border border-white/10 rounded px-3 py-2 text-white outline-none focus:border-nexus-cyan" placeholder="••••••••">
                 </div>
             </div>
 
-            <div class="flex gap-2">
-                <button onclick="handleLogin()" class="flex-1 steam-btn py-2.5 rounded text-xs font-bold text-white" data-i18n="login_btn">دخول</button>
-                <button onclick="handleRegister()" class="flex-1 bg-steam-cardLight hover:bg-steam-blue hover:text-black py-2.5 rounded text-xs font-bold text-white transition-colors" data-i18n="register_btn">إنشاء حساب</button>
+            <div class="flex gap-2 text-xs">
+                <button onclick="handleLogin()" class="flex-1 btn-cyan-gradient py-2 rounded font-bold" data-i18n="login_btn">دخول</button>
+                <button onclick="handleRegister()" class="flex-1 bg-[#1c2838] hover:bg-nexus-cyan hover:text-black py-2 rounded font-bold text-white transition-colors" data-i18n="register_btn">حساب جديد</button>
             </div>
         </div>
     </div>
@@ -450,155 +504,140 @@
     <!-- TOAST NOTIFICATIONS -->
     <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-    <!-- TRANSLATIONS & ENGINE -->
+    <!-- SCRIPT: TRANSLATIONS & ENGINE -->
     <script>
         const i18n = {
             ar: {
-                steam_online: "خوادم ستيم نشطة - التحميل فوري",
-                quick_get: "شاشة التحميل",
-                nav_store: "المتجر",
+                install_app: "مركز التحميل السريع",
+                login_link: "تسجيل الدخول",
+                nav_store: "المتجر الرئيسي",
                 nav_new: "الألعاب الجديدة",
-                nav_classic: "الكلاسيكية القديمة",
+                nav_classic: "ألعاب كلاسيكية",
                 nav_mobile: "ألعاب الموبايل",
                 nav_support: "الدعم الفني (Support)",
-                login_btn: "تسجيل الدخول",
-                hero_pill: "مستودع ستيم المباشر - مجاني بالكامل",
-                hero_title: "استكشف، حمّل، والعب بدون قيود",
-                hero_sub: "روابط نظيفة ومباشرة لأفضل ألعاب الكمبيوتر وأجهزة الأندرويد مع دعم فني دائم.",
-                search_placeholder: "ابحث عن لعبة، نظام، أو تصنيف في ستيم...",
-                reset_btn: "مسح",
-                download_box_title: "مركز التنزيلات الفوري",
-                download_box_desc: "افتح لوحة التنزيلات المباشرة لكافة الألعاب المثبتة على خوادمنا.",
-                download_box_btn: "فتح شاشة التحميل الآن",
-                catalog_title: "قائمة ألعاب ستيم المتاحة",
+                search_ph: "بحث في المستودع...",
+                featured_badge: "العنوان الأبرز هذا الأسبوع",
+                hero_desc: "عوالم حرة، بناء واستكشاف بدون حدود. الحزم الأحدث خالية تماماً من القيود ومجهزة للأجهزة الضعيفة والقوية.",
+                verified_pkg: "حزم رسمية مجانية ومفحوصة بالكامل",
+                browse_title: "مستودع الألعاب المباشرة",
                 tab_all: "الكل",
                 tab_new: "ألعاب جديدة",
                 tab_classic: "كلاسيكية قديمة",
                 tab_mobile: "ألعاب الموبايل",
-                no_results: "لم يتم العثور على ألعاب مطابقة لبحثك.",
-                support_title: "Steam Support | الدعم الفني",
-                support_subtitle: "أرسل مشكلتك مباشرة إلى فريق الدعم",
-                support_name: "الاسم / اسم المستخدم",
-                support_email: "بريدك الإلكتروني للرد عليك",
-                support_message: "تفاصيل المشكلة (Game Issue)",
-                support_send: "إرسال التذكرة الآن",
-                welcome_title: "Steam Download Manager",
-                welcome_desc: "مرحباً بك في منصة التحميل المباشر. اختر ما تريد تحميله الآن:",
-                go_library: "تصفح",
-                go_mobile: "قسم الموبايل",
-                enter_site: "الدخول إلى كامل ألعاب المتجر",
-                login_title: "تسجيل الدخول إلى ستيم",
-                login_subtitle: "أدخل بريدك الإلكتروني وكلمة المرور",
-                login_email: "البريد الإلكتروني",
-                login_pass: "كلمة المرور",
-                register_btn: "إنشاء حساب",
                 desc_minecraft: "عوالم مفتوحة وإمكانيات لانهائية للبناء والاستكشاف على الكمبيوتر والموبايل.",
                 desc_baldi: "رعب المدرسة الساخر مع الباتش الخاص لأجهزة أندرويد ونسخة الكمبيوتر.",
                 desc_bigfoot: "حرب النجاة في كوخ مظلم ضد وحش الغابة الثلجي الأسطوري.",
                 desc_gtamaroc: "النسخة الكلاسيكية المغربية المحبوبة مع شوارع وسيارات مخصصة.",
                 desc_meccha: "مغامرة أركيد مرحة تعتمد على التأرجح باللسان وتخطي الفخاخ.",
-                desc_granny: "لعبة الهروب الكلاسيكية من المنزل المشؤوم قبل انقضاء 5 أيام."
+                desc_granny: "لعبة الهروب الكلاسيكية من المنزل المشؤوم قبل انقضاء 5 أيام.",
+                no_results: "لم يتم العثور على ألعاب مطابقة لبحثك.",
+                support_title: "Nexus Support Desk",
+                support_subtitle: "أرسل مشكلتك مباشرة إلى فريق الدعم",
+                support_name: "الاسم / اسم المستخدم",
+                support_email: "بريدك الإلكتروني للرد عليك",
+                support_msg: "تفاصيل المشكلة (Problem Details)",
+                support_send: "إرسال التذكرة الآن",
+                welcome_title: "Nexus Instant Hub",
+                welcome_desc: "مرحباً بك في منصة التحميل المباشر. اختر ما تريد تحميله الآن:",
+                go_pc: "تصفح PC",
+                go_mobile: "تصفح APK",
+                enter_store: "الدخول وتصفح كامل المتجر الآن",
+                login_title: "Nexus Network Access",
+                login_email: "البريد الإلكتروني",
+                login_pass: "كلمة المرور",
+                login_btn: "دخول",
+                register_btn: "حساب جديد"
             },
             en: {
-                steam_online: "Steam Servers Online - Direct Download",
-                quick_get: "Download Screen",
-                nav_store: "Store",
-                nav_new: "New Games",
-                nav_classic: "Classic Games",
-                nav_mobile: "Mobile Games",
-                nav_support: "Support",
-                login_btn: "Sign In",
-                hero_pill: "Steam Direct Vault - 100% Free",
-                hero_title: "Explore, Download, Play Without Limits",
-                hero_sub: "Direct high-speed mirrors for top PC and Android titles with dedicated support.",
-                search_placeholder: "Search titles, systems, or tags in Steam...",
-                reset_btn: "Clear",
-                download_box_title: "Instant Download Hub",
-                download_box_desc: "Open direct download launcher for all repository games.",
-                download_box_btn: "Open Download Screen",
-                catalog_title: "Available Steam Games",
+                install_app: "Instant Download Hub",
+                login_link: "Sign In",
+                nav_store: "MAIN VAULT",
+                nav_new: "NEW RELEASES",
+                nav_classic: "CLASSIC TITLES",
+                nav_mobile: "MOBILE VAULT",
+                nav_support: "SUPPORT",
+                search_ph: "Search repository...",
+                featured_badge: "FEATURED SPOTLIGHT",
+                hero_desc: "Limitless crafting and exploration. Pure packages without ads, ready for both mid-range and high-end hardware.",
+                verified_pkg: "100% Free & Verified Distributions",
+                browse_title: "Direct Game Repository",
                 tab_all: "All",
                 tab_new: "New Releases",
                 tab_classic: "Classics",
-                tab_mobile: "Mobile Games",
-                no_results: "No matching games found.",
-                support_title: "Steam Support Desk",
-                support_subtitle: "Send your technical issue directly to our team",
-                support_name: "Name / Steam User",
-                support_email: "Your Contact Email",
-                support_message: "Issue Description",
-                support_send: "Send Ticket Now",
-                welcome_title: "Steam Download Manager",
-                welcome_desc: "Welcome to direct download hub. Choose your desired package:",
-                go_library: "Browse",
-                go_mobile: "Mobile Vault",
-                enter_site: "Enter Full Store Catalog",
-                login_title: "Steam Account Access",
-                login_subtitle: "Sign in with your email and password",
-                login_email: "Email Address",
-                login_pass: "Password",
-                register_btn: "Create Account",
-                desc_minecraft: "Limitless worlds and crafting on both PC and mobile native APK.",
+                tab_mobile: "Mobile",
+                desc_minecraft: "Infinite worlds and crafting on both PC and mobile native APK.",
                 desc_baldi: "Retro surreal horror with updated Android 10+ patch and PC release.",
                 desc_bigfoot: "Survive against the freezing beast in a secluded snow cabin.",
                 desc_gtamaroc: "Classic nostalgic Moroccan modification with custom textures and cars.",
                 desc_meccha: "Fast-paced arcade adventure with elastic tongue swinging mechanics.",
-                desc_granny: "Classic haunted house escape. Keep silent for 5 intense days."
+                desc_granny: "Classic haunted house escape. Keep silent for 5 intense days.",
+                no_results: "No matching games found.",
+                support_title: "Nexus Support Desk",
+                support_subtitle: "Send your technical issue to the team",
+                support_name: "Username / Name",
+                support_email: "Contact Email",
+                support_msg: "Problem Details",
+                support_send: "Submit Ticket",
+                welcome_title: "Nexus Instant Hub",
+                welcome_desc: "Welcome to direct download hub. Choose your platform:",
+                go_pc: "Get PC Build",
+                go_mobile: "Get Mobile APK",
+                enter_store: "Enter Full Catalog",
+                login_title: "Nexus Network Access",
+                login_email: "Account Email",
+                login_pass: "Password",
+                login_btn: "Sign In",
+                register_btn: "Register"
             },
             fr: {
-                steam_online: "Serveurs Steam en ligne - Téléchargement direct",
-                quick_get: "Écran Téléchargement",
-                nav_store: "Magasin",
-                nav_new: "Nouveaux Jeux",
-                nav_classic: "Jeux Rétro",
-                nav_mobile: "Jeux Mobile",
-                nav_support: "Support",
-                login_btn: "Connexion",
-                hero_pill: "Dépôt Direct Steam - Totalement Gratuit",
-                hero_title: "Explorez, Téléchargez et Jouez Sans Limites",
-                hero_sub: "Miroirs directs ultra-rapides pour PC et Android avec support d'assistance permanent.",
-                search_placeholder: "Rechercher un jeu ou une plateforme...",
-                reset_btn: "Effacer",
-                download_box_title: "Centre de Téléchargement",
-                download_box_desc: "Accédez aux packages directs installés sur nos serveurs.",
-                download_box_btn: "Ouvrir l'Écran de Téléchargement",
-                catalog_title: "Catalogue des Jeux Steam",
+                install_app: "Centre de Téléchargement",
+                login_link: "Connexion",
+                nav_store: "CATALOGUE",
+                nav_new: "NOUVEAUTÉS",
+                nav_classic: "CLASSIQUES",
+                nav_mobile: "MOBILE",
+                nav_support: "SUPPORT",
+                search_ph: "Rechercher un jeu...",
+                featured_badge: "EN VEDETTE",
+                hero_desc: "Explorez, construisez et survivez. Versions complètes PC et Android disponibles en téléchargement direct.",
+                verified_pkg: "Téléchargements 100% Gratuits et Vérifiés",
+                browse_title: "Catalogue des Jeux Directs",
                 tab_all: "Tous",
                 tab_new: "Nouveautés",
                 tab_classic: "Classiques",
-                tab_mobile: "Jeux Mobile",
-                no_results: "Aucun jeu ne correspond à votre recherche.",
-                support_title: "Support Technique Steam",
-                support_subtitle: "Envoyez votre problème directement à notre équipe",
-                support_name: "Nom d'utilisateur",
-                support_email: "Votre E-mail de réponse",
-                support_message: "Description du problème",
-                support_send: "Envoyer le Ticket",
-                welcome_title: "Gestionnaire de Téléchargement Steam",
-                welcome_desc: "Bienvenue sur le portail direct. Choisissez votre plateforme :",
-                go_library: "Parcourir",
-                go_mobile: "Section Mobile",
-                enter_site: "Accéder à tout le catalogue",
-                login_title: "Accès au compte Steam",
-                login_subtitle: "Connectez-vous avec votre e-mail",
-                login_email: "Adresse E-mail",
-                login_pass: "Mot de passe",
-                register_btn: "Créer un compte",
+                tab_mobile: "Mobile",
                 desc_minecraft: "Mondes infinis et créativité sur PC et mobile.",
                 desc_baldi: "Jeu d'horreur rétro avec patch Android et version PC.",
                 desc_bigfoot: "Survie haletante dans une cabane enneigée.",
                 desc_gtamaroc: "Le célèbre mod marocain avec rues et voitures réelles.",
                 desc_meccha: "Jeu d'arcade dynamique avec langue élastique.",
-                desc_granny: "Échappez-vous discrètement de la maison en 5 jours."
+                desc_granny: "Échappez-vous discrètement de la maison en 5 jours.",
+                no_results: "Aucun jeu ne correspond à votre recherche.",
+                support_title: "Support Technique Nexus",
+                support_subtitle: "Envoyez votre problème directement à notre équipe",
+                support_name: "Nom d'utilisateur",
+                support_email: "E-mail de contact",
+                support_msg: "Détails du problème",
+                support_send: "Envoyer le ticket",
+                welcome_title: "Nexus Instant Hub",
+                welcome_desc: "Bienvenue sur le portail direct. Choisissez votre plateforme :",
+                go_pc: "Version PC",
+                go_mobile: "Version APK",
+                enter_store: "Accéder au catalogue",
+                login_title: "Accès Réseau Nexus",
+                login_email: "Adresse E-mail",
+                login_pass: "Mot de passe",
+                login_btn: "Connexion",
+                register_btn: "Créer un compte"
             }
         };
 
-        let currentLang = localStorage.getItem('steam_lang') || 'ar';
+        let currentLang = localStorage.getItem('nexus_lang') || 'ar';
 
         function switchLanguage(lang) {
             if (!i18n[lang]) lang = 'ar';
             currentLang = lang;
-            localStorage.setItem('steam_lang', lang);
+            localStorage.setItem('nexus_lang', lang);
 
             const isRTL = lang === 'ar';
             document.documentElement.lang = lang;
@@ -619,45 +658,40 @@
         }
 
         // TABS & SEARCH
-        let currentFilter = 'all';
+        let activeTab = 'all';
 
         function setTabFilter(type) {
-            currentFilter = type;
+            activeTab = type;
             ['all', 'new', 'classic', 'mobile'].forEach(t => {
                 const btn = document.getElementById(`tab-${t}`);
                 if (btn) {
                     btn.className = (t === type)
-                        ? "bg-steam-blue text-black px-4 py-1.5 text-xs font-bold rounded"
-                        : "bg-steam-card hover:bg-steam-cardLight text-slate-300 px-4 py-1.5 text-xs font-bold rounded transition-colors";
+                        ? "bg-nexus-cyan text-black px-3.5 py-1 text-xs font-bold rounded"
+                        : "text-nexus-textMuted hover:text-white px-3.5 py-1 text-xs font-bold rounded transition-colors";
                 }
             });
-            filterGames();
+            filterCards();
         }
 
         function executeSearch() {
-            filterGames();
+            filterCards();
         }
 
-        function resetSearch() {
-            document.getElementById('steam-search').value = '';
-            setTabFilter('all');
-        }
-
-        function filterGames() {
-            const query = (document.getElementById('steam-search').value || '').toLowerCase().trim();
-            const cards = document.querySelectorAll('.game-box');
+        function filterCards() {
+            const query = (document.getElementById('store-search').value || '').toLowerCase().trim();
+            const cards = document.querySelectorAll('.game-card');
             let count = 0;
 
-            cards.forEach(card => {
-                const tags = card.getAttribute('data-tags') || '';
-                const matchTab = (currentFilter === 'all' || tags.includes(currentFilter));
+            cards.forEach(c => {
+                const tags = c.getAttribute('data-tags') || '';
+                const matchTab = (activeTab === 'all' || tags.includes(activeTab));
                 const matchQuery = (!query || tags.includes(query));
 
                 if (matchTab && matchQuery) {
-                    card.style.display = 'flex';
+                    c.style.display = 'flex';
                     count++;
                 } else {
-                    card.style.display = 'none';
+                    c.style.display = 'none';
                 }
             });
 
@@ -665,39 +699,37 @@
         }
 
         function toggleModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) modal.classList.toggle('hidden');
+            const m = document.getElementById(id);
+            if (m) m.classList.toggle('hidden');
         }
 
         function showToast(msg, isSuccess = true) {
             const cont = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            toast.className = `bg-steam-base border-r-4 ${isSuccess ? 'border-steam-blue text-steam-blue' : 'border-rose-500 text-rose-400'} px-4 py-3 rounded text-xs font-bold shadow-2xl transition-all duration-300 pointer-events-auto`;
+            toast.className = `bg-[#0b1017] border-r-4 ${isSuccess ? 'border-nexus-cyan text-nexus-cyan' : 'border-rose-500 text-rose-400'} px-4 py-3 rounded-lg text-xs font-bold shadow-2xl transition-all duration-300 pointer-events-auto`;
             toast.innerText = msg;
             cont.appendChild(toast);
             setTimeout(() => toast.remove(), 4000);
         }
 
-        // SEND SUPPORT EMAIL TO ssads9268@gmail.com
-        function sendSupportTicket(e) {
+        // SUPPORT SUBMIT (Directly to ssads9268@gmail.com)
+        function submitSupportTicket(e) {
             e.preventDefault();
             const name = document.getElementById('sup-name').value;
             const email = document.getElementById('sup-email').value;
             const msg = document.getElementById('sup-msg').value;
 
-            // Direct mailto bridge to the designated Gmail
             const targetEmail = "ssads9268@gmail.com";
-            const subject = encodeURIComponent(`[Steam Support Ticket] from ${name}`);
-            const body = encodeURIComponent(`User Name: ${name}\nUser Email: ${email}\n\nProblem Details:\n${msg}`);
+            const subject = encodeURIComponent(`[Nexus Support Ticket] from: ${name}`);
+            const body = encodeURIComponent(`Username: ${name}\nContact Email: ${email}\n\nDetails:\n${msg}`);
 
             window.open(`mailto:${targetEmail}?subject=${subject}&body=${body}`, '_blank');
-
-            showToast("تم فتح رسالة الدعم وإرسالها إلى: ssads9268@gmail.com", true);
+            showToast("تم فتح بريدك لإرسال التذكرة إلى: ssads9268@gmail.com");
             toggleModal('modal-support');
             e.target.reset();
         }
 
-        // Show welcome download modal automatically on page entry
+        // Auto open welcome download on page entry
         window.addEventListener('load', () => {
             switchLanguage(currentLang);
             setTimeout(() => {
@@ -706,7 +738,7 @@
         });
     </script>
 
-    <!-- FIREBASE AUTH MODULE -->
+    <!-- FIREBASE MODULE -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { 
@@ -734,17 +766,17 @@
             if (!container) return;
 
             if (user) {
-                const name = (user.email || 'Gamer').split('@')[0];
+                const name = (user.email || 'User').split('@')[0];
                 container.innerHTML = `
-                    <div class="flex items-center gap-2 bg-steam-dark px-3 py-1.5 rounded border border-white/10 text-xs">
-                        <i class="fa-brands fa-steam text-steam-blue"></i>
-                        <span class="text-white font-bold max-w-[90px] truncate">${name}</span>
-                        <button onclick="logoutSteam()" class="text-slate-500 hover:text-rose-400 ml-1"><i class="fa-solid fa-power-off"></i></button>
+                    <div class="flex items-center gap-2 bg-[#17202d] px-2.5 py-1 rounded text-xs border border-white/10">
+                        <i class="fa-solid fa-circle-check text-nexus-cyan"></i>
+                        <span class="text-white font-bold max-w-[80px] truncate">${name}</span>
+                        <button onclick="logoutNexus()" class="text-slate-400 hover:text-rose-400 ml-1"><i class="fa-solid fa-power-off"></i></button>
                     </div>
                 `;
             } else {
                 container.innerHTML = `
-                    <button onclick="toggleModal('modal-login')" class="bg-steam-cardLight hover:bg-steam-blue text-white hover:text-black px-4 py-1.5 rounded text-xs font-bold transition-all">
+                    <button onclick="toggleModal('modal-login')" class="text-nexus-textMuted hover:text-white text-xs font-bold transition-colors">
                         تسجيل الدخول
                     </button>
                 `;
@@ -758,7 +790,7 @@
 
             signInWithEmailAndPassword(auth, email, pass)
                 .then(() => {
-                    showToast("تم تسجيل الدخول بنجاح إلى ستيم!");
+                    showToast("تم تسجيل الدخول بنجاح!");
                     toggleModal('modal-login');
                 })
                 .catch(() => showToast("بيانات الدخول غير صحيحة", false));
@@ -768,7 +800,7 @@
             const email = document.getElementById('login-email').value.trim();
             const pass = document.getElementById('login-password').value;
             if (!email || !pass) return showToast("يرجى ملء جميع الحقول", false);
-            if (pass.length < 6) return showToast("كلمة المرور يجب أن لا تقل عن 6 أحرف", false);
+            if (pass.length < 6) return showToast("كلمة المرور يجب أن لا تقل عن 6 خانات", false);
 
             createUserWithEmailAndPassword(auth, email, pass)
                 .then(() => {
@@ -778,7 +810,7 @@
                 .catch(err => showToast(err.message, false));
         };
 
-        window.logoutSteam = () => signOut(auth).then(() => showToast("تم تسجيل الخروج بنجاح"));
+        window.logoutNexus = () => signOut(auth).then(() => showToast("تم تسجيل الخروج بنجاح"));
     </script>
 </body>
 </html>
